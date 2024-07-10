@@ -24,11 +24,11 @@
     {% endif %}
   {% endfor %}
 
-  <a href="/cart">cart</a>
+  <a href="/cart">carties</a>
 
   {% if shop.customer_accounts_enabled %}
     {% if customer %}
-      <a href="/account">accounties</a>
+      <a href="/account">account</a>
       {{ 'log out'  | customer_logout_link }}
     {% else %}
       {{ 'log in ' | customer_login_link }}
