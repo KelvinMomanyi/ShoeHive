@@ -1,0 +1,249 @@
+<header class="header">
+    <div class="alert">
+        <div class="container">
+            <p class="alert-text">Free Shipping On All U.S. Orders $50+</p>
+        </div>
+    </div>
+    <div class="header-top" data-header>
+        <div class="container">
+            <button class="nav-open-btn" aria-label="open menu" data-nav-toggler>
+               <span class="line line-1"></span>
+               <span class="line line-2"></span>
+               <span class="line line-3"></span>
+            </button>
+            
+
+            <a href="#" class="logo">
+                <img src="./assets/images/MainLogo.png.svg" alt="logo" width="69" height="26" alt="Glowing">
+            </a>
+            
+            <div class="input-wrapper">
+                <input type="search" name="search" placeholder="Search product" class="search-field">
+                <button class="search-submit" arial-label="search">
+                  <ion-icon name="search-outline" aria-hidden="true"></ion-icon>
+                </button>
+            </div>
+
+            <div class="header-actions">
+                <button class="header-action-btn" aria-label="cart-item" onclick="openCart()">
+                    <data class="btn-text" value="0">$0.00</data>
+                    <ion-icon name="bag-handle-outline" aria-hidden="true" aria-hidden="true" onclick="toggleCartbar()"></ion-icon>
+                    <span class="btn-badge">0</span>
+                </button>
+                <button class="header-action-btn" aria-label="favourite-item">
+                    <ion-icon name="star-outline" aria-hidden="true"></ion-icon>
+                    <span class="btn-badge">0</span>
+                </button>
+                <button class="header-action-btn" aria-label="user" onclick="openModal()">
+                    <ion-icon name="person-outline" aria-hidden="true"></ion-icon>
+                </button> 
+                
+                
+              
+            </div>
+
+            <nav class="navbar">
+                <ul class="navbar-list">
+                    <li>
+                        <a href="#home" class="navbar-link has-after">Home</a>
+                    </li>
+                    <li>
+                        <a href="/product.html" class="navbar-link has-after">Collection</a>
+                    </li>
+                    <li>
+                        <a href="/shop.html" class="navbar-link has-after">Shop</a>
+                    </li>
+                    <li>
+                        <a href="/offer.html" class="navbar-link has-after">Offer</a>
+                    </li>
+                    <li>
+                        <a href="#blog" class="navbar-link has-after">Blog</a>
+                    </li>
+                </ul>
+            </nav>
+        </div>   
+    </div>
+</header>
+
+
+
+<style>
+    @media screen and (min-width: 1200px) {
+
+        /*
+     REUSED STYLE
+      */
+     
+      .container{max-width: 1300px;}
+     
+      .scrollbar-item {min-width: calc(20% - 24px);}
+     
+      .flex-item {max-width: calc(33.33% - 20px);}
+     
+     
+         /*
+     HEADER
+      */
+     
+      .header .input-wrapper,
+      .header-action-btn:not(:first-child),
+      .navbar{display: block;}
+     
+     
+      .nav-open-btn {display: none;}
+     
+      .header{
+       padding-block-end: 60px;
+       margin-block-end: 10px;
+      }
+     
+      .header-top{
+       position: unset;
+       padding-block: 24px 0;
+      }
+     
+     
+      .header-top:is(.active, .header-hide){all: unset;}
+     
+      .header-top .container{flex-wrap: wrap;}
+     
+      .search-field{
+       width: 270;
+       font-size: var(--fs-7);
+       border: 2px solid var(--hoockers-green);
+       border-radius: var(--radius-3);
+       padding: 10x 20px;
+       scroll-padding-inline-end: 40px;
+       outline: none;
+       transition: var(--transition-1);
+      }
+     
+     
+     
+      .search-field::placeholder{color: var(--spanish-gray);}
+     
+      
+      .search-field:focus {border-color: var(--black);}
+     
+      
+      .header .input-wrapper{position: relative;}
+     
+      .header .search-submit{
+       position: absolute;
+       top: 50%;
+       right: 15px;
+       transform: translateY(-50%);
+       font-size: 22px;
+      }
+     
+     
+      .header .search-submit ion-icon{
+       --ionicon-stroke-width:40px
+      }
+     
+      .header .logo{
+        margin-inline-end:60px;
+      }
+     
+      .header-actions{
+       display: flex;
+       align-items: center;
+       gap: 40px;
+      }
+     
+      .header-action-btn {position: relative;}
+     
+      .header-action-btn .btn-badge {
+       position: absolute;
+       top: 0;
+       right: -10px;
+       background-color: var(--black);
+       color: var(--white);
+       font-size: var(--fs-9);
+       min-width: 18px;
+       height: 18px;
+       line-height: 1.4;
+       border-radius: 20px;
+      }
+     
+      .header-action-btn:first-child{
+       display: flex;
+       align-items: center;
+       gap:10px;
+      }
+     
+     
+      .header-action-btn .btn-text{
+       font-size: var(--fs-7);
+       font-weight: var(--fw-700);
+       margin-block-start:3px;
+      }
+     
+      .navbar{
+       position: absolute;
+       bottom: 0;
+       left: 0;
+       width: 100%;
+       background-color: var(--white);
+       padding-block: 18px;
+       z-index: 4;
+      }
+     
+     
+      .navbar .navbar-list{
+       display: flex;
+       justify-content: center;
+       gap: 45px;
+      }
+     
+      .navbar .navbar-link{
+       color: var(--black);
+       font-size: var(--fs-7);
+       font-weight: var(--fw-600);
+      }
+     
+      .navbar .navbar-link::after{
+       bottom: 0;
+       left: 0;
+       width: 100%;
+       height: 1px;
+       background-color: var(--black);
+       transition: var(--transition-1);
+       transform: scaleX(0);
+       transform-origin: left;
+      }
+     
+      .navbar .navbar-link:is(:hover, :focus)::after{
+       transform: scaleX(1);
+      }
+     
+      .header-top.active .navbar{
+       position: fixed;
+       top: -80px;
+       bottom: auto;
+       padding-block: 28px;
+       box-shadow: var(--shadow-1);
+       transform: translateY(100%);
+       transition: var(--transition-2);
+      }
+     
+      
+      .header-top.header-hide .navbar{
+       box-shadow: none;
+       transform: translateY(0);
+      }
+    }     
+</style>
+
+{% schema %}
+{
+  "name": "header",
+  "settings": [],
+  "blocks": [],
+  "presets": [
+    {
+      "name": "header"
+    }
+  ]
+}
+{% endschema %}

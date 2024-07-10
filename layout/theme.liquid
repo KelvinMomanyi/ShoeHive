@@ -11,7 +11,7 @@
   {{ 'application.js' | asset_url | script_tag }}
 </head>
 <body>
-
+{% comment %} 
   {% for link in linklists.main-menu.links %}
     {% assign child_list_handle = link.title | handleize %}
     {% if linklists[child_list_handle].links != blank %}
@@ -34,7 +34,7 @@
       {{ 'log in ' | customer_login_link }}
       {{ 'register' | customer_register_link }}
     {% endif %}
-  {% endif %}
+  {% endif %} {% endcomment %}
 
   <main role="main">
     {{ content_for_layout }}
