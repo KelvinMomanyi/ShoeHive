@@ -71,7 +71,7 @@
     /*-----------------------------------*\
   #HEADER
 \*-----------------------------------*/
-.header .input-wrapper,
+{% comment %} .header .input-wrapper,
 .header-action-btn:not(:first-child),
 .navbar {display: none;}
 
@@ -153,13 +153,13 @@
 .header-action-btn:is(:hover, :focus){
   color: var(--black_70);
 }
-
+ {% endcomment %}
 
 
 /*-----------------------------------*\
   #MOBILE NAVBAR
 \*-----------------------------------*/
-.sidebar{z-index: 5;}
+{% comment %} .sidebar{z-index: 5;}
 
 .mobile-navbar{
   background-color: var(--white);
@@ -230,24 +230,24 @@
 
 }
 
-@media screen and (min-width: 1200px) {
+@media screen and (min-width: 1200px) { {% endcomment %}
 
         /*
      REUSED STYLE
       */
-     
+{% comment %}      
       .container{max-width: 1300px;}
      
       .scrollbar-item {min-width: calc(20% - 24px);}
      
-      .flex-item {max-width: calc(33.33% - 20px);}
+      .flex-item {max-width: calc(33.33% - 20px);} {% endcomment %}
      
      
          /*
      HEADER
       */
      
-      .header .input-wrapper,
+      {% comment %} .header .input-wrapper,
       .header-action-btn:not(:first-child),
       .navbar{display: block;}
      
@@ -394,7 +394,7 @@
        box-shadow: none;
        transform: translateY(0);
       }
-}     
+}      {% endcomment %}
 </style>
 
 {% schema %}
