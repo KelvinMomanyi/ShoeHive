@@ -3,14 +3,11 @@
       "header": {
         "type": "header",
         "settings": {
-          "background": "#f4f4f4",
-          "text_color": "#ffffff",
-          "logo": "shopify:\/\/shop_images\/nike-3-logo.svg",
-          "logo2": "shopify:\/\/shop_images\/nike-3-logo-white.svg"
+         
         }
       },
     },
     "order": [
-      "header",
+      "home",
     ]
   }
