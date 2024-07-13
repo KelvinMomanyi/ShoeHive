@@ -98,28 +98,6 @@ const closeNavbar = function(){
 
 addEventOnElem(navbarLinks, "click", closeNavbar)
 
-/**cartbar- toggle */
-
-// const cartTogglers = document.querySelectorAll("[data-cart-toggler]");
-// const cartbar = document.querySelector("[data-cartbar]");
-// const cartbarLinks =document.querySelectorAll("data-cart-link")
-// const cartoverlay = document.querySelector("[cartoverlay]")
-
-// const toggleCartbar = function(){
-//   cartbar.classList.toggle('active');
-//   cartoverlay.classList.toggle('active');
-// }
-
-// addEventOnElem(cartTogglers, "click", toggleCartbar)
-
-
-// const closeCartbar = function(){
-//   cartbar.classList.remove('active')
-//   cartoverlay.classList.remove('active')
-// }
-
-// addEventOnElem(cartbarLinks, "click", closeCartbar)
-
 
 /**
  * header-sticky
