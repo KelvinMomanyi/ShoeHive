@@ -1,0 +1,183 @@
+<section class="more-info">
+    <h1>Discover Our Brands</h1>
+    <ul class="hexagon-gallery">
+     <li>
+         <a href="https://unsplash.com/photos/iuvLYv85r40" target="_blank">
+             <img src="https://images.unsplash.com/photo-1491553895911-0055eca6402d?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OXx8bmlrZXxlbnwwfHwwfHx8MA%3D%3D" alt="Hexagon 1">
+         </a>
+     </li>
+     <li>
+         <a href="https://unsplash.com/photos/voeDggfOgxc" target="_blank">
+             <img src="https://images.unsplash.com/photo-1606107557195-0e29a4b5b4aa?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTd8fG5pa2V8ZW58MHx8MHx8fDA%3D" alt="Hexagon 2">
+         </a>
+     </li>
+     <li>
+         <a href="https://unsplash.com/photos/_M6gy9oHgII" target="_blank">
+             <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?q=80&w=1770&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Hexagon 3">
+         </a>
+     </li>
+ </ul>
+   <!--<div class="feature" id="feature1" >
+       <div class="content1" data-aos="fade-right">
+           <p class="title1">Stylish</p>
+           <p class="desc">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil deleniti voluptatibus voluptatem nobis, quas laudantium!</p>
+       </div>
+       <img src="assets/shoe8.jpg" alt="" data-aos="fade-left">
+   </div>
+   <div class="feature-left" id="feature2">
+       <div class="content1"data-aos="fade-left"  >
+           <p class="title1">Comfort</p>
+           <p class="desc">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil deleniti voluptatibus voluptatem nobis, quas laudantium!</p>
+       </div>
+       <img src="assets/shoe5.jpg" alt="" data-aos="fade-right">
+   </div>
+   <div class="feature" id="feature3">
+       <div class="content1" data-aos="fade-right">
+           <p class="title1">Lightweight</p>
+           <p class="desc">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil deleniti voluptatibus voluptatem nobis, quas laudantium!</p>
+       </div>
+       <img src="assets/sho1.jpg" alt="" data-aos="fade-left">
+   </div>-->
+  </section>
+
+
+  <style>
+    .hexagon-gallery {
+display: grid;
+grid-template-columns: repeat(2, 1fr);
+grid-template-rows: repeat(2, 150px);
+grid-gap: 10px;
+list-style: none;
+padding: 0;
+margin: 70px 0 0;
+}
+
+.hexagon-gallery li {
+position: relative;
+width: 200px; /* Set the size of the hexagon */
+height: 200px; /* height should be equal to width for hexagon */
+background-color: #0287e0;
+clip-path: polygon(
+25% 6.7%,  /* top left */
+75% 6.7%,  /* top right */
+100% 50%,  /* right middle */
+75% 93.3%, /* bottom right */
+25% 93.3%, /* bottom left */
+0% 50%     /* left middle */
+);
+overflow: hidden;
+}
+
+.hexagon-gallery li img {
+display: block;
+width: 100%;
+height: 100%;
+object-fit: cover;
+transition: transform 0.3s;
+}
+
+.hexagon-gallery li:hover img {
+transform: scale(1.1);
+}
+
+.hexagon-gallery li a {
+display: block;
+width: 100%;
+height: 100%;
+}
+
+/* Grid positioning */
+.hexagon-gallery li:nth-child(1) {
+grid-column: 1 / 2;
+grid-row: 1 / 2;
+}
+
+.hexagon-gallery li:nth-child(2) {
+grid-column: 1 / 2;
+grid-row: 2 / 3;
+}
+
+.hexagon-gallery li:nth-child(3) {
+grid-column: 2 / 3;
+grid-row: 1 / 3;
+}
+
+.hexagon-gallery ul {
+animation:r 4s forwards;
+} @keyframes r {
+from {transform:rotate(180deg)}
+to {transform:rotate(0)}
+}
+
+.hexagon-gallery li {
+animation:ir 4s forwards;
+} @keyframes ir {
+from {transform:rotate(-360deg)}
+to {transform:rotate(0)}
+}
+
+
+
+    .more-info{
+      margin: 1.5em 0em;
+      display:flex;
+    } 
+    .more-info img{
+width: 100%;
+object-fit: cover;
+height: 15em;
+}
+
+.more-info h1{
+padding: 1.5em 1em;
+font-family:'Poppins', sans-serif ;
+align-items: center;
+text-align: center;
+}
+
+.more-info .title1{
+text-align: center;
+font-weight: bold;
+font-size: 1.25rem;
+
+}
+
+.more-info .desc{
+line-height: 1.5rem;
+text-align: end;
+}
+    
+  </style>
+
+{% schema %}
+{
+"name": "more-info",
+"settings": [
+{
+"type":"text",
+"id":"title",
+"label":"Title"
+},
+{
+"type": "textarea",
+"id": "description",
+"label":"Description"
+},
+{
+"type":"image_picker",
+"id":"image1",
+"label":"first Image"
+},
+{
+"type":"image_picker",
+"id":"image2",
+"label":"second Image"
+},
+{
+"type":"image_picker",
+"id":"image3",
+"label":"third Image"
+}
+]
+}
+{% endschema %}

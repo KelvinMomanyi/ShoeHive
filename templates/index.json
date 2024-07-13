@@ -16,10 +16,17 @@
       "hero": {
         "type": "hero",
         "settings": {}
-      }
+      },
+      "more-info": {
+        "type": "more-info",
+        "settings": {
+          "title": "",
+          "description": ""
+        }
     },
     "order": [
       "header",
-      "hero"
+      "hero",
+      "more-info"
     ]
   }
