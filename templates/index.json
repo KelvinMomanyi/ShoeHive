@@ -28,6 +28,7 @@
   "order": [
     "header",
     "hero",
+    "collection",
     "more-info"
   ]
 }
