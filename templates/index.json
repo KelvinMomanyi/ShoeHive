@@ -17,18 +17,14 @@
         "type": "hero",
         "settings": {}
       },
-      "more-info": {
-        "type": "more-info",
-        "settings": {
-          "title": "",
-          "description": ""
-        }
+      "collection": {
+        "type": "collection",
+        "settings": {}
     },
   },
   "order": [
     "header",
     "hero",
-    "collection",
-    "more-info"
+    "collection"
   ]
 }
