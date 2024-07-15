@@ -24,10 +24,10 @@
           "description": ""
         }
     },
-    "order": [
-      "header",
-      "hero",
-      "more-info"
-    ]
-  }
+  },
+  "order": [
+    "header",
+    "hero",
+    "more-info"
+  ]
 }

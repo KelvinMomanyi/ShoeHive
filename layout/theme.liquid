@@ -20,41 +20,16 @@
   <!--
       -preload images
   -->
-  <link rel="preload" as="image" href="./assets//images/logo.png">
-  <link rel="preload" as="image" href="./assets//images/hero-banner-1.jpg">
-  <link rel="preload" as="image" href="./assets//images/hero-banner-2.jpg">
-  <link rel="preload" as="image" href="./assets//images/hero-banner-3.jpg">
+  <link rel="preload" as="image" href="{{'MainLogo_png.svg' | asset_url}}">
+  <link rel="preload" as="image" href="{{'shoe9.jpg' | asset_url }}">
+  <link rel="preload" as="image" href="{{'shoes.jpg' | asset_url }}">
+  <link rel="preload" as="image" href="{{'shoes4.jpg' | asset_url}}">
   {{ content_for_header }} <!-- Header hook for plugins -->
   {{ 'application.css' | asset_url | stylesheet_tag }}
   {{ 'application.js' | asset_url | script_tag }}
 
 </head>
 <body id="top">
-{% comment %} 
-  {% for link in linklists.main-menu.links %}
-    {% assign child_list_handle = link.title | handleize %}
-    {% if linklists[child_list_handle].links != blank %}
-      <a href="{{ link.url }}">{{ link.title }}</a>
-      [{% for childlink in linklists[child_list_handle].links %}
-        <a href="{{ childlink.url }}">{{ childlink.title | escape }}</a>
-      {% endfor %}]
-    {% else %}
-      <a href="{{ link.url }}">{{ link.title }}</a>
-    {% endif %}
-  {% endfor %}
-
-  <a href="/cart">carties</a>
-
-  {% if shop.customer_accounts_enabled %}
-    {% if customer %}
-      <a href="/account">account</a>
-      {{ 'log out'  | customer_logout_link }}
-    {% else %}
-      {{ 'log in ' | customer_login_link }}
-      {{ 'register' | customer_register_link }}
-    {% endif %}
-  {% endif %} {% endcomment %}
-
   <main role="main">
     {{ content_for_layout }}
     {% comment %} {{ 'application.css' | asset_url | stylesheet_tag }}
