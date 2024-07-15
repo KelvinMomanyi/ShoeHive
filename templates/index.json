@@ -1,20 +1,18 @@
 
 {
-    "sections": {
-      "header": {
-        "type": "header",
-        "settings": {}
-       },
-      "hero": {
-        "type": "hero",
-        "settings": {
-            
-        }
-      },
-      "collection": {
-        "type": "collection",
-        "settings": {}
+  "sections": {
+    "header": {
+      "type": "header",
+      "settings": {}
     },
+    "hero": {
+      "type": "hero",
+      "settings": {}
+    },
+    "collection": {
+      "type": "collection",
+      "settings": {}
+    }
   },
   "order": [
     "header",
