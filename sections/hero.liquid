@@ -87,6 +87,56 @@
     min-width: 100%;
   
   }
+  @media screen and (min-width: 575px) {
+    /*
+    REUSED STYLE
+    */
+    
+    .container{
+      max-width: 540px;
+      width: 100%;
+      margin-inline: auto;
+    }
+    
+    :is(.header, .hero) .container{max-width: unset;}
+    
+    .has-scrollbar {gap: 30px;}
+    
+    .scrollbar-item{ min-width: calc(50% - 15px);}
+    
+    
+    /*
+    HERO
+    */
+    
+    .hero-card {padding-inline: 70px;}
+    
+    .hero-text {max-width: 30ch;}
+
+    
+    
+    }
+    @media screen and (min-width: 1200px) {
+
+      /*
+   REUSED STYLE
+    */
+   
+    .container{max-width: 1300px;}
+   
+    .scrollbar-item {min-width: calc(20% - 24px);}
+   
+    .flex-item {max-width: calc(33.33% - 20px);}
+  
+   /*
+    HERO
+    */
+   
+    .hero-card{padding: 120px 100px;}
+    .hero-text {max-width: 40ch;}
+   
+   
+   }
 </style>
 
 <script>
