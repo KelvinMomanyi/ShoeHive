@@ -1,0 +1,14 @@
+{
+  "name": "t:sections.backToTop.name",
+  "type": "backToTop",
+  "sections": {
+    "backToTop": {
+      "type": "backToTop",
+      "settings": {
+      }
+    }
+  },
+  "order": [
+    "backToTop"
+  ]
+}
