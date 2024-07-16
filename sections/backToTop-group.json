@@ -1,5 +1,5 @@
 {
-  "name": "t:sections.backToTop.name",
+  "name": "t:sections.custom.name",
   "type": "backToTop",
   "sections": {
     "backToTop": {
