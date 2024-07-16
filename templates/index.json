@@ -1,10 +1,10 @@
 
 {
   "sections": {
-    "header": {
-      "type": "header",
-      "settings": {}
-    },
+    // "header": {
+    //   "type": "header",
+    //   "settings": {}
+    // },
     "hero": {
       "type": "hero",
       "settings": {}
@@ -35,7 +35,7 @@
     }
   },
   "order": [
-    "header",
+    // "header",
     "hero",
     "collection",
     "shop",

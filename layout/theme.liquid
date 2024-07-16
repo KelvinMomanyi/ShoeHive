@@ -30,6 +30,7 @@
 
 </head>
 <body id="top">
+  {% sections 'header-group' %}
   <main role="main">
     {{ content_for_layout }}
     {{ 'application.css' | asset_url | stylesheet_tag }}
