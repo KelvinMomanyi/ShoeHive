@@ -20,6 +20,10 @@
     "banner":{
       "type":"banner",
       "settings":{}
+    },
+    "feature":{
+      "type":"feature",
+      "settings":{}
     }
   },
   "order": [
@@ -27,6 +31,7 @@
     "hero",
     "collection",
     "shop",
-    "banner"
+    "banner",
+    "feature"
   ]
 }
