@@ -4,20 +4,21 @@
     "sections": {
       "announcement-bar": {
         "type": "announcement-bar",
-        "blocks": {
-          "announcement-bar-0": {
-            "type": "announcement",
-            "settings": {
-            //   "text": "Welcome to our store",
-            //   "text_alignment": "center",
-            //   "color_scheme": "scheme-1",
-            //   "link": ""
-            }
-          }
-        },
-        "block_order": [
-          "announcement-bar-0"
-        ]
+        "settings": {}
+        // "blocks": {
+        //   "announcement-bar-0": {
+        //     "type": "announcement",
+        //     "settings": {
+        //       "text": "Welcome to our store",
+        //       "text_alignment": "center",
+        //       "color_scheme": "scheme-1",
+        //       "link": ""
+        //     }
+        //   }
+        // },
+        // "block_order": [
+        //   "announcement-bar-0"
+        // ]
       },
       "header": {
         "type": "header",
