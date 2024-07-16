@@ -12,11 +12,16 @@
     "collection": {
       "type": "collection",
       "settings": {}
+    },
+    "shop":{
+      "type":"shop",
+      "settings":{}
     }
   },
   "order": [
     "header",
     "hero",
-    "collection"
+    "collection",
+    "shop"
   ]
 }
