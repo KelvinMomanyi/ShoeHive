@@ -24,6 +24,14 @@
     "feature":{
       "type":"feature",
       "settings":{}
+    },
+    "offer":{
+      "type":"offer",
+      "settings":{}
+    },
+    "blog":{
+      "type":"blog",
+      "settings":{}
     }
   },
   "order": [
@@ -32,6 +40,8 @@
     "collection",
     "shop",
     "banner",
-    "feature"
+    "feature",
+    "offer",
+    "blog"
   ]
 }
