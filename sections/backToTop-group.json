@@ -1,11 +1,10 @@
 {
   "name": "t:sections.custom.name",
-  "type": "backToTop",
+  "type": "custom",
   "sections": {
     "backToTop": {
       "type": "backToTop",
-      "settings": {
-      }
+      "settings": {}
     }
   },
   "order": [
