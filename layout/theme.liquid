@@ -36,7 +36,6 @@
     {{ 'application.css' | asset_url | stylesheet_tag }}
     {{ 'application.js' | asset_url | script_tag }} 
   </main>
-  {% section 'main-collection' %}
   {% sections 'backToTop-group' %}
   {% sections 'footer-group' %}
   <script src='{{ 'application.js' | asset_url | script_tag }}' defer></script>
