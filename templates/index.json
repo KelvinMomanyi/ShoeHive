@@ -32,10 +32,6 @@
     "blog":{
       "type":"blog",
       "settings":{}
-    },
-    "main-collection":{
-      "type":"main-collection",
-      "settings":{}
     }
   },
   "order": [
@@ -47,6 +43,6 @@
     "feature",
     "offer",
     "blog",
-    "main-collection"
+    
   ]
 }
