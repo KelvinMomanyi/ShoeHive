@@ -32,6 +32,10 @@
     "blog":{
       "type":"blog",
       "settings":{}
+    },
+    "main-collection":{
+      "type":"main-collection",
+      "settings":{}
     }
   },
   "order": [
@@ -42,6 +46,7 @@
     "banner",
     "feature",
     "offer",
-    "blog"
+    "blog",
+    "main-collection"
   ]
 }
