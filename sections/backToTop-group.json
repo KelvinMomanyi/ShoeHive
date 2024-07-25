@@ -1,6 +1,6 @@
 {
-  "name": "t:sections.custom.backToTop",
-  "type": "custom",
+  "name": "t:sections.backToTop.name",
+  "type": "backToTop",
   "sections": {
     "backToTop": {
       "type": "backToTop",
