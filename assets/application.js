@@ -1,5 +1,5 @@
 // Put your applicaiton javascript here
-// 'use strict';
+'use strict';
 /**Modal toggle */
 
 //Open close modal

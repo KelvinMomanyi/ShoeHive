@@ -40,7 +40,7 @@
   {% sections 'footer-group' %}
   {{ 'application.css' | asset_url | stylesheet_tag }}
   {{ 'application.js' | asset_url | script_tag }} 
-  {% comment %} <script src='{{ 'application.js' | asset_url | script_tag }}' defer></script> {% endcomment %}
+  <script src='{{ 'application.js' | asset_url | script_tag }}' defer></script> 
   <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
   <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
 </body>
