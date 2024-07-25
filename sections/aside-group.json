@@ -2,7 +2,7 @@
   "name": "t:sections.aside.name",
   "type": "aside",
   "sections": {
-    "backToTop": {
+    "aside": {
       "type": "aside",
       "settings": {}
     }
