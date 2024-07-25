@@ -32,10 +32,6 @@
     "blog":{
       "type":"blog",
       "settings":{}
-    },
-    "aside": {
-      "type": "aside",
-      "settings": {}
     }
   },
   "order": [
@@ -46,7 +42,7 @@
     "banner",
     "feature",
     "offer",
-    "blog",
-    "aside"
+    "blog"
+
   ]
 }
