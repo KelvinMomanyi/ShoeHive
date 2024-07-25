@@ -65,6 +65,50 @@
     </div>
 </header>
 
+
+
+    <!-- 
+            MODAL
+         -->
+    <div id="myModal" class="modal">
+          <div class="modal-content">
+              <button class="nav-close-btn" onclick="closeModal()">
+                  <ion-icon name="close-outline" aria-hidden="true" ></ion-icon>
+              </button>
+              <a href="#" class="logo">
+                 <img src="./assets/images/MainLogo.png.svg" />
+               </a>
+              
+               <div id="login">
+                <form >
+                   <label>Username or Email</label>
+                   <input />
+                   <label>Password</label>
+                   <input/>
+                   <p>Not a member? <a href="#" onclick="toggleForm('register')">Create an account</a></p>
+                   <!-- <button type="submit">Login</button> -->
+                </form>
+               </div>
+
+              <div id="register" class='hidden'>
+                <form >
+                   <label>First Name</label>
+                   <input />
+                   <label>Last Name</label>
+                   <input />
+                   <label>Email</label>
+                   <input />
+                   <label>Password</label>
+                    <input/>
+                    <label>Confirm Password</label>
+                   <input />
+                   <p>Already registered? <a href="#" onclick="toggleForm('login')">Log in</a></p>
+                   <!-- <button type="submit">Login</button> -->
+            </form>
+              </div>
+           </div>
+     </div> 
+
  <!--
             MOBILE NAvBAR
         -->
