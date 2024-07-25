@@ -36,7 +36,7 @@
     {{ 'application.css' | asset_url | stylesheet_tag }}
     {% comment %} {{ 'application.js' | asset_url | script_tag }}  {% endcomment %}
   </main>
-  {% sections 'aside-group' %}
+  {% comment %} {% sections 'aside-group' %} {% endcomment %}
   {% sections 'footer-group' %}
   {{ 'application.css' | asset_url | stylesheet_tag }}
   {% comment %} {{ 'application.js' | asset_url | script_tag }}  {% endcomment %}
