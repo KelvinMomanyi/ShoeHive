@@ -65,6 +65,59 @@
     </div>
 </header>
 
+ <!--
+            MOBILE NAvBAR
+        -->
+        <div class="sidebar">
+          <div class="mobile-navbar" data-navbar>
+             <div class="wrapper">
+                <a href="#" class="logo">
+                  <img src="./assets/images/MainLogo.png.svg" width="60" height="26" alt="Glowing">
+              </a>
+
+              <button class="nav-close-btn" data-nav-toggler>
+                  <ion-icon name="close-outline" aria-hidden="true" ></ion-icon>
+              </button>
+             </div>
+
+             <ul class="navbar-list">
+               <li>
+                  <a href="#home" class="navbar-link" data-nav-link>Home</a>
+               </li>
+               <li>
+                  <a href="#collection" class="navbar-link" data-nav-link>Collection</a>
+               </li>
+               <li>
+                  <a href="#shop" class="navbar-link" data-nav-link>Shop</a>
+               </li>
+               <li>
+                  <a href="#offer" class="navbar-link" data-nav-link>Offer</a>
+               </li>
+               <li>
+                  <a href="#blog" class="navbar-link" data-nav-link>Blog</a>
+               </li>
+             </ul>
+          </div>
+          <div class="overlay" data-nav-toggler data-overlay>
+
+          </div>
+      </div>
+
+
+      <!--
+          ADD CART SIDEBAR
+      -->
+      <div id="myModal2" class="cartBar" >
+          <div class="cartBar-content">
+              <button class="nav-close-btn" onclick="closeCartbar()">
+                  <ion-icon name="close-outline" aria-hidden="true" ></ion-icon>
+              </button>
+             <p>Add To Cart</p>
+             <a href="#" class="btn btn-primary">Checkout</a>
+           
+           </div>
+     </div> 
+
 
 
 <style>
