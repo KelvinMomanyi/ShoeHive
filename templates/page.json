@@ -4,9 +4,14 @@
       "main-collection":{
         "type":"main-collection",
         "settings":{}
+      },
+      "shop":{
+        "type":"shop",
+        "settings":{}
       }
     },
     "order": [
-      "main-collection"
+      "main-collection",
+      "shop"
     ]
   }
