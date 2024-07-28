@@ -7,6 +7,13 @@
     </div>
  </header>
 {% endif %}
+
+<style>
+  .alert{
+    background-color:{{section.settings.background}};
+    color:{{section.settings.text_color}};
+  }
+</style>
 {% schema %}
 {
   "name": "announcement-bar",
@@ -16,7 +23,19 @@
      "id": "enabled",
      "label": "Enable Announcement Bar",
      "default": true
-    }
+    },
+    {
+      "type": "color",
+      "id": " background",
+      "label": "Background",
+      "default": "#000000"
+     },
+     {
+      "type": "color",
+      "id": "text_color",
+      "label": "Text",
+      "default": "#F4F4F4"
+     },
   ],
   "blocks": [],
   "presets": [
