@@ -1,6 +1,7 @@
 {% paginate collection.products by 2 %}
   <h1>{{ collection.title }}</h1>
   {% for product in collection.products %}
+    <div class="container">
     <li class="scrollbar-item">
     
        <div class="shop-card">
@@ -43,6 +44,7 @@
         </div>
        </div>
     </li>
+    </div>
     <div>
       <a href="{{ product.url | within: collection }}">{{ product.title }}</a>
       {{ product.price | money }}
