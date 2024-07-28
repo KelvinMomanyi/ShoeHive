@@ -1,4 +1,4 @@
-{% comment %} {% paginate collection.products by 2 %}
+{% paginate collection.products by 2 %}
   <h1>{{ collection.title }}</h1>
   {% for product in collection.products %}
     <div>
@@ -15,7 +15,7 @@
   {% if paginate.pages > 1 %}
     {{ paginate | default_pagination }}
   {% endif %}
-{% endpaginate %} {% endcomment %}
+{% endpaginate %} 
 
 
 
@@ -24,7 +24,7 @@
       <!--
           -HERO
       -->
-      <section class="section hero" id="home" aria-label="hero" >
+      {% comment %} <section class="section hero" id="home" aria-label="hero" >
          <div class="container">
             <ul class="has-scrollbar">
                <li class="scrollbar-item">
@@ -76,7 +76,7 @@
                </li>
             </ul>
          </div>  
-      </section>
+      </section> {% endcomment %}
 
   
 
@@ -84,7 +84,7 @@
       <!--
           SHOP
       -->
-      <section class="section shop" id="shop" aria-label="shop" >
+      {% comment %} <section class="section shop" id="shop" aria-label="shop" >
         <div class="container">
           <div class="title-wrapper">
               <h2 class="h2 section-title">Nike</h2>
@@ -297,10 +297,10 @@
               </li>
           </ul>
         </div>
-      </section>
+      </section> {% endcomment %}
 
 
-      <section class="section shop" id="shop" aria-label="shop">
+      {% comment %} <section class="section shop" id="shop" aria-label="shop">
           <div class="container">
             <div class="title-wrapper">
                 <h2 class="h2 section-title">Adidas</h2>
@@ -513,13 +513,13 @@
                 </li>
             </ul>
           </div>
-      </section>
+      </section> {% endcomment %}
 
 
        <!--
           COLLECTION
       -->
-      <section class="section collection" id="collection" >
+      {% comment %} <section class="section collection" id="collection" >
         <div class="container">
           <ul class="collection-list">
               <li>
@@ -563,7 +563,7 @@
               </li>
           </ul>
         </div> 
-      </section>
+      </section> {% endcomment %}
       
       {% schema %}
       {
