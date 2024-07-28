@@ -1,9 +1,11 @@
 {% paginate collection.products by 2 %}
   <h1>{{ collection.title }}</h1>
   {% for product in collection.products %}
-    <div class="shop-card">
+    <li class="scrollbar-item">
+    
+       <div class="shop-card">
         <div class="card-banner img-holder" style="--width:540 ; --height:720 ;">
-            <img src="{{ product.featured_image.src | img_url: 'large' }}" alt="Coffee Bean Caffeine Eye Cream" class="img-cover" width="540" height="720" loading="lazy">
+            <img src="{{ product.featured_image.src | img_url: 'large' }}" alt="{{ product.featured_image.alt | escape }}" class="img-cover" width="540" height="720" loading="lazy">
             <span class="badge"  aria-label="20% off">-20%</span>
             <div class="card-actions">
                 <button class="action-btn" aria-label="add to cart">
@@ -24,8 +26,9 @@
                 <del class="del">   {{ product.price | money }}</del>
                 <span class="span">   {{ product.price | money }}</span>
             </div>
+            {% unless product.available %}<br><strong>sold out</strong>{% endunless %}
             <h3>
-                <a href="#" class="card-title">Facial cleanser</a>
+                <a href="#" class="card-title">{{ product.title }}</a>
             </h3>
             <div class="card-rating">
                 <div class="rating-wrapper" aria-label="5 star rating">
@@ -38,7 +41,8 @@
                 <p class="rating-text">5170 reviews</p>
             </div>
         </div>
-    </div>
+       </div>
+    </li>
     <div>
       <a href="{{ product.url | within: collection }}">{{ product.title }}</a>
       {{ product.price | money }}
