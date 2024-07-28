@@ -1,7 +1,7 @@
 <div class="container">
 {% paginate collection.products by 2 %}
   <h1>{{ collection.title }}</h1>
-  {% for product in collection.products %}
+  
      <section class="section shop" id="shop" aria-label="shop">
           <div class="container">
             <div class="title-wrapper">
@@ -11,7 +11,7 @@
                     <ion-icon class="arrow-forward" aria-hidden="true"></ion-icon>
                 </a>
             </div>
-
+            {% for product in collection.products %}
             <ul class="has-scrollbar">
                 <li class="scrollbar-item">
                     <div class="shop-card">
@@ -55,6 +55,9 @@
                     </div>
                  </li>
             </ul>
+            {% else %}
+            <p>no matches</p>
+          {% endfor %}
           </div>
       </section>
 
@@ -71,9 +74,7 @@
         <img src="{{ product.featured_image.src | img_url: 'large' }}" alt="{{ product.featured_image.alt | escape }}">
       </a>
     </div> {% endcomment %}
-  {% else %}
-    <p>no matches</p>
-  {% endfor %}
+
   {% if paginate.pages > 1 %}
     {{ paginate | default_pagination }}
   {% endif %}
