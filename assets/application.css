@@ -519,8 +519,8 @@
   }
   
   .alert{
-    background-color: var(--black);
-    color:var(--white);
+    /* background-color: var(--black);
+    color:var(--white); */
     font-size: var(--fs-7);
     font-weight: var(--fw-700);
     letter-spacing: 2px;
