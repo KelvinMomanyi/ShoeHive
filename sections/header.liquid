@@ -144,7 +144,7 @@
                   <a href="#blog" class="navbar-link" data-nav-link>Blog</a>
                </li> {% endcomment %}
                {% for link in linklists['main-menu'].links %}
-                <li class="navbar-link" data-nav-link>{{link.title | link_to: link_url}}</li>
+                <li class="navbar-link" data-nav-link>{{link.title | link_to: link.url}}</li>
                {% endfor %}
              </ul>
           </div>
