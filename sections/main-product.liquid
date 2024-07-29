@@ -91,11 +91,11 @@
 
 <style>
   
-ul{
+{% comment %} ul{
     list-style: none;
     padding: 0;
     margin: 0;
-}
+} {% endcomment %}
 
 {% comment %} .container{
     padding: 2em 2em 0 2em;
@@ -103,7 +103,7 @@ ul{
     margin: 0 auto;
 } {% endcomment %}
 
-nav{
+{% comment %} nav{
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -124,7 +124,7 @@ main, .bar-bottom{
 
 main{
     min-height: 75vh;
-}
+} {% endcomment %}
 
 .title{
     position: relative;
@@ -174,7 +174,7 @@ main{
     height: 100%;
 }
 
-.shadow{
+{% comment %} .shadow{
     position: absolute;
     bottom: 0;
     left: 50%;
@@ -185,7 +185,7 @@ main{
     border-radius: 50%;
     filter: blur(3px);
     z-index: 0;
-}
+} {% endcomment %}
 
 
 .options > div, 
@@ -419,7 +419,7 @@ main{
 }
 
 @media screen and (max-width:1000px){
-    main, .bar-bottom{
+    {% comment %} main, .bar-bottom{
         grid-template-columns: 1fr;
     }
     .container{
@@ -434,7 +434,7 @@ main{
     }
     .controls div {
         margin: 1em 0;
-    }
+    } {% endcomment %}
 }
 </style>  
 
