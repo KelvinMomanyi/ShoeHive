@@ -57,6 +57,8 @@
                  <p>no matches</p>
                {% endfor %}
             </ul>
+
+
             <div class="title-wrapper">
                 <h2 class="h2 section-title">{{ collection.title }}</h2>
                 <a href="#" class="btn-link">
@@ -64,7 +66,61 @@
                     <ion-icon class="arrow-forward" aria-hidden="true"></ion-icon>
                 </a>
             </div>
+            <ul class="has-scrollbar">
+                {% for product in collection.products %}
+                <li class="scrollbar-item">
+                    <div class="shop-card">
+                     <div class="card-banner img-holder" style="--width:540 ; --height:720 ;">
+                         <img src="{{ product.featured_image.src | img_url: 'large' }}" alt="{{ product.featured_image.alt | escape }}" class="img-cover" width="540" height="720" loading="lazy">
+                         <span class="badge"  aria-label="20% off">-20%</span>
+                         <div class="card-actions">
+                             <button class="action-btn" aria-label="add to cart">
+                                 <ion-icon name="bag-handle-outline" aria-hidden="true"></ion-icon>
+                             </button>
+             
+                             <button class="action-btn" aria-label="add to wishlist">
+                                 <ion-icon name="star-outline" aria-hidden="true"></ion-icon>
+                             </button>
+             
+                             <button class="action-btn" aria-label="compare">
+                                 <ion-icon name="repeat-outline" aria-hidden="true"></ion-icon>
+                             </button>
+                         </div>
+                     </div>
+                     <div class="card-content">
+                         <div class="price">
+                             <del class="del">   {{ product.price | money }}</del>
+                             <span class="span">   {{ product.price | money }}</span>
+                         </div>
+                         {% unless product.available %}<br><strong>sold out</strong>{% endunless %}
+                         <h3>
+                             <a href="#" class="card-title">{{ product.title }}</a>
+                         </h3>
+                         <div class="card-rating">
+                             <div class="rating-wrapper" aria-label="5 star rating">
+                                <ion-icon name="star" aria-hidden="true"></ion-icon>
+                                <ion-icon name="star"  aria-hidden="true"></ion-icon>
+                                <ion-icon name="star"  aria-hidden="true"></ion-icon>
+                                <ion-icon name="star"  aria-hidden="true"></ion-icon>
+                                <ion-icon name="star"  aria-hidden="true"></ion-icon>
+                             </div>
+                             <p class="rating-text">5170 reviews</p>
+                         </div>
+                     </div>
+                    </div>
+                 </li>
+                 {% else %}
+                 <p>no matches</p>
+               {% endfor %}
+            </ul>
             
+            <div class="title-wrapper">
+                <h2 class="h2 section-title">{{ collection.title }}</h2>
+                <a href="#" class="btn-link">
+                    <span class="span">Shop All Products</span>
+                    <ion-icon class="arrow-forward" aria-hidden="true"></ion-icon>
+                </a>
+            </div>
             <ul class="has-scrollbar">
                 {% for product in collection.products %}
                 <li class="scrollbar-item">
