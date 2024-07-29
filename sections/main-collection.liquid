@@ -38,7 +38,7 @@
                          </div>
                          {% unless product.available %}<br><strong>sold out</strong>{% endunless %}
                          <h3>
-                             <a href="#" class="card-title">{{ product.title }}</a>
+                             <a href="#" class="card-title">{{- product.title | link_to: product.url -}}</a>
                          </h3>
                          <div class="card-rating">
                              <div class="rating-wrapper" aria-label="5 star rating">
