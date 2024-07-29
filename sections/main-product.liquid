@@ -5,12 +5,12 @@
        <div class="offer-banner">
 
         
-           {% comment %} <div class="thumbs">
-         <img src="./assets/images/shoe1-1/img1.jpg" alt="" class="thumb-active">
-         <img src="./assets/images/shoe1-1/img2.jpg" alt="">
-         <img src="./assets/images/shoe1-1/img3.jpg" alt="">
-         <img src="./assets/images/shoe1-1/img4.jpg" alt="">
-          </div> {% endcomment %}
+        <div class="thumbs">
+           <img src="./assets/images/shoe1-1/img1.jpg" alt="" class="thumb-active">
+           <img src="./assets/images/shoe1-1/img2.jpg" alt="">
+           <img src="./assets/images/shoe1-1/img3.jpg" alt="">
+           <img src="./assets/images/shoe1-1/img4.jpg" alt="">
+          </div> 
           <div class="card-banner img-holder" style="--width:540 ; --height:720 ;">
              <img src="{{ product.featured_image | image_url }}" alt="{{product.featured_image.alt | escape }}" class="img-cover" width="540" height="720" loading="lazy">
           </div>
@@ -94,7 +94,15 @@
 </section> {% endcomment %}
 
 <style>
-  
+  .product-banner{
+    {% comment %} display: grid;
+    grid-template-columns: 0.7fr 1fr; {% endcomment %}
+    display: flex;
+    flex-direction:column;
+    align-items: center;
+    gap: 30px;
+    margin-block-end: 60px;
+  }
 {% comment %} ul{
     list-style: none;
     padding: 0;
