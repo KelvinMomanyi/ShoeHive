@@ -57,6 +57,14 @@
                  <p>no matches</p>
                {% endfor %}
             </ul>
+            <div class="title-wrapper">
+                <h2 class="h2 section-title">{{ collection.title }}</h2>
+                <a href="#" class="btn-link">
+                    <span class="span">Shop All Products</span>
+                    <ion-icon class="arrow-forward" aria-hidden="true"></ion-icon>
+                </a>
+            </div>
+            
             <ul class="has-scrollbar">
                 {% for product in collection.products %}
                 <li class="scrollbar-item">
