@@ -1,45 +1,45 @@
 
-  <section class="section">
-
-      <span>MENS-</span>
-      <h1 class="title">
-          <span class="titleText">
-            {{ product.title }}
-          </span>
-          <span class="titleOverlay"></span>
-      </h1>
-       <p class="description">
-        {{ product.description }}
-       </p>
+  <section class="section offer">
+     <div class="container">
+          <span>MENS-</span>
+          <h1 class="title">
+             <span class="titleText">
+                 {{ product.title }}
+             </span>
+             <span class="titleOverlay"></span>
+          </h1>
+         <p class="description">
+           {{ product.description }}
+          </p>
        {% comment %} <div class="thumbs">
          <img src="./assets/images/shoe1-1/img1.jpg" alt="" class="thumb-active">
          <img src="./assets/images/shoe1-1/img2.jpg" alt="">
          <img src="./assets/images/shoe1-1/img3.jpg" alt="">
          <img src="./assets/images/shoe1-1/img4.jpg" alt="">
        </div> {% endcomment %}
-    <div class="card-banner img-holder" style="--width:540 ; --height:720 ;">
+       <div class="card-banner img-holder" style="--width:540 ; --height:720 ;">
           <img src="{{ product.featured_image | image_url }}" alt="{{product.featured_image.alt | escape }}" class="img-cover" width="540" height="720" loading="lazy">
-    </div>
-  <div class="options">
-      <h4>Size</h4>
-      <ul class="sizes">
-          <li class="size-active">37</li>
-          <li>38</li>
-          <li>39</li>
-          <li>40</li>
-          <li>41</li>
-      </ul>
-      <div class="relative">
-         <h4>Reviews</h4>
-      </div>
-      <div class="card-rating">
-        <div class="rating-wrapper" aria-label="5 star rating">
+       </div>
+          <div class="options">
+               <h4>Size</h4>
+              <ul class="sizes">
+                <li class="size-active">37</li>
+                <li>38</li>
+                <li>39</li>
+                <li>40</li>
+                <li>41</li>
+              </ul>
+            <div class="relative">
+              <h4>Reviews</h4>
+            </div>
+            <div class="card-rating">
+            <div class="rating-wrapper" aria-label="5 star rating">
            <ion-icon name="star" aria-hidden="true"></ion-icon>
            <ion-icon name="star"  aria-hidden="true"></ion-icon>
            <ion-icon name="star"  aria-hidden="true"></ion-icon>
            <ion-icon name="star"  aria-hidden="true"></ion-icon>
            <ion-icon name="star"  aria-hidden="true"></ion-icon>
-        </div>
+             </div>
       </div>
       <div class="pricing">
         <h4>Price</h4>
