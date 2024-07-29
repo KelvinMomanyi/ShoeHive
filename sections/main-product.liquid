@@ -1,5 +1,82 @@
-<div class="container">
-    <nav>
+<section class="product-main">
+  <div class='product-main-wrapper'>
+     <div>
+       <img
+        width="600"
+        height="600"
+        loading="lazy"
+        src="{{ product.featured_image | image_url }}" 
+      />
+     </div>
+     <div>
+      <h2>{{ product.title }}</h2>
+      <p>{{ product.price }}</p>
+      <p>{{ product.description }}</p>
+      <h3>Select Size</h3>
+      {% form 'product', product %}
+        <select name="id">
+          {% for variant in product.variants %}
+           <option value="{{ variant.id }}">
+            {{ variant.title }}
+           </option>
+          {% endfor %}
+        </select> 
+       {% endform %}
+       <button type="submit">Add to Card</button>
+       <input type="submit" value="Add to cart">    
+     </div>  
+  </div>
+</section>
+
+<style>
+  .product-main{
+   background:{{ section.settings.background }};
+   color:{{ section.settings.text_color }};
+   padding:{{ 10px }}
+  }
+  .product-main-wrapper{
+    display:flex
+  }
+</style>  
+
+{% schema %}
+{
+  "name": "main-product",
+  "settings": [],
+  "blocks": [],
+  "presets": [
+    {
+      "name": "main-product"
+    }
+  ]
+}
+{% endschema %}
+
+{% comment %} {% schema %}
+{
+"name":"Pr oduct-main",
+"settings":[
+  {
+    "type": "color",
+    "id": "background",
+    "label": "Background",
+    "default": "#F4F4F4"
+  },
+  {
+    "type": "color",
+    "id": "text_color",
+    "label": "Text",
+    "default": "#000000"
+  }
+],
+"presets":[
+    {
+  "name": "product-main" 
+    }
+]
+}
+{% endschema %} {% endcomment %}
+    {% comment %} <nav>
       <a href="index.html">
         <img src="./assets/images/MainLogo.png.svg"  style="width:80px;;" />
       </a>
@@ -98,4 +175,4 @@
         ]
       }
       {% endschema %}
-
+ {% endcomment %}
