@@ -2,7 +2,7 @@
   <section class="section offer">
      <div class="container">
         {% comment %} <span>MENS-</span> {% endcomment %}
-       <div class="offer-banner">
+       <div class="product-banner">
 
         
         <div class="thumbs">
@@ -94,10 +94,12 @@
 </section> {% endcomment %}
 
 <style>
-  .offer-banner{
-  
+  .product-banner{
+    display: grid;
+    grid-template-columns: 0.7fr 1fr;
+    align-items: center;
     gap: 15px;
-    
+    margin-block-end: 60px; 
   }
 {% comment %} ul{
     list-style: none;
