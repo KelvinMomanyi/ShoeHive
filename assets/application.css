@@ -1461,7 +1461,7 @@
    .header .search-submit{
     position: absolute;
     top: 50%;
-    right: 15px;
+    left: 15px;
     transform: translateY(-50%);
     font-size: 22px;
    }
