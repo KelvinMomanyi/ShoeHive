@@ -1439,7 +1439,7 @@
    .search-field{
     width: 270;
     font-size: var(--fs-7);
-    padding-left: 20px;
+    padding-right: 20px;
     border: 2px solid var(--hoockers-green);
     border-radius: var(--radius-3);
     padding: 10x 20px;
