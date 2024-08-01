@@ -296,9 +296,10 @@ document.addEventListener('DOMContentLoaded', function() {
   const itemWidth = window.innerWidth; // Assuming all items have the same width
   const totalItems = heroSlider.length;
 
-  let currentSlide = 0;
+  let currentSlide = 1;
 
   function scrollToNextItem() {
+    const distance = -itemWidth * currentSlide;
     // Move all items to the left
     heroSlider.forEach((item, index) => {
       let newPosition = (index - currentSlide) * itemWidth; // Calculate the new position
