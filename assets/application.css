@@ -1422,13 +1422,13 @@
    .nav-open-btn {display: none;}
   
    .header{
-    padding-block-end: 60px;
+    padding-block-end: 30px;
     margin-block-end: 10px;
    }
   
    .header-top{
     position: unset;
-    padding-block: 12px 0;
+    padding-block: 24px 0;
    }
   
   
