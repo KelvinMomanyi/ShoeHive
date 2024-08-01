@@ -24,13 +24,13 @@
   <link rel="preload" as="image" href="{{'shoe9.jpg' | asset_url }}">
   <link rel="preload" as="image" href="{{'shoes.jpg' | asset_url }}">
   <link rel="preload" as="image" href="{{'shoes4.jpg' | asset_url}}">
-  {{ content_for_header }} <!-- Header hook for plugins -->
+  {% comment %} {{ content_for_header }} <!-- Header hook for plugins --> {% endcomment %}
   {{ 'application.css' | asset_url | stylesheet_tag }}
   {% comment %} {{ 'application.js' | asset_url | script_tag }} {% endcomment %}
   <script src="{{ 'application.js' | asset_url }}" defer></script>
 </head>
 <body id="top">
-  {% comment %} {% sections 'header-group' %} {% endcomment %}
+  {% sections 'header-group' %}
   <main role="main">
     {{ content_for_layout }}
     {{ 'application.css' | asset_url | stylesheet_tag }}
