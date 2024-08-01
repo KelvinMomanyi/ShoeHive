@@ -678,8 +678,8 @@
     background-color: var(--light-gray);
     padding:100px 15px;
     background-position: 40%;
-    transform: scale(1.15);
-    animation: smoothScale 7s linear infinite;
+    transform: scale(1.1);
+    animation: smoothScale 10s linear infinite;
   }
   
   @keyframes smoothScale {
