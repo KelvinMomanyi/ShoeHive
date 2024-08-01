@@ -24,8 +24,8 @@
   <link rel="preload" as="image" href="{{'shoe9.jpg' | asset_url }}">
   <link rel="preload" as="image" href="{{'shoes.jpg' | asset_url }}">
   <link rel="preload" as="image" href="{{'shoes4.jpg' | asset_url}}">
-  {% comment %} {{ content_for_header }} <!-- Header hook for plugins --> {% endcomment %}
-  {{ 'application.css' | asset_url | stylesheet_tag }}
+  {{ content_for_header }} <!-- Header hook for plugins -->
+  {% comment %} {{ 'application.css' | asset_url | stylesheet_tag }} {% endcomment %}
   {% comment %} {{ 'application.js' | asset_url | script_tag }} {% endcomment %}
   <script src="{{ 'application.js' | asset_url }}" defer></script>
 </head>
