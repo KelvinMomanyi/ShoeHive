@@ -303,7 +303,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // Move all items to the left
     heroSlider.forEach((item, index) => {
       let newPosition = (index - currentSlide) * itemWidth; // Calculate the new position
-      item.style.transform = `translateX(${newPosition}px)`;
+      item.style.transform = `translateX(${distance}px)`;
       item.style.transition = 'transform 0.5s ease-in-out';
     });
 
