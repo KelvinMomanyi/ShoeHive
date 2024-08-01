@@ -295,14 +295,13 @@ document.addEventListener('DOMContentLoaded', function() {
   const heroSlider = document.querySelectorAll('.scrollbar-item');
   const itemWidth = heroSlider[0].offsetWidth; // Assuming all items have the same width
   const totalItems = heroSlider.length;
-  const container = document.querySelector('.scrollbar-container');
 
   let currentSlide = 0;
 
   function scrollToNextItem() {
     // Move all items to the left
     heroSlider.forEach((item, index) => {
-      let newPosition = (index - currentSlide) * itemWidth;
+      let newPosition = (index - currentSlide) * itemWidth; // Calculate the new position
       item.style.transform = `translateX(${newPosition}px)`;
       item.style.transition = 'transform 0.5s ease-in-out';
     });
@@ -313,7 +312,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // If we've reached the end, reset the position
     if (currentSlide >= totalItems) {
       currentSlide = 0;
-      // Immediately reset the positions of all items without transition
+      // Reset the positions of all items instantly after the last transition
       setTimeout(() => {
         heroSlider.forEach((item, index) => {
           let resetPosition = (index - currentSlide) * itemWidth;
@@ -324,9 +323,6 @@ document.addEventListener('DOMContentLoaded', function() {
     }
   }
 
-  // Initialize container width based on total width of items
-  container.style.width = `${itemWidth * totalItems}px`;
-
   // Initially position the items
   heroSlider.forEach((item, index) => {
     let initialPosition = index * itemWidth;
@@ -336,7 +332,6 @@ document.addEventListener('DOMContentLoaded', function() {
   // Set an interval to scroll to the next item every 3 seconds
   setInterval(scrollToNextItem, 3000);
 });
-
 
 
 
