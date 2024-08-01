@@ -2,7 +2,7 @@
  <header>
     <div class="alert">
         <div class="container">
-          <div class="wrapper">
+
           <div class="slider-wrapper">
             {% comment %} <div class="alert-text" id="text1"><p>Members: Free Shipping!</p></div>
             <div class="alert-text" id="text2"><p>Save Up to 40%</p></div>
@@ -12,7 +12,7 @@
             <p class="alert-text" id="text2">Save Up to 40%</p>
             <p class="alert-text" id="text3">Get your Gear Faster</p>
           </div>
-        </div>
+
         </div>
     </div>
  </header>
@@ -47,17 +47,11 @@
     transform: translateX(150%) translateY(-50%); /* Slide out to the right */
     opacity: 0;
   }
-  .wrapper{
-    width:100%;
-    height:18px;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-  }
+
   .slider-wrapper{
    position:relative;
-
-   width:50%;
+   height:18px;
+   width:auto;
    
   }
   #text1, #text2, #text3 {
