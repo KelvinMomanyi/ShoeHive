@@ -8,27 +8,18 @@
             </button>
             
 
-            <a href="/" class="logo">
-                <img src="{{'MainLogo_png.svg' | asset_url}}" alt="logo" width="69" height="26" alt="Glowing">
-            </a>
+           
 
             <nav class="navbar">
+              <a href="/" class="logo">
+                <img src="{{'MainLogo_png.svg' | asset_url}}" alt="logo" width="69" height="26" alt="Glowing">
+            </a>
               <ul class="navbar-list">
                   {% for link in linklists['main-menu'].links %}
                     <li class="navbar-link has-after">{{link.title | link_to: link.url}}</li>
                    {% endfor %}
               </ul>
-          </nav>
-          {% comment %} <div class="input-wrapper">
-              <button class="search-submit" arial-label="search">
-               <ion-icon name="search-outline" aria-hidden="true"></ion-icon>
-              </button>
-              <form action='/search'>
-                 <input type="search" name="search" placeholder="Search..." class="search-field">    
-              </form>
-          </div> {% endcomment %}
-
-            <div class="header-actions">
+              <div class="header-actions">
                 <button class="header-action-btn" aria-label="cart-item" onclick="openCart()">
                     <ion-icon name="bag-handle-outline"  aria-hidden="true" aria-hidden="true" onclick="toggleCartbar()"></ion-icon>
                     {% comment %} <span class="btn-badge">0</span> {% endcomment %}
@@ -44,6 +35,17 @@
                 
               
             </div>
+          </nav>
+          {% comment %} <div class="input-wrapper">
+              <button class="search-submit" arial-label="search">
+               <ion-icon name="search-outline" aria-hidden="true"></ion-icon>
+              </button>
+              <form action='/search'>
+                 <input type="search" name="search" placeholder="Search..." class="search-field">    
+              </form>
+          </div> {% endcomment %}
+
+            
 
           
         </div>   
