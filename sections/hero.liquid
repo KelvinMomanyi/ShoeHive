@@ -293,36 +293,46 @@ addEventOnElem(window, "scroll", scrollReveal)
 
 document.addEventListener('DOMContentLoaded', function() {
   const heroSlider = document.querySelectorAll('.scrollbar-item');
+  const itemWidth = heroSlider[0].offsetWidth; // Assuming all items have the same width
+  const totalItems = heroSlider.length;
+
   let currentSlide = 0;
 
   function scrollToNextItem() {
-    // Calculate the width of each item (assuming all items have the same width)
-    const itemWidth = heroSlider[0].offsetWidth;
-
-    // Calculate the distance to move (relative to the item's width)
-    const distance = -itemWidth * currentSlide;
-
-    // Apply the translation to all items in the slider
+    // Move all items to the left
     heroSlider.forEach((item, index) => {
-      item.style.transform = `translateX(${distance}px)`;
-      item.style.transition = 'transform 0.5s ease-in-out'; // Smooth transition for the scroll
+      let newPosition = (index - currentSlide) * itemWidth; // Calculate the new position
+      item.style.transform = `translateX(${newPosition}px)`;
+      item.style.transition = 'transform 0.5s ease-in-out';
     });
 
     // Increment the slide index
     currentSlide++;
 
-    // If we reach the end, reset to the first slide
-    if (currentSlide >= heroSlider.length) {
+    // If we've reached the end, reset the position
+    if (currentSlide >= totalItems) {
       currentSlide = 0;
+      // Reset the positions of all items instantly after the last transition
+      setTimeout(() => {
+        heroSlider.forEach((item, index) => {
+          let resetPosition = (index - currentSlide) * itemWidth;
+          item.style.transform = `translateX(${resetPosition}px)`;
+          item.style.transition = 'none'; // Disable transition for the reset
+        });
+      }, 500); // Match the timeout with the duration of the transition
     }
   }
 
-  // Initially scroll to the first item
-  scrollToNextItem();
+  // Initially position the items
+  heroSlider.forEach((item, index) => {
+    let initialPosition = index * itemWidth;
+    item.style.transform = `translateX(${initialPosition}px)`;
+  });
 
   // Set an interval to scroll to the next item every 3 seconds
   setInterval(scrollToNextItem, 3000);
 });
+
 
 
 
