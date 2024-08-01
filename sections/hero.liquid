@@ -316,7 +316,7 @@ document.addEventListener('DOMContentLoaded', function() {
       // Reset the positions of all items instantly after the last transition
       setTimeout(() => {
         heroSlider.forEach((item, index) => {
-          let resetPosition = (index - currentSlide) * itemWidth;
+          let resetPosition = -(itemWidth * index);
           item.style.transform = `translateX(${resetPosition}px)`;
           item.style.transition = 'none'; // Disable transition for the reset
         });
