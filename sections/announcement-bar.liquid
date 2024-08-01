@@ -22,9 +22,19 @@
     background-color:{{section.settings.background}};
     color:{{section.settings.text_color}};
   }
-   .alert-text{
+  .alert-text.visible {
+    left: 40%; /* Move to the visible position */
+    opacity: 1; /* Fade in */
+  }
+   {% comment %} .alert-text{
    width:100%;
-   }
+   } {% endcomment %}
+   .alert-text {
+    position: absolute;
+    left: -100%; /* Start off-screen */
+    opacity: 0; /* Start invisible */
+    transition: left 0.5s ease-in-out, opacity 0.5s ease-in-out;
+  }
   .slider-wrapper{
    position:relative;
    height:18px;
@@ -75,24 +85,18 @@
   const texts = [text1, text2, text3];
   let currentIndex = 0;
 
-  // Apply CSS styles for smoother transitions
-  texts.forEach(text => {
-    text.style.position = 'absolute';
-    text.style.transition = 'left 0.5s ease-in-out';
-  });
-
-  function slideToMiddle(element){
-    element.style.left = '40%';
+  function slideToMiddle(element) {
+    element.classList.add('visible');
   }
 
-  function resetPosition(element){
-    element.style.left = '-100%';
+  function resetPosition(element) {
+    element.classList.remove('visible');
   }
 
-  function slideText(){
-    resetPosition(texts[currentIndex]);
+  function slideText() {
+    resetPosition(texts[currentIndex]); // Hide the current text
     currentIndex = (currentIndex + 1) % texts.length;
-    slideToMiddle(texts[currentIndex]);
+    slideToMiddle(texts[currentIndex]); // Show the next text
   }
 
   // Initially, display the first element in the middle
@@ -101,6 +105,7 @@
   // Change text every 3 seconds
   setInterval(slideText, 3000);
 });
+
 </script>
 {% schema %}
 {
