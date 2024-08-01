@@ -310,36 +310,17 @@ document.addEventListener('DOMContentLoaded', function() {
     // Increment the slide index
     currentSlide++;
 
-     // If we've reached the end, reset the position
-     if (currentSlide >= totalItems) {
-      // Wait for the end of the transition before resetting
-      setTimeout(() => {
-        // Reset all items to their starting position
-        heroSlider.forEach((item, index) => {
-          let resetPosition = -(itemWidth  * index);
-          item.style.transform = `translateX(${resetPosition}px)`;
-          item.style.transition = 'none'; // Disable transition for the reset
-        });
-
-        // Immediately set the transform for the container to the start
-        container.style.transform = `translateX(0)`;
-
-        // Reset the currentSlide index
-        currentSlide = 0;
-
-        // Force a reflow to ensure the reset position takes effect immediately
-        container.offsetHeight; // Trigger reflow
-
-        // Re-enable the transition for smooth scrolling
-        heroSlider.forEach((item) => {
-          item.style.transition = 'transform 0.5s ease-in-out';
-        });
-      }, 500); // Match the timeout with the duration of the transition
+    // If we've reached the end, reset the position
+    if (currentSlide >= totalItems) {
+      currentSlide = 0;
+      // Reset the positions of all items instantly after the last transition
+      heroSlider.forEach((item, index) => {
+        let resetPosition = -itemWidth * index);
+        item.style.transform = `translateX(${resetPosition}px)`;
+        item.style.transition = 'none'; // Disable transition for the reset
+      }); // Match the timeout with the duration of the transition
     }
   }
-
-  // Initialize container width based on total width of items
-  container.style.width = `${(itemWidth) * totalItems}px`;
 
   // Initially position the items
   heroSlider.forEach((item, index) => {
