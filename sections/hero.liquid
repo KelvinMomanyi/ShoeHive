@@ -287,6 +287,19 @@ const scrollReveal = function(){
 scrollReveal();
 
 addEventOnElem(window, "scroll", scrollReveal)
+
+
+
+
+
+//Automatic Scroll
+document.addEventListener('DOMContentLoaded', function() {
+  // Get the specific item you want to scroll to
+  const targetItem = document.querySelector('.scrollbar-item');
+
+  // Scroll to the target item smoothly
+  targetItem.scrollIntoView({ behavior: 'smooth', block: 'start' });
+});
 </script>
 
 {% schema %}
