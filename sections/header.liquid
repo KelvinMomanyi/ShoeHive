@@ -109,25 +109,18 @@
              </div>
 
              <ul class="navbar-list">
-               {% comment %} <li>
-                  <a href="/" class="navbar-link" data-nav-link>Home</a>
-               </li>
-               <li>
-                  <a href="/pages/main-collection" class="navbar-link" data-nav-link>Collection</a>
-               </li>
-               <li>
-                  <a href="#shop" class="navbar-link" data-nav-link>Shop</a>
-               </li>
-               <li>
-                  <a href="#offer" class="navbar-link" data-nav-link>Offer</a>
-               </li>
-               <li>
-                  <a href="#blog" class="navbar-link" data-nav-link>Blog</a>
-               </li> {% endcomment %}
                {% for link in linklists['main-menu'].links %}
                 <li class="navbar-link" data-nav-link>{{link.title | link_to: link.url}}</li>
                {% endfor %}
              </ul>
+             <div class="input-wrapper">
+              <button class="search-submit" arial-label="search">
+               <ion-icon name="search-outline" aria-hidden="true"></ion-icon>
+              </button>
+              <form action='/search'>
+                 <input type="search" name="search" placeholder="Search..." class="search-field">    
+              </form>
+           </div>
           </div>
           <div class="overlay" data-nav-toggler data-overlay>
 
