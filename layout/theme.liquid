@@ -34,7 +34,7 @@
   <main role="main">
     {{ content_for_layout }}
     {% comment %} Include CSS once, if needed {% endcomment %}
-    {{ 'application.css' | asset_url | stylesheet_tag }}
+    {% comment %} {{ 'application.css' | asset_url | stylesheet_tag }} {% endcomment %}
   </main>
   {% sections 'aside-group' %}
   {% sections 'footer-group' %}
