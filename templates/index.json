@@ -1,10 +1,6 @@
 
 {
   "sections": {
-    // "header": {
-    //   "type": "header",
-    //   "settings": {}
-    // },
     "hero": {
       "type": "hero",
       "settings": {}
@@ -35,7 +31,6 @@
     }
   },
   "order": [
-    // "header",
     "hero",
     "collection",
     "shop",
@@ -43,6 +38,5 @@
     "feature",
     "offer",
     "blog"
-
   ]
 }
