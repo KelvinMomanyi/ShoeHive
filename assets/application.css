@@ -1481,7 +1481,10 @@
     gap: 40px;
    }
   
-   .header-action-btn {position: relative;}
+   .header-action-btn {
+    position: relative;
+    font-size: 2rem;
+  }
   
    .header-action-btn .btn-badge {
     position: absolute;
