@@ -32,10 +32,7 @@
 <body id="top">
   {% sections 'header-group' %}
   <main role="main">
-    {% block content %}
     {{ content_for_layout }}
-  {% endblock %}
-    {% comment %} {{ content_for_layout }} {% endcomment %}
     {% comment %} Include CSS once, if needed {% endcomment %}
     {{ 'application.css' | asset_url | stylesheet_tag }}
   </main>
