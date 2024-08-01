@@ -2,9 +2,11 @@
  <header>
     <div class="alert">
         <div class="container">
-          <div class="alert-text" id="text1"><p>Members: Free Shipping!</p></div>
-          <div class="alert-text" id="text2"><p>Save Up to 40%</p></div>
-          <div class="alert-text" id="text3"><p>Get your Gear Faster</p></div>
+          <div class="slider-wrapper">
+             <div class="alert-text" id="text1"><p>Members: Free Shipping!</p></div>
+             <div class="alert-text" id="text2"><p>Save Up to 40%</p></div>
+             <div class="alert-text" id="text3"><p>Get your Gear Faster</p></div>
+          </div>
             {% comment %} <p class="alert-text">Free Shipping On All U.S. Orders $50+</p> {% endcomment %}
         </div>
     </div>
@@ -16,15 +18,43 @@
     background-color:{{section.settings.background}};
     color:{{section.settings.text_color}};
   }
-
-  #text1, #text2, #text3 {
-    width: 100px; /* Adjust the width according to your needs */
-    height: 50px; /* Adjust the height according to your needs */
-    position: absolute;
-    top: 50%; /* Center vertically */
-    transform: translateY(-50%); /* Adjust for vertical centering */
-    transition: left 0.5s ease-in-out;
+  .slider-wrapper {
+    position: relative;
+    width: 100%; /* Or a specific width */
+    height: 200px; /* Or a specific height */
+    overflow: hidden; /* To hide the sliding elements when out of bounds */
   }
+  
+  .text {
+    position: absolute;
+    width: 100px; /* Adjust based on your content */
+    height: 50px; /* Adjust based on your content */
+    top: 50%; /* Center vertically */
+    left: 50%; /* Start at the middle */
+    transform: translate(-50%, -50%); /* Center horizontally and vertically */
+    transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out;
+    opacity: 0; /* Start hidden */
+  }
+  
+  .text.active {
+    opacity: 1; /* Fade in when active */
+  }
+  
+  .text.enter {
+    transform: translate(-50%, -50%) scale(1.2); /* Start with a scale-up effect */
+    opacity: 0;
+  }
+  
+  .text.middle {
+    transform: translate(-50%, -50%) scale(1); /* Normal size at the middle */
+    opacity: 1;
+  }
+  
+  .text.exit {
+    transform: translate(150%, -50%) scale(1.2); /* Slide out to the right */
+    opacity: 0;
+  }
+  
   
 </style>
 <script>
