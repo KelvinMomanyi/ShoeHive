@@ -1487,8 +1487,8 @@
     position: absolute;
     top: 0;
     right: -10px;
-    background-color: var(--black);
-    color: var(--white);
+    background-color: transparent;
+    color: transparent;
     font-size: var(--fs-9);
     min-width: 18px;
     height: 18px;
