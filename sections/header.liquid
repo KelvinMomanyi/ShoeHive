@@ -12,6 +12,13 @@
                 <img src="{{'MainLogo_png.svg' | asset_url}}" alt="logo" width="69" height="26" alt="Glowing">
             </a>
             
+            <nav class="navbar">
+              <ul class="navbar-list">
+                  {% for link in linklists['main-menu'].links %}
+                    <li class="navbar-link has-after">{{link.title | link_to: link.url}}</li>
+                   {% endfor %}
+              </ul>
+          </nav>
           <div class="input-wrapper">
               <button class="search-submit" arial-label="search">
                <ion-icon name="search-outline" aria-hidden="true"></ion-icon>
@@ -38,13 +45,7 @@
               
             </div>
 
-            <nav class="navbar">
-                <ul class="navbar-list">
-                    {% for link in linklists['main-menu'].links %}
-                      <li class="navbar-link has-after">{{link.title | link_to: link.url}}</li>
-                     {% endfor %}
-                </ul>
-            </nav>
+          
         </div>   
     </div>
 </header>
