@@ -1483,7 +1483,7 @@
   
    .header-action-btn {position: relative;}
   
-   /* .header-action-btn .btn-badge {
+   .header-action-btn .btn-badge {
     position: absolute;
     top: 0;
     right: -10px;
@@ -1494,7 +1494,7 @@
     height: 18px;
     line-height: 1.4;
     border-radius: 20px;
-   } */
+   } 
   
    .header-action-btn:first-child{
     display: flex;
