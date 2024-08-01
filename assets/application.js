@@ -152,7 +152,7 @@ addEventOnElem(window, "scroll", scrollReveal)
 
 
 
-document.addEventListener('DOMContentLoaded', function(){
+ocument.addEventListener('DOMContentLoaded', function(){
   const text1 = document.getElementById('text1');
   const text2 = document.getElementById('text2');
   const text3 = document.getElementById('text3');
@@ -160,27 +160,29 @@ document.addEventListener('DOMContentLoaded', function(){
   const texts = [text1, text2, text3];
   let currentIndex = 0;
 
-  function setClasses(element, classes) {
-    element.className = `text ${classes}`;
+  // Apply CSS styles for smoother transitions
+  texts.forEach(text => {
+    text.style.position = 'absolute';
+    text.style.transition = 'left 0.5s ease-in-out';
+  });
+
+  function slideToMiddle(element){
+    element.style.left = '40%';
   }
 
-  function slideText() {
-    const previousIndex = currentIndex;
+  function resetPosition(element){
+    element.style.left = '-100%';
+  }
+
+  function slideText(){
+    resetPosition(texts[currentIndex]);
     currentIndex = (currentIndex + 1) % texts.length;
-
-    setClasses(texts[previousIndex], 'exit'); // Slide out the previous text
-    setClasses(texts[currentIndex], 'enter'); // Prepare the next text to slide in
-
-    // After a brief delay, move the next text to the middle
-    setTimeout(() => {
-      setClasses(texts[currentIndex], 'middle');
-    }, 20); // 20ms to ensure the browser registers the change
+    slideToMiddle(texts[currentIndex]);
   }
 
-  // Initially, set the first text to be in the middle
-  setClasses(texts[currentIndex], 'middle');
+  // Initially, display the first element in the middle
+  slideToMiddle(texts[currentIndex]);
 
   // Change text every 3 seconds
   setInterval(slideText, 3000);
-});
-
+});d
