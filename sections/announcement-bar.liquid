@@ -40,7 +40,7 @@
   
 </style>
 <script>
-  document.addEventListener('DOMContentLoaded', function(){
+  {% comment %} document.addEventListener('DOMContentLoaded', function(){
     const text1 = document.getElementById('text1');
     const text2 = document.getElementById('text2');
     const text3 = document.getElementById('text3')
@@ -66,7 +66,41 @@
    
    setInterval(slideText, 3000)
 
- })
+ }) {% endcomment %}
+ document.addEventListener('DOMContentLoaded', function(){
+  const text1 = document.getElementById('text1');
+  const text2 = document.getElementById('text2');
+  const text3 = document.getElementById('text3');
+
+  const texts = [text1, text2, text3];
+  let currentIndex = 0;
+
+  // Apply CSS styles for smoother transitions
+  texts.forEach(text => {
+    text.style.position = 'absolute';
+    text.style.transition = 'left 0.5s ease-in-out';
+  });
+
+  function slideToMiddle(element){
+    element.style.left = '40%';
+  }
+
+  function resetPosition(element){
+    element.style.left = '-100%';
+  }
+
+  function slideText(){
+    resetPosition(texts[currentIndex]);
+    currentIndex = (currentIndex + 1) % texts.length;
+    slideToMiddle(texts[currentIndex]);
+  }
+
+  // Initially, display the first element in the middle
+  slideToMiddle(texts[currentIndex]);
+
+  // Change text every 3 seconds
+  setInterval(slideText, 3000);
+});
 </script>
 {% schema %}
 {
