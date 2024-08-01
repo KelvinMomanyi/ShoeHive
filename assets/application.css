@@ -679,7 +679,7 @@
     padding:100px 15px;
     background-position: 40%;
     transform: scale(1.1);
-    animation: smoothScale 10s linear infinite;
+    animation: smoothScale 5s linear infinite;
   }
   
   @keyframes smoothScale {
