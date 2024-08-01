@@ -160,29 +160,27 @@ document.addEventListener('DOMContentLoaded', function(){
   const texts = [text1, text2, text3];
   let currentIndex = 0;
 
-  // Apply CSS styles for smoother transitions
-  texts.forEach(text => {
-    text.style.position = 'absolute';
-    text.style.transition = 'left 0.5s ease-in-out';
-  });
-
-  function slideToMiddle(element){
-    element.style.left = '40%';
+  function setClasses(element, classes) {
+    element.className = `text ${classes}`;
   }
 
-  function resetPosition(element){
-    element.style.left = '-100%';
-  }
-
-  function slideText(){
-    resetPosition(texts[currentIndex]);
+  function slideText() {
+    const previousIndex = currentIndex;
     currentIndex = (currentIndex + 1) % texts.length;
-    slideToMiddle(texts[currentIndex]);
+
+    setClasses(texts[previousIndex], 'exit'); // Slide out the previous text
+    setClasses(texts[currentIndex], 'enter'); // Prepare the next text to slide in
+
+    // After a brief delay, move the next text to the middle
+    setTimeout(() => {
+      setClasses(texts[currentIndex], 'middle');
+    }, 20); // 20ms to ensure the browser registers the change
   }
 
-  // Initially, display the first element in the middle
-  slideToMiddle(texts[currentIndex]);
+  // Initially, set the first text to be in the middle
+  setClasses(texts[currentIndex], 'middle');
 
   // Change text every 3 seconds
   setInterval(slideText, 3000);
 });
+
