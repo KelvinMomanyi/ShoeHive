@@ -2,7 +2,10 @@
  <header>
     <div class="alert">
         <div class="container">
-            <p class="alert-text">Free Shipping On All U.S. Orders $50+</p>
+          <div class="slide-text" id="text1"><p>Members: Free Shipping!</p></div>
+          <div class="slide-text" id="text2"><p>Save Up to 40%</p></div>
+          <div class="slide-text" id="text3"><p>Get your Gear Faster</p></div>
+            {% comment %} <p class="alert-text">Free Shipping On All U.S. Orders $50+</p> {% endcomment %}
         </div>
     </div>
  </header>
@@ -14,6 +17,35 @@
     color:{{section.settings.text_color}};
   }
 </style>
+<script>
+  document.addEventListener('DOMContentLoaded', function(){
+    const text1 = document.getElementById('text1');
+    const text2 = document.getElementById('text2');
+    const text3 = document.getElementById('text3')
+
+    const texts = [text1, text2, text3]
+    let currentIndex = 0;
+ 
+   function slideToMiddle(element){
+     element.style.left = '40%'
+   }
+   
+   function resetPosition(element){
+     element.style.left = '-100%'
+   }
+
+   function slideText(){
+     resetPosition(texts[currentIndex])
+     currentIndex = (currentIndex + 1) % texts.length
+     slideToMiddle(texts[currentIndex])
+   }
+
+   slideToMiddle(texts[currentIndex])
+   
+   setInterval(slideText, 3000)
+
+ })
+</script>
 {% schema %}
 {
   "name": "announcement-bar",
