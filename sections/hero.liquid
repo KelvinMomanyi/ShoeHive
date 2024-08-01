@@ -300,7 +300,12 @@ document.addEventListener('DOMContentLoaded', function() {
     heroSlider[currentSlide].scrollIntoView({ behavior: 'smooth', block: 'start' });
 
     // Increment the slide index
-    currentSlide = (currentSlide + 1) % heroSlider.length; // Loop back to the start when reaching the end
+    currentSlide++;
+
+    // If we reach the end, reset to the first slide
+    if (currentSlide >= heroSlider.length) {
+      currentSlide = 0;
+    }
   }
 
   // Initially scroll to the first item
@@ -309,6 +314,7 @@ document.addEventListener('DOMContentLoaded', function() {
   // Set an interval to scroll to the next item every 3 seconds
   setInterval(scrollToNextItem, 3000);
 });
+
 
 </script>
 
