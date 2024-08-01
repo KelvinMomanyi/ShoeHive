@@ -293,20 +293,16 @@ addEventOnElem(window, "scroll", scrollReveal)
 
 document.addEventListener('DOMContentLoaded', function() {
   const heroSlider = document.querySelectorAll('.scrollbar-item');
-  const itemWidth = window.innerWidth; // Full screen width
-  const padding = 15; // Padding on each side
+  const itemWidth = window.innerWidth; // Assuming all items have the same width
   const totalItems = heroSlider.length;
-  const container = document.querySelector('.scrollbar-container');
 
   let currentSlide = 0;
 
   function scrollToNextItem() {
-    // Calculate the distance to move (based on itemWidth and padding)
-    const distance = -(itemWidth + 2 * padding) * currentSlide;
-
     // Move all items to the left
     heroSlider.forEach((item, index) => {
-      item.style.transform = `translateX(${distance}px)`;
+      let newPosition = (index - currentSlide) * itemWidth; // Calculate the new position
+      item.style.transform = `translateX(${newPosition}px)`;
       item.style.transition = 'transform 0.5s ease-in-out';
     });
 
@@ -316,10 +312,10 @@ document.addEventListener('DOMContentLoaded', function() {
     // If we've reached the end, reset the position
     if (currentSlide >= totalItems) {
       currentSlide = 0;
-      // Immediately reset the positions of all items without transition
+      // Reset the positions of all items instantly after the last transition
       setTimeout(() => {
         heroSlider.forEach((item, index) => {
-          let resetPosition = -(itemWidth + 2 * padding) * index;
+          let resetPosition = (index - currentSlide) * itemWidth;
           item.style.transform = `translateX(${resetPosition}px)`;
           item.style.transition = 'none'; // Disable transition for the reset
         });
@@ -327,12 +323,9 @@ document.addEventListener('DOMContentLoaded', function() {
     }
   }
 
-  // Initialize container width based on total width of items
-  container.style.width = `${(itemWidth + 2 * padding) * totalItems}px`;
-
   // Initially position the items
   heroSlider.forEach((item, index) => {
-    let initialPosition = -(itemWidth + 2 * padding) * index;
+    let initialPosition = index * itemWidth;
     item.style.transform = `translateX(${initialPosition}px)`;
   });
 
