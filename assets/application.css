@@ -678,13 +678,7 @@
     background-color: var(--light-gray);
     padding:100px 15px;
     background-position: 40%;
-    transform: scale(1.1);
-    animation: smoothScale 5s linear infinite;
-  }
-  
-  @keyframes smoothScale {
-    0% { transform: scale(1); }
-    100% { transform: scale(1.1); }
+   
   }
   
   .hero-text{
