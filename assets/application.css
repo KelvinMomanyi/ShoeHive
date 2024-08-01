@@ -1478,12 +1478,12 @@
    .header-actions{
     display: flex;
     align-items: center;
-    gap: 40px;
+    gap: 20px;
    }
   
    .header-action-btn {
     position: relative;
-    font-size: 2rem;
+    font-size: 4rem;
   }
   
    .header-action-btn .btn-badge {
