@@ -314,11 +314,13 @@ document.addEventListener('DOMContentLoaded', function() {
     if (currentSlide >= totalItems) {
       currentSlide = 0;
       // Reset the positions of all items instantly after the last transition
-      heroSlider.forEach((item, index) => {
-        let resetPosition = -itemWidth * index);
-        item.style.transform = `translateX(${resetPosition}px)`;
-        item.style.transition = 'none'; // Disable transition for the reset
-      }); // Match the timeout with the duration of the transition
+      setTimeout(() => {
+        heroSlider.forEach((item, index) => {
+          let resetPosition = (index - currentSlide) * itemWidth;
+          item.style.transform = `translateX(${resetPosition}px)`;
+          item.style.transition = 'none'; // Disable transition for the reset
+        });
+      }, 500); // Match the timeout with the duration of the transition
     }
   }
 
