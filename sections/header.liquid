@@ -17,15 +17,14 @@
                 <img src="{{'MainLogo_png.svg' | asset_url}}" alt="logo" width="69" height="26" alt="Glowing">
             </a>
             
-          <div class="input-wrapper">
+          {% comment %} <div class="input-wrapper">
               <button class="search-submit" arial-label="search">
                <ion-icon name="search-outline" aria-hidden="true"></ion-icon>
               </button>
               <form action='/search'>
                  <input type="search" name="search" placeholder="Search product" class="search-field">    
               </form>
-               
-            </div>
+          </div> {% endcomment %}
 
             <div class="header-actions">
                 <button class="header-action-btn" aria-label="cart-item" onclick="openCart()">
