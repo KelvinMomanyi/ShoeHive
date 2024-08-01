@@ -28,11 +28,7 @@
     "blog":{
       "type":"blog",
       "settings":{}
-    },
-   "aside-group": {  /* Ensure this is included */
-    "type": "aside-group",
-    "settings": {}
-  }
+    }
   },
   "order": [
     "hero",
@@ -41,7 +37,6 @@
     "banner",
     "feature",
     "offer",
-    "blog",
-    "aside-group"
+    "blog"
   ]
 }
