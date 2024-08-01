@@ -291,15 +291,25 @@ addEventOnElem(window, "scroll", scrollReveal)
 
 
 
-
-//Automatic Scroll
 document.addEventListener('DOMContentLoaded', function() {
-  // Get the specific item you want to scroll to
-  const targetItem = document.querySelector('.scrollbar-item');
+  const heroSlider = document.querySelectorAll('.scrollbar-item');
+  let currentSlide = 0;
 
-  // Scroll to the target item smoothly
-  targetItem.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  function scrollToNextItem() {
+    // Scroll to the current slide
+    heroSlider[currentSlide].scrollIntoView({ behavior: 'smooth', block: 'start' });
+
+    // Increment the slide index
+    currentSlide = (currentSlide + 1) % heroSlider.length; // Loop back to the start when reaching the end
+  }
+
+  // Initially scroll to the first item
+  scrollToNextItem();
+
+  // Set an interval to scroll to the next item every 3 seconds
+  setInterval(scrollToNextItem, 3000);
 });
+
 </script>
 
 {% schema %}
