@@ -1450,7 +1450,7 @@
   
   
   
-   .search-field::placeholder{color: var(--spanish-gray);}
+   .search-field::placeholder{color: var(--spanish-gray); font-size: small;}
   
    
    .search-field:focus {border-color: var(--black);}
