@@ -155,27 +155,34 @@ addEventOnElem(window, "scroll", scrollReveal)
 document.addEventListener('DOMContentLoaded', function(){
   const text1 = document.getElementById('text1');
   const text2 = document.getElementById('text2');
-  const text3 = document.getElementById('text3')
+  const text3 = document.getElementById('text3');
 
-  const texts = [text1, text2, text3]
+  const texts = [text1, text2, text3];
   let currentIndex = 0;
 
- function slideToMiddle(element){
-   element.style.left = '40%'
- }
- 
- function resetPosition(element){
-   element.style.left = '-100%'
- }
+  // Apply CSS styles for smoother transitions
+  texts.forEach(text => {
+    text.style.position = 'absolute';
+    text.style.transition = 'left 0.5s ease-in-out';
+  });
 
- function slideText(){
-   resetPosition(texts[currentIndex])
-   currentIndex = (currentIndex + 1) % texts.length
-   slideToMiddle(texts[currentIndex])
- }
+  function slideToMiddle(element){
+    element.style.left = '40%';
+  }
 
- slideToMiddle(texts[currentIndex])
- 
- setInterval(slideText, 3000)
+  function resetPosition(element){
+    element.style.left = '-100%';
+  }
 
-})
+  function slideText(){
+    resetPosition(texts[currentIndex]);
+    currentIndex = (currentIndex + 1) % texts.length;
+    slideToMiddle(texts[currentIndex]);
+  }
+
+  // Initially, display the first element in the middle
+  slideToMiddle(texts[currentIndex]);
+
+  // Change text every 3 seconds
+  setInterval(slideText, 3000);
+});
