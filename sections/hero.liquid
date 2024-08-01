@@ -291,13 +291,22 @@ addEventOnElem(window, "scroll", scrollReveal)
 
 
 
-{% comment %} document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function() {
   const heroSlider = document.querySelectorAll('.scrollbar-item');
   let currentSlide = 0;
 
   function scrollToNextItem() {
-    // Scroll to the current slide
-    heroSlider[currentSlide].scrollIntoView({ behavior: 'smooth', block: 'start' });
+    // Calculate the width of each item (assuming all items have the same width)
+    const itemWidth = heroSlider[0].offsetWidth;
+
+    // Calculate the distance to move (relative to the item's width)
+    const distance = -itemWidth * currentSlide;
+
+    // Apply the translation to all items in the slider
+    heroSlider.forEach((item, index) => {
+      item.style.transform = `translateX(${distance}px)`;
+      item.style.transition = 'transform 0.5s ease-in-out'; // Smooth transition for the scroll
+    });
 
     // Increment the slide index
     currentSlide++;
@@ -313,7 +322,8 @@ addEventOnElem(window, "scroll", scrollReveal)
 
   // Set an interval to scroll to the next item every 3 seconds
   setInterval(scrollToNextItem, 3000);
-}); {% endcomment %}
+});
+
 
 
 </script>
