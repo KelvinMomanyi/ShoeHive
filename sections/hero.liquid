@@ -64,7 +64,7 @@
         {% comment %} <img src="{{ 'shoe8.jpg' | asset_url }}" width="1880" height="950" alt="" class="img-cover hero-card has-bg-image"> {% endcomment %}
       </div>
 
-      <div class="">
+      <div class="card-content">
         <h1 class="h1 hero-title slider-reveal">
            Unveiling the <br/>
             Classy Shoe
@@ -165,9 +165,11 @@
   #HERO
 \*-----------------------------------*/
 .cardContent {
-position:absolute;
-top:20%;
-left:10;
+display:flex;
+flex-direction:column;
+justify-content:start;
+{% comment %} top:20%;
+left:10; {% endcomment %}
 }
 {% comment %} .hero-slider{
  position:relative;
