@@ -1422,10 +1422,10 @@
   
    .nav-open-btn {display: none;}
   
-   .header{
+   /* .header{
     padding-block-end: 30px;
     margin-block-end: 10px;
-   }
+   } */
   
    .header-top{
     position: unset;
