@@ -1551,7 +1551,7 @@
     transform: scaleX(1);
    }
   
-   .header-top.active {
+   .header-top.active .navbar{
     position: fixed;
     top: -80px;
     bottom: auto;
