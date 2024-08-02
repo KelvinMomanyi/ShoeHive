@@ -1551,11 +1551,11 @@
     transform: scaleX(1);
    }
   
-   .header-top.active .navbar{
+   .header-top.active .navbar,
+   .header-top.active .header-actions{
     position: fixed;
     top: -80px;
     bottom: auto;
-    width: 100%;
     padding-block: 28px;
     box-shadow: var(--shadow-1);
     transform: translateY(100%);
