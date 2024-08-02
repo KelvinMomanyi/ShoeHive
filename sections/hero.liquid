@@ -60,8 +60,8 @@
 
     <li class="slider-item active" data-hero-slider-item>
 
-      <div class="slider-bg">
-        <img src="{{ 'shoe8.jpg' | asset_url }}" width="1880" height="750" alt="" class="img-cover hero-card has-bg-image">
+      <div class="slider-bg hero-card has-bg-image" style="background-image: url('{{ 'shoe8.jpg' | asset_url }}'); background-attachment: fixed; background-size: cover; background-repeat: no-repeat; background-attachment: fixed; background-position: center;">
+        {% comment %} <img src="{{ 'shoe8.jpg' | asset_url }}" width="1880" height="950" alt="" class="img-cover hero-card has-bg-image"> {% endcomment %}
       </div>
 
       <p class="label-2 section-subtitle slider-reveal">Tradational & Hygine</p>
