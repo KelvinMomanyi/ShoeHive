@@ -1554,6 +1554,7 @@
    .header-top.active .navbar {
     position: fixed;
     top: -80px;
+    left: 0;
     bottom: auto;
     width: 100%; /* Ensures full width */
     padding-block: 28px;
