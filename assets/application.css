@@ -1552,17 +1552,17 @@
    }
   
    .header-top.active .navbar,
-   .header-top.active .header-actions,
-   .header-top.active .logo{
+.header-top.active .header-actions,
+.header-top.active .logo {
     position: fixed;
     top: -80px;
     bottom: auto;
-    width: auto;
-    /* padding-block: 28px; */
+    padding-block: 28px;
     box-shadow: var(--shadow-1);
     transform: translateY(100%);
     transition: var(--transition-2);
-   }
+}
+
   
    
    .header-top.header-hide .navbar{
