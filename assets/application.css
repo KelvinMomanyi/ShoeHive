@@ -1574,7 +1574,7 @@
    HERO
    */
   
-   .hero-card{padding: 60px 100px;}
+   .hero-card{padding: 120px 100px;}
    .hero-text {max-width: 40ch;}
   
    /*
@@ -1847,7 +1847,7 @@
    * HERO
    */
 
-  .hero { height: 880px; }
+  .hero { height: 680px; }
 
   .hero-btn {
     bottom: 50px;
