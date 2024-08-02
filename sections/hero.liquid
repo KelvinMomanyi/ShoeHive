@@ -132,17 +132,30 @@
       </a> {% endcomment %}
 
     </li>
-    <li class="slider-item" data-hero-slider-item>
+    <li class="slider-item active" data-hero-slider-item>
 
-      <div class="slider-bg">
-        <img  src="{{ 'shoes.jpg' | asset_url }}" width="1880" height="950" alt="" class="img-cover hero-card has-bg-image">
+      <div class="slider-bg hero-card has-bg-image" style="background-image: url('{{ 'shoes4.jpg' | asset_url }}'); background-attachment: fixed; background-size: cover; background-repeat: no-repeat; background-attachment: fixed; background-position: center;">
+        {% comment %} <img src="{{ 'shoe8.jpg' | asset_url }}" width="1880" height="950" alt="" class="img-cover hero-card has-bg-image"> {% endcomment %}
       </div>
 
-      <p class="label-2 section-subtitle slider-reveal">delightful experience</p>
+      <div class="card-content">
+        <h1 class="h1 hero-title slider-reveal">
+           Unveiling the <br/>
+            Classy Shoe
+         </h1>
+         <p class="hero-text slider-reveal">
+           Designed with clean, non-toxic materials, our shoes ensure style and comfort for everyone.
+         </p>
+         <p class="price slider-reveal"> Starting at $17.99</p>
+         <a href="#" class="btn btn-primary slider-reveal">Shop Now</a>
+      </div>
+
+
+      {% comment %} <p class="label-2 section-subtitle slider-reveal">Tradational & Hygine</p>
 
       <h1 class="display-1 hero-title slider-reveal">
-        Flavors Inspired by <br>
-        the Seasons
+        For the love of <br>
+        delicious food
       </h1>
 
       <p class="body-2 hero-text slider-reveal">
@@ -153,34 +166,12 @@
         <span class="text text-1">View Our Menu</span>
 
         <span class="text text-2" aria-hidden="true">View Our Menu</span>
-      </a>
+      </a> {% endcomment %}
 
     </li>
+   
 
-    <li class="slider-item" data-hero-slider-item>
-
-      <div class="slider-bg">
-        <img  src="{{ 'shoes4.jpg' | asset_url }}" width="1880" height="950" alt="" class="img-cover hero-card has-bg-image">
-      </div>
-
-      <p class="label-2 section-subtitle slider-reveal">amazing & delicious</p>
-
-      <h1 class="display-1 hero-title slider-reveal">
-        Where every flavor <br>
-        tells a story
-      </h1>
-
-      <p class="body-2 hero-text slider-reveal">
-        Come with family & feel the joy of mouthwatering food
-      </p>
-
-      <a href="#" class="btn btn-primary slider-reveal">
-        <span class="text text-1">View Our Menu</span>
-
-        <span class="text text-2" aria-hidden="true">View Our Menu</span>
-      </a>
-
-    </li>
+    
 
   </ul>
 
