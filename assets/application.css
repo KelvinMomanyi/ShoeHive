@@ -1551,16 +1551,23 @@
     transform: scaleX(1);
    }
   
-   .header-top.active .navbar{
+   .header-top.active {
     position: fixed;
     top: -80px;
     left: 0;
-    bottom: auto;
-    width: 100%; /* Ensures full width */
+    width: 100%;
+    display: flex;
+    justify-content: space-between; /* Space between navbar and header-actions */
+    align-items: center; /* Align items vertically center */
     padding-block: 28px;
     box-shadow: var(--shadow-1);
     transform: translateY(100%);
     transition: var(--transition-2);
+}
+
+.header-top.active .navbar,
+.header-top.active .header-actions {
+    flex: 1; /* Allows both to take up equal space */
 }
 
   
