@@ -169,10 +169,6 @@
       </a> {% endcomment %}
 
     </li>
-   
-
-    
-
   </ul>
 
   <button class="slider-btn prev" aria-label="slide to previous" data-prev-btn>
@@ -554,7 +550,7 @@ addEventOnElem(window, "scroll", scrollReveal)
 
 
 
-document.addEventListener('DOMContentLoaded', function() {
+{% comment %} document.addEventListener('DOMContentLoaded', function() {
   const heroSlider = document.querySelectorAll('.scrollbar-item');
   const itemWidth = window.innerWidth; // Assuming all items have the same width
   const totalItems = heroSlider.length;
@@ -595,7 +591,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
   // Set an interval to scroll to the next item every 3 seconds
   setInterval(scrollToNextItem, 3000);
-}); 
+});  {% endcomment %}
 
 
 
