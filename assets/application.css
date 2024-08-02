@@ -546,7 +546,7 @@
     box-shadow: var(--shadow-1);
     transform: translateY(100%);
     transition: var(--transition-2);
-    z-index: 3;
+ 
   }
   
   .header-top.header-hide{
@@ -1629,6 +1629,8 @@
 
 
   /*NEW STYLE*/
+
+  
   /*-----------------------------------*\
   #HERO
 \*-----------------------------------*/
