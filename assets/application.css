@@ -1557,8 +1557,8 @@
     position: fixed;
     top: -80px;
     bottom: auto;
-    width: 100%;
-    padding-block: 28px;
+    width: auto;
+    /* padding-block: 28px; */
     box-shadow: var(--shadow-1);
     transform: translateY(100%);
     transition: var(--transition-2);
