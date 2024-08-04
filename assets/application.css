@@ -1654,24 +1654,14 @@
   height: 100%;
   display: grid;
   place-content: start;
-  /* padding-block-start: 100px;
-  padding-inline-start: 20px; */
+  padding-block-start: 100px;
+  padding-inline-start: 20px;
   opacity: 0;
   visibility: hidden;
   transition: var(--transition-3);
   z-index: 1;
 }
-.hero .slider-item > h1,
-.hero .slider-item > p {
-  padding-block-start: 100px;
-  padding-inline-start: 20px;
-}
 
-/* Keep the <a> button unaffected */
-.hero .slider-item > a {
-  padding-block-start: 0;
-  padding-inline-start: 0;
-}
 .hero .slider-item.active {
   opacity: 1;
   visibility: visible;
