@@ -510,7 +510,7 @@
     #HEADER
   \*-----------------------------------*/
   .header .input-wrapper,
-  .header-action-btn:not(:first-child),
+  .header-action-btn:not(:last-child),
   .navbar {display: none;}
   
   .header{
