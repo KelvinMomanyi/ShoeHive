@@ -511,7 +511,7 @@
   \*-----------------------------------*/
   .header .input-wrapper,
   /* .header-action-btn:not(:first-child), */
-  .header-action-btn:nth-child(-n+2),
+  .header-action-btn:last-child,
   .navbar {display: none;}
   
   .header{
