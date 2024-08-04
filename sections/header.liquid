@@ -27,14 +27,15 @@
           </div>  {% endcomment %}
 
             <div class="header-actions" id='headerActions'>
+               <a href="/search" class="header-action-btn" aria-label="favourite-item">
+                <ion-icon name="search-outline" aria-hidden="true"></ion-icon>
+                {% comment %} <span class="btn-badge">0</span> {% endcomment %}
+                </a>
                 <button class="header-action-btn" aria-label="cart-item" onclick="openCart()">
                     <ion-icon name="bag-handle-outline"  aria-hidden="true" aria-hidden="true" onclick="toggleCartbar()"></ion-icon>
                     {% comment %} <span class="btn-badge">0</span> {% endcomment %}
                 </button>
-                <a href="/search" class="header-action-btn" aria-label="favourite-item">
-                    <ion-icon name="search-outline" aria-hidden="true"></ion-icon>
-                    {% comment %} <span class="btn-badge">0</span> {% endcomment %}
-                </a>
+
                 <button class="header-action-btn" aria-label="user" onclick="openModal()">
                     <ion-icon name="person-outline" aria-hidden="true"></ion-icon>
                 </button> 
