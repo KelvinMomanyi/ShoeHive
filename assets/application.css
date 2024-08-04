@@ -542,7 +542,7 @@
     left: 0;
     width: 100%;
     background-color:black;
-    padding-block: 26px 10px;
+    /* padding-block: 26px 10px; */
     z-index: 4;
   }
   
