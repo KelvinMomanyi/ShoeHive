@@ -1417,7 +1417,7 @@
   }
   
    .header .input-wrapper,
-   .header-action-btn:not(:first-child),
+   .header-action-btn:not(:first-child, :nth-child(2)),
    .navbar{display: block;}
   
   
@@ -1762,15 +1762,6 @@
 
  @media (min-width: 1200px) {
 
-
-
-
-
-  
-
-
-
-
   /**
    * HERO
    */
@@ -1782,15 +1773,5 @@
     right: 50px;
     transform: scale(1);
   }
-
-
-
 }
-
-
-
-
-/**
- * responsive for larger than 1400px screen
- */
 
