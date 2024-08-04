@@ -1646,9 +1646,7 @@
 
 .hero {
   position: relative;
-  /* padding-block: 120px; */
-  padding-block-start: 0; /* Removes the top padding */
-  padding-block-end: 120px;
+  padding-block: 120px;
   min-height: 80vh;
   overflow: hidden;
   z-index: 1;
