@@ -524,6 +524,11 @@
     position: relative;
     padding-block-end: 20px;
   }
+
+  /* .header{
+    position: relative;
+    padding-block-end: 80px;
+  } */
   
   .alert{
     /* background-color: var(--black);
@@ -1429,6 +1434,7 @@
   
   
    .nav-open-btn {display: none;}
+   
   
    .header{
     padding-block-end: 5px;
