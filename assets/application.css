@@ -1526,7 +1526,7 @@
     bottom: 0;
     left: 0;
     width: 100%; */
-    background-color: var(--white);
+    /* background-color: var(--white); */
     padding-block: 18px;
     z-index: 4;
    }
