@@ -542,7 +542,7 @@
     left: 0;
     width: 100%;
     background-color: var(--white);
-    padding-block: 26px;
+    padding-block: 6px;
     z-index: 4;
   }
   
