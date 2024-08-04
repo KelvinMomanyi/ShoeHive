@@ -514,6 +514,10 @@
   .header-action-btn:last-child,
   .navbar {display: none;}
   
+
+  .header-action-btn{
+    display: flex;
+  }
   .header{
     position: relative;
     padding-block-end: 80px;
