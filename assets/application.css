@@ -514,10 +514,12 @@
   .header-action-btn:last-child,
   .navbar {display: none;}
   
-
-  .header-action-btn{
+  .header-actions{
     display: flex;
-  }
+    align-items: center;
+    gap: 20px;
+   }
+
   .header{
     position: relative;
     padding-block-end: 80px;
