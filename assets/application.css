@@ -681,7 +681,7 @@
   /*-----------------------------------*\
     #HERO
   \*-----------------------------------*/
-  .hero{padding-block-start:0;}
+  /* .hero{padding-block-start:0;} */
   
   .hero-card{
     background-color: var(--light-gray);
