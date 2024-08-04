@@ -1752,9 +1752,9 @@
 
 .hero .slider-item.active .hero-text { animation-delay: 1.5s; }
 
-.hero .slider-item.active .btn { animation-delay: 2s; }
+.hero .slider-item.active .price { animation-delay: 2s; }
 
-.hero .slider-item.active .p { animation-delay: 2.5s; }
+.hero .slider-item.active .btn { animation-delay: 2.5s; }
 
 /**
  * responsive for larger than 1200px screen
