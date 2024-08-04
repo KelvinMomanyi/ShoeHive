@@ -1654,7 +1654,7 @@
   height: 100%;
   display: grid;
   place-content: start;
-  padding-block-start: 100px;
+  /* padding-block-start: 100px; */
   padding-inline-start: 20px;
   opacity: 0;
   visibility: hidden;
