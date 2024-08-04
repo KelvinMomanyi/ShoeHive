@@ -1424,7 +1424,7 @@
   }
   
    .header .input-wrapper,
-   .header-action-btn:not(:last-child),
+   .header-action-btn:last-child,
    .navbar{display: block;}
   
   
