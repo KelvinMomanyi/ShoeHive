@@ -1746,15 +1746,15 @@
   }
 }
 
-.hero .slider-item.active .section-subtitle { animation-delay: 500ms; }
+.hero .slider-item.active .section-subtitle { animation-delay: 100ms; }
 
-.hero .slider-item.active .hero-title { animation-delay: 1000ms; }
+.hero .slider-item.active .hero-title { animation-delay: 300ms; }
 
-.hero .slider-item.active .hero-text { animation-delay: 1.5s; }
+.hero .slider-item.active .hero-text { animation-delay: 700ms; }
 
-.hero .slider-item.active .price { animation-delay: 2s; }
+.hero .slider-item.active .price { animation-delay: 1s; }
 
-.hero .slider-item.active .btn { animation-delay: 2.5s;}
+.hero .slider-item.active .btn { animation-delay: 1.5;}
 
 /**
  * responsive for larger than 1200px screen
@@ -1853,11 +1853,11 @@
 
   .hero { height: 500px; }
 
-  /* .hero-btn {
+  .hero-btn {
     bottom: 50px;
     right: 50px;
     transform: scale(1);
-  } */
+  }
 
 
 
