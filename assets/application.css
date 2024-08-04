@@ -1754,7 +1754,7 @@
 
 .hero .slider-item.active .btn { animation-delay: 2s; }
 
-
+.hero .slider-item.active .p { animation-delay: 2.5s; }
 
 /**
  * responsive for larger than 1200px screen
