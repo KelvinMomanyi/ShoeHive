@@ -597,7 +597,7 @@
   .nav-open-btn .line-2{ width: 18px; animation-delay: 300ms;}
   
   .header-action-btn{
-    font-size: 28px;
+    font-size: 20px;
     transition: var(--transition-1);
   }
   
