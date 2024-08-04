@@ -1692,7 +1692,7 @@
 
 .hero-text { margin-block: 10px 40px; }
 
-.hero .btn { margin-inline: auto; }
+/* .hero .btn { margin-inline: auto; } */
 
 .hero-btn {
   position: absolute;
