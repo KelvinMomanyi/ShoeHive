@@ -681,7 +681,7 @@
   /*-----------------------------------*\
     #HERO
   \*-----------------------------------*/
-  /* .hero{padding-block-start:0;} */
+  .hero{padding-block-start:0;}
   
   .hero-card{
     background-color: var(--light-gray);
@@ -1646,7 +1646,7 @@
 
 .hero {
   position: relative;
-  padding-block: 120px;
+  /* padding-block: 120px; */
   min-height: 80vh;
   overflow: hidden;
   z-index: 1;
