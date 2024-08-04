@@ -1655,7 +1655,7 @@
   display: grid;
   place-content: start;
   padding-block-start: 100px;
-  /* padding-inline-start: 20px; */
+  padding-inline-start: 50px;
   opacity: 0;
   visibility: hidden;
   transition: var(--transition-3);
