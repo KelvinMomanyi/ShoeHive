@@ -538,10 +538,10 @@
   .header-top{
     position: absolute;
     bottom: 0;
-    /* height: auto; */
+    height: auto;
     left: 0;
     width: 100%;
-    background-color:black;
+    background-color:var(--white);
     padding-block: 26px 10px;
     z-index: 4;
   }
