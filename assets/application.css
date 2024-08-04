@@ -1432,7 +1432,7 @@
   
    .header{
     padding-block-end: 0px;
-    margin-block-end: 10px;
+    /* margin-block-end: 10px; */
    }
   
    .header-top{
