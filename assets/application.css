@@ -1653,7 +1653,7 @@
   width: 100%;
   height: 100%;
   display: grid;
-  place-content: start;
+  /* place-content: start; */
   padding-block-start: 100px;
   padding-inline-start: 20px;
   opacity: 0;
@@ -1754,7 +1754,7 @@
 
 .hero .slider-item.active .price { animation-delay: 2s; }
 
-.hero .slider-item.active .btn { animation-delay: 2.5s; align-items: start; }
+.hero .slider-item.active .btn { animation-delay: 2.5s;}
 
 /**
  * responsive for larger than 1200px screen
