@@ -1662,7 +1662,7 @@
   height: 100%;
   display: grid;
   place-content: start;
-  padding-block-start: 100px;
+  padding-block-start: 120px;
   padding-inline-start: 50px;
   opacity: 0;
   visibility: hidden;
