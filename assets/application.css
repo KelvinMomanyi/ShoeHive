@@ -522,7 +522,7 @@
 
   .header{
     position: relative;
-    padding-block-end: 20px;
+    padding-block-end: 80px;
   }
   
   .alert{
@@ -538,7 +538,7 @@
   .header-top{
     position: absolute;
     bottom: 0;
-    height: auto;
+    /* height: auto; */
     left: 0;
     width: 100%;
     background-color: var(--white);
