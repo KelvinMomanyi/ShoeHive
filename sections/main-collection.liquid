@@ -1,7 +1,5 @@
-<section class="hero text-center" aria-label="home" id="home">
-
+<section class="hero hero-small text-center" aria-label="home" id="home">
     <ul class="hero-slider" data-hero-slider>
-
       <li class="slider-item active" data-hero-slider-item>
 
         <div class="slider-bg hero-card has-bg-image" style="background-image: url('{{ 'shoe8.jpg' | asset_url }}'); background-attachment: fixed; background-size: cover; background-repeat: no-repeat; background-attachment: fixed; background-position: center;">
@@ -49,10 +47,17 @@
    <button class="slider-btn next" aria-label="slide to next" data-next-btn>
     <ion-icon name="chevron-forward"></ion-icon>
    </button>
+</section>
 
 
- </section>
+
+
+
+
+
 <div class="container">
+
+
 {% comment %} {% paginate collection.products by 8 %} {% endcomment %}
  {% comment %} PAGINATION ABOVE {% endcomment %}
      <section class="section shop" id="shop" aria-label="shop">
@@ -815,9 +820,10 @@
         </div>
     </div> {% endcomment %}
  <style>
-    .hero {
+    .hero-small {
         min-height: 30vh;
-      }
+    }
+    
     .collection-container {
         {% comment %} overflow-y: auto;  {% endcomment %}
         {% comment %} height: auto; {% endcomment %}
