@@ -1,5 +1,5 @@
 <div class="container">
-{% paginate collection.products by 8 %}
+{% comment %} {% paginate collection.products by 8 %} {% endcomment %}
      <section class="section shop" id="shop" aria-label="shop">
           <div class="container">
             
@@ -189,10 +189,10 @@
       </a>
     </div> {% endcomment %}
 
-  {% if paginate.pages > 1 %}
+  {% comment %} {% if paginate.pages > 1 %}
     {{ paginate | default_pagination }}
   {% endif %}
-{% endpaginate %}
+{% endpaginate %} {% endcomment %}
 </div>  
 
 
