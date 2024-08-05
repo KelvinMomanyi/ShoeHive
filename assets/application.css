@@ -554,7 +554,7 @@
   
   .header-top.active{
     position: fixed;
-    top: -135px;
+    top: -85px;
     bottom: auto;
     box-shadow: var(--shadow-1);
     transform: translateY(100%);
