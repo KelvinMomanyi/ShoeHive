@@ -64,9 +64,9 @@
           <div class="container">
             
             <div class="title-wrapper">
-                {% comment %} <h2 class="h2 section-title">{{ collection.title }}</h2> {% endcomment %}
+                <h2 class="h2 section-title">{{ collection.title }}</h2>
                 <a href="#" class="btn-link">
-                    <span class="span" style="padding:10px;">{% render 'sorting-filter' %}</span>
+                    {% render 'sorting-filter' %}
                     <ion-icon class="arrow-forward" aria-hidden="true"></ion-icon>
                 </a>
             </div>
