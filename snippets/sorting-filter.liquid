@@ -1,0 +1,83 @@
+<!-- sorting-filter.liquid -->
+
+<!-- Search Input -->
+<input type="text" id="sort-filter-input" placeholder="Search sorting options...">
+
+<!-- Sorting Options List -->
+<ul id="sort-options-list">
+  <li class="sort-option-item"><a href="?sort_by=best-selling">Best Selling</a></li>
+  <li class="sort-option-item"><a href="?sort_by=price-ascending">Price: Low to High</a></li>
+  <li class="sort-option-item"><a href="?sort_by=price-descending">Price: High to Low</a></li>
+  <li class="sort-option-item"><a href="?sort_by=title-ascending">Alphabetically, A-Z</a></li>
+  <li class="sort-option-item"><a href="?sort_by=title-descending">Alphabetically, Z-A</a></li>
+  <li class="sort-option-item"><a href="?sort_by=created-descending">Date: New to Old</a></li>
+  <li class="sort-option-item"><a href="?sort_by=created-ascending">Date: Old to New</a></li>
+</ul>
+
+<!-- JavaScript for Filtering -->
+<script>
+  document.getElementById('sort-filter-input').addEventListener('input', function() {
+    var filterValue = this.value.toLowerCase();
+    var sortItems = document.querySelectorAll('#sort-options-list .sort-option-item');
+
+    sortItems.forEach(function(item) {
+      if (item.textContent.toLowerCase().includes(filterValue)) {
+        item.style.display = '';
+      } else {
+        item.style.display = 'none';
+      }
+    });
+  });
+</script>
+
+<!-- CSS Styling -->
+<style>
+  #sort-filter-input {
+    width: 100%;
+    padding: 10px 15px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-bottom: 20px;
+    box-sizing: border-box;
+  }
+
+  #sort-options-list {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .sort-option-item {
+    margin-bottom: 10px;
+  }
+
+  .sort-option-item a {
+    text-decoration: none;
+    color: #333;
+    font-size: 16px;
+    padding: 10px;
+    display: block;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    transition: background-color 0.3s, border-color 0.3s;
+  }
+
+  .sort-option-item a:hover {
+    background-color: #f8f8f8;
+    border-color: #ccc;
+  }
+
+  /* Responsive styling */
+  @media (max-width: 768px) {
+    #sort-filter-input {
+      font-size: 14px;
+      padding: 8px 12px;
+    }
+
+    .sort-option-item a {
+      font-size: 14px;
+      padding: 8px;
+    }
+  }
+</style>
