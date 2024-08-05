@@ -188,3 +188,48 @@ addEventOnElem(window, "scroll", scrollReveal)
 //   // Change text every 3 seconds
 //   setInterval(slideText, 3000);
 // });
+
+
+
+
+document.addEventListener('DOMContentLoaded', function() {
+  var form = document.getElementById('add-to-cart-form');
+  var sideCart = document.getElementById('side-cart');
+  var closeCartButton = document.getElementById('close-cart');
+
+  form.addEventListener('submit', function(event) {
+    event.preventDefault();
+
+    var formData = new FormData(form);
+
+    fetch('/cart/add.js', {
+      method: 'POST',
+      body: formData,
+      headers: {
+        'Content-Type': 'application/x-www-form-urlencoded'
+      }
+    })
+    .then(response => response.json())
+    .then(data => {
+      console.log('Product added to cart:', data);
+      // Optionally update the side cart contents here
+      openCart();
+    })
+    .catch(error => console.error('Error adding product to cart:', error));
+  });
+
+  // function openSideCart() {
+  //   sideCart.classList.add('open');
+  // }
+
+  // closeCartButton.addEventListener('click', function() {
+  //   sideCart.classList.remove('open');
+  // });
+
+  // Optionally add a click event listener to close the cart when clicking outside of it
+  // document.addEventListener('click', function(event) {
+  //   if (!sideCart.contains(event.target) && !form.contains(event.target)) {
+  //     sideCart.classList.remove('open');
+  //   }
+  // });
+});
