@@ -1,18 +1,22 @@
 <!-- sorting-filter.liquid -->
 
-<!-- Search Input -->
-<input type="text" id="sort-filter-input" placeholder="Search sorting options...">
+<!-- Container for input and sorting options -->
+<div class="sort-filter-container">
+  <!-- Search Input -->
+  <input type="text" id="sort-filter-input" placeholder="Search sorting options..." autocomplete="off">
 
-<!-- Sorting Options List -->
-<ul id="sort-options-list">
-  <li class="sort-option-item"><a href="?sort_by=best-selling">Best Selling</a></li>
-  <li class="sort-option-item"><a href="?sort_by=price-ascending">Price: Low to High</a></li>
-  <li class="sort-option-item"><a href="?sort_by=price-descending">Price: High to Low</a></li>
-  <li class="sort-option-item"><a href="?sort_by=title-ascending">Alphabetically, A-Z</a></li>
-  <li class="sort-option-item"><a href="?sort_by=title-descending">Alphabetically, Z-A</a></li>
-  <li class="sort-option-item"><a href="?sort_by=created-descending">Date: New to Old</a></li>
-  <li class="sort-option-item"><a href="?sort_by=created-ascending">Date: Old to New</a></li>
-</ul>
+  <!-- Sorting Options List -->
+  <ul id="sort-options-list">
+    <li class="sort-option-item"><a href="?sort_by=best-selling">Best Selling</a></li>
+    <li class="sort-option-item"><a href="?sort_by=price-ascending">Price: Low to High</a></li>
+    <li class="sort-option-item"><a href="?sort_by=price-descending">Price: High to Low</a></li>
+    <li class="sort-option-item"><a href="?sort_by=title-ascending">Alphabetically, A-Z</a></li>
+    <li class="sort-option-item"><a href="?sort_by=title-descending">Alphabetically, Z-A</a></li>
+    <li class="sort-option-item"><a href="?sort_by=created-descending">Date: New to Old</a></li>
+    <li class="sort-option-item"><a href="?sort_by=created-ascending">Date: Old to New</a></li>
+  </ul>
+</div>
+
 
 <!-- JavaScript for Filtering -->
 <script>
@@ -32,24 +36,39 @@
 
 <!-- CSS Styling -->
 <style>
+  .sort-filter-container {
+    position: relative; /* Ensure the container is the reference for the absolute positioning */
+    width: 100%;
+  }
+
   #sort-filter-input {
     width: 100%;
     padding: 10px 15px;
     font-size: 16px;
     border: 1px solid #ccc;
     border-radius: 4px;
-    margin-bottom: 20px;
     box-sizing: border-box;
   }
 
   #sort-options-list {
+    position: absolute; /* Position the list absolutely */
+    top: 100%; /* Position it just below the input field */
+    left: 0;
+    width: 100%;
+    z-index: 1000; /* Ensure it appears above other elements */
     list-style-type: none;
     padding: 0;
     margin: 0;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    background-color: #fff;
+    max-height: 200px;
+    overflow-y: auto;
+    display: none; /* Initially hide the list */
   }
 
   .sort-option-item {
-    margin-bottom: 10px;
+    margin-bottom: 0; /* Remove bottom margin for a continuous list */
   }
 
   .sort-option-item a {
@@ -58,9 +77,12 @@
     font-size: 16px;
     padding: 10px;
     display: block;
-    border: 1px solid #ddd;
-    border-radius: 4px;
+    border-bottom: 1px solid #ddd;
     transition: background-color 0.3s, border-color 0.3s;
+  }
+
+  .sort-option-item a:last-child {
+    border-bottom: none; /* Remove bottom border from the last item */
   }
 
   .sort-option-item a:hover {
@@ -81,3 +103,4 @@
     }
   }
 </style>
+
