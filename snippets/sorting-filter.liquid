@@ -62,7 +62,10 @@
 <style>
   .sort-filter-container {
     position: relative; /* Ensure the container is the reference for the absolute positioning */
-    width: 40%;
+    width:100%;
+    display:flex;
+    justify-content:start;
+    align-items:start;
   }
 
   #sort-filter-input {
@@ -78,7 +81,7 @@
     position: absolute; /* Position the list absolutely */
     top: 100%; /* Position it just below the input field */
     left: 0;
-    width: 100%;
+    width: 40%;
     z-index: 1000; /* Ensure it appears above other elements */
     list-style-type: none;
     padding: 0;
