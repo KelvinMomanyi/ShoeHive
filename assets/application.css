@@ -138,7 +138,8 @@
     font-size: 1.6rem;
     font-weight: var(--fw-500);
     line-height: 1.6;
-    height: 300vh;
+    height: auto;
+    /* height: 300vh; */
   }
   
   
