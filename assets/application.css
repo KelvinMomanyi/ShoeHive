@@ -756,7 +756,7 @@
     justify-content: space-between;
     align-items: center;
     gap: 18px;
-    /* margin-block-end:50px; */
+    margin-block-end:50px;
   }
   
   .shop .btn-link:is(:hover, :focus){color: var(--hoockers-green);}
