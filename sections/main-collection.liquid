@@ -790,7 +790,8 @@
         .collection {
             grid-template-columns: repeat(2, 1fr);
         }
-    
+    }
+
     .card {
         background-color: #fff;
         border-radius: 10px;
@@ -828,7 +829,7 @@
 
 </style>    
 
-<script>
+{% comment %} <script>
     document.addEventListener('DOMContentLoaded', () => {
         const collectionContainer = document.querySelector('.collection-container');
         const collection = document.querySelector('.collection');
@@ -880,7 +881,7 @@
         loadMoreCards();
     });
     
-</script>
+</script> {% endcomment %}
       
       {% schema %}
       {
