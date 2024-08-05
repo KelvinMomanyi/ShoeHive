@@ -1,4 +1,4 @@
-<div class="container">
+{% comment %} <div class="container">
 {% paginate collection.products by 8 %}
      <section class="section shop" id="shop" aria-label="shop">
           <div class="container">
@@ -169,9 +169,9 @@
                {% endfor %}
             </ul>
           </div>
-      </section>
+      </section> {% endcomment %}
 
-
+{% comment %} part  1 above {% endcomment %}
 
 
 
@@ -185,11 +185,12 @@
       </a>
     </div> {% endcomment %}
 
-  {% if paginate.pages > 1 %}
+{% comment %} part  2 below {% endcomment %}
+  {% comment %} {% if paginate.pages > 1 %}
     {{ paginate | default_pagination }}
   {% endif %}
 {% endpaginate %}
-</div> 
+</div>  {% endcomment %}
 
 
 
@@ -738,6 +739,125 @@
           </ul>
         </div> 
       </section> {% endcomment %}
+
+      <div class="collection-container">
+        <div class="collection">
+            <!-- Example card -->
+            <div class="card">
+                <img src="image1.jpg" alt="Item 1">
+                <div class="card-content">
+                    <h3>Item 1</h3>
+                    <p>Description of item 1.</p>
+                </div>
+            </div>
+            <!-- More cards will be added dynamically here -->
+        </div>
+    </div>
+ <style>
+    .collection-container {
+        overflow-y: auto;
+        height: 100vh;
+        padding: 20px;
+        box-sizing: border-box;
+        background-color: #f9f9f9;
+    }
+    
+    .collection {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+        gap: 20px;
+    }
+    
+    .card {
+        background-color: #fff;
+        border-radius: 10px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        overflow: hidden;
+        opacity: 0;
+        transform: translateY(50px);
+        transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+    
+    .card.in-view {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    
+    .card img {
+        width: 100%;
+        height: auto;
+    }
+    
+    .card-content {
+        padding: 20px;
+    }
+    
+    .card h3 {
+        margin: 0 0 10px;
+    }
+    
+    .card p {
+        margin: 0;
+        color: #666;
+    }
+         
+      
+
+</style>    
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const collectionContainer = document.querySelector('.collection-container');
+        const collection = document.querySelector('.collection');
+        let page = 1;
+    
+        // Infinite scrolling function
+        collectionContainer.addEventListener('scroll', () => {
+            if (collectionContainer.scrollTop + collectionContainer.clientHeight >= collection.scrollHeight - 10) {
+                loadMoreCards();
+            }
+        });
+    
+        // Load more cards dynamically
+        function loadMoreCards() {
+            for (let i = 0; i < 10; i++) {
+                const card = document.createElement('div');
+                card.className = 'card';
+                card.innerHTML = `
+                    <img src="image${page}-${i}.jpg" alt="Item ${page}-${i}">
+                    <div class="card-content">
+                        <h3>Item ${page}-${i}</h3>
+                        <p>Description of item ${page}-${i}.</p>
+                    </div>
+                `;
+                collection.appendChild(card);
+                observeCard(card);
+            }
+            page++;
+        }
+    
+        // Intersection Observer for card animations
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('in-view');
+                    observer.unobserve(entry.target); // Stop observing once animated
+                }
+            });
+        }, {
+            threshold: 0.1,
+        });
+    
+        // Observe each card for animation
+        function observeCard(card) {
+            observer.observe(card);
+        }
+    
+        // Initial load
+        loadMoreCards();
+    });
+    
+</script>
       
       {% schema %}
       {
