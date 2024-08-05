@@ -20,7 +20,7 @@
 
 <!-- JavaScript for Filtering -->
 <script>
-  document.getElementById('sort-filter-input').addEventListener('input', function() {
+  {% comment %} document.getElementById('sort-filter-input').addEventListener('input', function() {
     var filterValue = this.value.toLowerCase();
     var sortItems = document.querySelectorAll('#sort-options-list .sort-option-item');
 
@@ -31,7 +31,31 @@
         item.style.display = 'none';
       }
     });
-  });
+  }); {% endcomment %}
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      var filterInput = document.getElementById('sort-filter-input');
+      var sortOptionsList = document.getElementById('sort-options-list');
+  
+      // Show the list when the input is focused or clicked
+      filterInput.addEventListener('focus', function() {
+        sortOptionsList.style.display = 'block';
+      });
+  
+      // Hide the list when clicking outside of the input or list
+      document.addEventListener('click', function(event) {
+        if (!filterInput.contains(event.target) && !sortOptionsList.contains(event.target)) {
+          sortOptionsList.style.display = 'none';
+        }
+      });
+  
+      // Keep the list open if the input is focused
+      filterInput.addEventListener('input', function() {
+        sortOptionsList.style.display = 'block';
+      });
+    });
+  </script>
+  
 </script>
 
 <!-- CSS Styling -->
