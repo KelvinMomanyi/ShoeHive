@@ -175,7 +175,7 @@
           </div>
       </section> {% endcomment %}
 
-{% comment %} part  1 above {% endcomment %}
+
 
 
 
@@ -189,12 +189,11 @@
       </a>
     </div> {% endcomment %}
 
-{% comment %} part  2 below {% endcomment %}
-  {% comment %} {% if paginate.pages > 1 %}
+  {% if paginate.pages > 1 %}
     {{ paginate | default_pagination }}
   {% endif %}
 {% endpaginate %}
-</div>  {% endcomment %}
+</div>  
 
 
 
