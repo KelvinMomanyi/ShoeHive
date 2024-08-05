@@ -9,10 +9,9 @@
     </div>
 
     <ul class="has-scrollbar">
-        {% assign collection_handle = 'featured-collection-handle' %}
-        {% assign collection = collections[Nike] %}
-        {% if collection != blank %}
-            {% for product in collection.products %}
+        {% assign nike_collection = collections['nike'] %}
+        {% if nike_collection != blank %}
+            {% for product in nike_collection.products %}
                 <li class="scrollbar-item">
                     <div class="shop-card">
                         <div class="card-banner img-holder" style="--width:540 ; --height:720 ;">
@@ -56,9 +55,10 @@
                 </li>
             {% endfor %}
         {% else %}
-            <p>No matches</p>
+            <p>No matches found</p>
         {% endif %}
     </ul>
+    
     
   </div>
 </section>
