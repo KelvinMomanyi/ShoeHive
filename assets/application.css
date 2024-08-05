@@ -1774,7 +1774,12 @@
 /**
  * responsive for larger than 1200px screen
  */
-
+ @media screen and (min-width: 575px){
+  .hero .slider-item {
+    padding-inline-start: 20px;
+  }
+  
+ }
  @media (min-width: 1200px) {
 
   /**
