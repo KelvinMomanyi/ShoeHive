@@ -373,7 +373,7 @@ responsive for larger than 575px screen
 }  
 </style>
 <script>
-  {% comment %} function fetchCartData() {
+  function fetchCartData() {
     fetch(window.Shopify.routes.root + 'cart.js')
       .then(response => response.json())
       .then(cartData => {
@@ -385,20 +385,8 @@ responsive for larger than 575px screen
       .catch((error) => {
         console.error('Error fetching cart data:', error);
       });
-  } {% endcomment %}
-  document.addEventListener('DOMContentLoaded', function() {
-    // Get the form element
-    let addToCartForm = document.querySelector('form[action$="/cart/add"]');
-  
-    // Add an event listener to the form's submit event
-    addToCartForm.addEventListener('submit', async function(event) {
-      // Prevent the form from submitting the default way
-      event.preventDefault();
-      
-      // Call the function to handle adding to cart and updating the UI
-      await submitAddToCartForm();
-    });
-  });
+  }
+
 
   async function updateCartUI(cartData) {
     try {
@@ -427,12 +415,13 @@ responsive for larger than 575px screen
         cartSubtotalElement.textContent = `Subtotal: ${(cartData.total_price / 100).toFixed(2)} ${cartData.currency}`;
       }
       
-      // Open the cart after updating the UI
-      openCart();
+     
       
     } catch (error) {
       console.error('Error updating cart UI:', error);
     }
+
+   
   }
   
 
@@ -441,23 +430,27 @@ responsive for larger than 575px screen
 
 
 
-  async function submitAddToCartForm() {
-    let addToCartForm = document.querySelector('form[action$="/cart/add"]');
-    let formData = new FormData(addToCartForm);
-    
-    try {
-      let response = await fetch(window.Shopify.routes.root + 'cart/add.js', {
-        method: 'POST',
-        body: formData
-      });
-      
-      let cartData = await response.json();
-      
-      // Update the cart UI with new data and open the cart
-      updateCartUI(cartData);
-    } catch (error) {
-      console.error('Error adding product to cart:', error);
-    }
+  function submitAddToCartForm(formElement) {
+    let formData = new FormData(formElement);
+  
+    fetch(window.Shopify.routes.root + 'cart/add.js', {
+      method: 'POST',
+      body: formData
+    })
+    .then(response => response.json())
+    .then(data => {
+      console.log('Product added to cart:', data);
+      fetchCartData();
+      {% comment %} openCart(); {% endcomment %}
+
+ // Show the side cart
+      {% comment %} updateCartUI(data); // Update the side cart with the new data {% endcomment %}
+    })
+    .catch((error) => {
+      console.error('Error:', error);
+    });
+  
+    return false; // Prevent the default form submission
   }
   
 </script>
