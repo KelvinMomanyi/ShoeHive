@@ -190,7 +190,17 @@ addEventOnElem(window, "scroll", scrollReveal)
 // });
 
 
-function updateCartUI(data) {
+function fetchCartData() {
+  fetch('/cart.js')
+    .then(response => response.json())
+    .then(cart => {
+      updateCartUI(cart); // Update the UI with the new cart data
+    })
+    .catch(error => console.error('Error fetching cart data:', error));
+}
+
+
+function updateCartUI(cart) {
   let sideCartItems = document.getElementById('side-cart-items');
   let sideCartSubtotal = document.getElementById('side-cart-subtotal');
 
@@ -202,41 +212,32 @@ function updateCartUI(data) {
   // Clear the existing items
   sideCartItems.innerHTML = '';
 
-  // Fetch the current cart data
-  fetch('/cart.js')
-    .then(response => response.json())
-    .then(cartData => {
-      // Update subtotal
-      sideCartSubtotal.textContent = Shopify.formatMoney(cartData.total_price);
+  // Update subtotal
+  sideCartSubtotal.textContent = Shopify.formatMoney(cart.total_price);
 
-      // Populate cart items
-      cartData.items.forEach(item => {
-        let itemElement = document.createElement('div');
-        itemElement.className = 'side-cart-item';
+  // Populate cart items
+  cart.items.forEach(item => {
+    let itemElement = document.createElement('div');
+    itemElement.className = 'side-cart-item';
 
-        // Populate item details
-        itemElement.innerHTML = `
-          <div class="side-cart-item-image">
-            <a href="${item.url}">
-              <img src="${item.image}" alt="${item.title}">
-            </a>
-          </div>
-          <div class="side-cart-item-details">
-            <p class="side-cart-item-title"><a href="${item.url}">${item.product_title}</a></p>
-            <p class="side-cart-item-variant">${item.variant_title}</p>
-            <p class="side-cart-item-price">${Shopify.formatMoney(item.line_price)}</p>
-            <p class="side-cart-item-quantity">Qty: ${item.quantity}</p>
-            <a href="/cart/change?line=${item.key}&quantity=0" class="side-cart-item-remove">Remove</a>
-          </div>
-        `;
+    itemElement.innerHTML = `
+      <div class="side-cart-item-image">
+        <a href="${item.url}">
+          <img src="${item.image}" alt="${item.title}">
+        </a>
+      </div>
+      <div class="side-cart-item-details">
+        <p class="side-cart-item-title"><a href="${item.url}">${item.product_title}</a></p>
+        <p class="side-cart-item-variant">${item.variant_title}</p>
+        <p class="side-cart-item-price">${Shopify.formatMoney(item.line_price)}</p>
+        <p class="side-cart-item-quantity">Qty: ${item.quantity}</p>
+        <a href="/cart/change?line=${item.key}&quantity=0" class="side-cart-item-remove">Remove</a>
+      </div>
+    `;
 
-        // Append item to the side cart
-        sideCartItems.appendChild(itemElement);
-      });
-    })
-    .catch(error => console.error('Error fetching cart data:', error));
+    sideCartItems.appendChild(itemElement);
+  });
 }
-
 
 
 
