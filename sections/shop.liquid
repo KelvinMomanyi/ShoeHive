@@ -383,8 +383,9 @@ responsive for larger than 575px screen
     .then(response => response.json())
     .then(data => {
       console.log('Product added to cart:', data);
+      updateCartUI(data); 
       openCart(); // Show the side cart
-      updateCartUI(data); // Update the side cart with the new data
+// Update the side cart with the new data
     })
     .catch((error) => {
       console.error('Error:', error);
