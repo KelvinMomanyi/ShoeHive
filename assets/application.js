@@ -193,7 +193,76 @@ addEventOnElem(window, "scroll", scrollReveal)
 
 
 
+function submitAddToCartForm() {
+  let addToCartForm = document.querySelector('form[action$="/cart/add"]');
+  let formData = new FormData(addToCartForm);
+  
+  fetch(window.Shopify.routes.root + 'cart/add.js', {
+    method: 'POST',
+    body: formData
+  })
+  .then(response => {
+    return response.json();
+  })
+  .then(data => {
+    openCart(); // Show the side cart
+    updateCartUI(data); // Update the side cart with the new data
+  })
+  .catch((error) => {
+    console.error('Error:', error);
+  });
+  return false; 
+}
 
+
+
+
+function updateCartUI(data) {
+  let sideCartItems = document.getElementById('side-cart-items');
+  let sideCartSubtotal = document.getElementById('side-cart-subtotal');
+
+  if (!sideCartItems || !sideCartSubtotal) {
+    console.error('Side cart items or subtotal container not found');
+    return;
+  }
+
+  // Clear the existing items
+  sideCartItems.innerHTML = '';
+
+  // Fetch the current cart data
+  fetch('/cart.js')
+    .then(response => response.json())
+    .then(cartData => {
+      // Update subtotal
+      sideCartSubtotal.textContent = Shopify.formatMoney(cartData.total_price);
+
+      // Populate cart items
+      cartData.items.forEach(item => {
+        let itemElement = document.createElement('div');
+        itemElement.className = 'side-cart-item';
+
+        // Populate item details
+        itemElement.innerHTML = `
+          <div class="side-cart-item-image">
+            <a href="${item.url}">
+              <img src="${item.image}" alt="${item.title}">
+            </a>
+          </div>
+          <div class="side-cart-item-details">
+            <p class="side-cart-item-title"><a href="${item.url}">${item.product_title}</a></p>
+            <p class="side-cart-item-variant">${item.variant_title}</p>
+            <p class="side-cart-item-price">${Shopify.formatMoney(item.line_price)}</p>
+            <p class="side-cart-item-quantity">Qty: ${item.quantity}</p>
+            <a href="/cart/change?line=${item.key}&quantity=0" class="side-cart-item-remove">Remove</a>
+          </div>
+        `;
+
+        // Append item to the side cart
+        sideCartItems.appendChild(itemElement);
+      });
+    })
+    .catch(error => console.error('Error fetching cart data:', error));
+}
 
 
 
