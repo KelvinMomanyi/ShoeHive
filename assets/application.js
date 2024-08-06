@@ -204,46 +204,32 @@ function fetchCartData() {
 
 
 
-function updateCartUI(cart) {
-  let cartItemsContainer = document.getElementById('cart-items');
+function updateCartUI(cartData) {
+  // Assuming you have elements in your side cart with specific IDs or classes
+  let cartItemElements = document.querySelectorAll('.cart-item');
+  let cartSubtotalElement = document.getElementById('cart-subtotal');
+  
+  // Update existing cart items or add new ones if needed
+  cartData.items.forEach((item, index) => {
+    let itemElement = cartItemElements[index];
+    
+    if (itemElement) {
+      // Update the existing item in the cart
+      itemElement.querySelector('.cart-item-title').textContent = item.product_title;
+      itemElement.querySelector('.cart-item-variant').textContent = item.variant_title;
+      itemElement.querySelector('.cart-item-quantity').textContent = `Quantity: ${item.quantity}`;
+      itemElement.querySelector('.cart-item-price').textContent = `${(item.price / 100).toFixed(2)} ${cartData.currency}`;
+      itemElement.querySelector('.cart-item-image').src = item.image;
+      itemElement.querySelector('.cart-item-image').alt = item.title;
+    } else {
+      // Handle adding new items if necessary (optional)
+    }
+  });
 
-  if (!cartItemsContainer) {
-    console.error('Cart items container not found');
-    return;
+  // Update the subtotal
+  if (cartSubtotalElement) {
+    cartSubtotalElement.textContent = `Subtotal: ${(cartData.total_price / 100).toFixed(2)} ${cartData.currency}`;
   }
-
-  cartItemsContainer.innerHTML = ''; // Clear current items
-
-  if (cart.items.length > 0) {
-    cart.items.forEach(item => {
-      let itemElement = document.createElement('tr');
-
-      itemElement.innerHTML = `
-        <td>
-          <a href="${item.url}">
-            <img src="${item.image}" alt="${item.title}">
-          </a>
-        </td>
-        <td>
-          <a href="${item.url}">${item.product_title}</a>
-          ${item.variant_title}
-          <a href="/cart/change?line=${item.key}&quantity=0">Remove</a>
-        </td>
-        <td>${Shopify.formatMoney(item.price)}</td>
-        <td>
-          <input type="number" name="updates[]" value="${item.quantity}" min="0">
-        </td>
-        <td>${Shopify.formatMoney(item.line_price)}</td>
-      `;
-
-      cartItemsContainer.appendChild(itemElement);
-    });
-  } else {
-    document.getElementById('cart-container').innerHTML = '<h2>Cart</h2><p>Your cart is currently empty.</p>';
-  }
-
-  // Update subtotal
-  document.querySelector('.shop-card p').textContent = `Subtotal: ${Shopify.formatMoney(cart.total_price)}`;
 }
 
 
