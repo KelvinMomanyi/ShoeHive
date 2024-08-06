@@ -193,10 +193,8 @@ addEventOnElem(window, "scroll", scrollReveal)
 
 
 
-document.getElementById('add-to-cart-form').addEventListener('submit', function(event) {
-  event.preventDefault(); // Prevent the default form submission
-
-  const form = this;
+function submitAddToCartForm() {
+  const form = document.getElementById('add-to-cart-form');
   const formData = new FormData(form);
 
   fetch(form.action, {
@@ -213,10 +211,7 @@ document.getElementById('add-to-cart-form').addEventListener('submit', function(
     }
   })
   .catch(error => console.error('Error:', error));
-});
-
-function openSidebarCart() {
-  // Implement the logic to open your sidebar cart here
-  document.getElementById('sidebar-cart').classList.add('open'); // Example
 }
+
+
 

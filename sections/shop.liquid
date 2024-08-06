@@ -85,9 +85,9 @@
                                 <img src="{{ product.featured_image.src | img_url: 'large' }}" alt="{{ product.featured_image.alt | escape }}" class="img-cover" width="540" height="720" loading="lazy">
                                 <span class="badge" aria-label="20% off">-20%</span>
                                 <div class="card-actions">
-                                  <form id="add-to-cart-form" action="/cart/add" method="post" enctype="multipart/form-data">
+                                  <form id="add-to-cart-form" method="post" enctype="multipart/form-data">
                                     <input type="hidden" name="id" value="{{ product.selected_or_first_available_variant.id }}">
-                                    <button type="submit" class="action-btn" aria-label="add to cart">
+                                    <button type="button" onclick="submitAddToCartForm()" class="action-btn" aria-label="add to cart">
                                       <ion-icon name="bag-handle-outline" aria-hidden="true"></ion-icon>
                                     </button>
                                   </form>
