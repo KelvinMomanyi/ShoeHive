@@ -386,7 +386,8 @@ responsive for larger than 575px screen
     .then(response => {
       return response.json();
     })
-    .then(cartData => {
+    .then(data => {
+      openCart(); 
       // Update subtotal
       sideCartSubtotal.textContent = Shopify.formatMoney(cartData.total_price);
 
@@ -413,7 +414,8 @@ responsive for larger than 575px screen
 
         // Append item to the side cart
         sideCartItems.appendChild(itemElement);
-      })
+      });
+    })
     .catch((error) => {
       console.error('Error:', error);
     });
