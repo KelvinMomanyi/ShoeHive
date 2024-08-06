@@ -193,61 +193,30 @@ addEventOnElem(window, "scroll", scrollReveal)
 
 
 
-  document.addEventListener('DOMContentLoaded', function() {
-    // Ensure IDs are correctly set in your HTML
-    var form = document.getElementById('add-to-cart-form');
-    var closeCartButton = document.getElementById('close-cart');
+document.getElementById('add-to-cart-form').addEventListener('submit', function(event) {
+  event.preventDefault(); // Prevent the default form submission
 
-    if (!form || !closeCartButton) {
-      console.error('Form or close button not found');
-      return;
-    }
+  const form = this;
+  const formData = new FormData(form);
 
-    form.addEventListener('submit', function(event) {
-      event.preventDefault();
-
-      var formData = new FormData(form);
-      
-      // Convert formData to URL-encoded string
-      var queryString = new URLSearchParams(formData).toString();
-
-      fetch('/cart/add.js', {
-        method: 'POST',
-        body: queryString,
-        headers: {
-          'Content-Type': 'application/x-www-form-urlencoded'
-        }
-      })
-      .then(response => response.json())
-      .then(data => {
-        console.log('Product added to cart:', data);
-        // Call existing function to open the cart
-        if (typeof openCart === 'function') {
-          openCart();
-        } else {
-          console.error('openCart function not found');
-        }
-      })
-      .catch(error => console.error('Error adding product to cart:', error));
-    });
-
-    // Ensure closeCart function is available
-    if (typeof closeCart === 'function') {
-      closeCartButton.addEventListener('click', function() {
-        closeCart();
-      });
+  fetch(form.action, {
+    method: 'POST',
+    body: formData,
+  })
+  .then(response => response.json())
+  .then(data => {
+    if (data.status === 'success' || data.ok) {
+      // Open the sidebar cart
+      openCart();
     } else {
-      console.error('closeCart function not found');
+      console.error('Error adding to cart:', data);
     }
+  })
+  .catch(error => console.error('Error:', error));
+});
 
-    // Optionally add a click event listener to close the cart when clicking outside of it
-    document.addEventListener('click', function(event) {
-      var sideCart = document.getElementById('side-cart');
-      if (sideCart && !sideCart.contains(event.target) && !form.contains(event.target) && !closeCartButton.contains(event.target)) {
-        if (typeof closeCart === 'function') {
-          closeCart();
-        }
-      }
-    });
-  });
+function openSidebarCart() {
+  // Implement the logic to open your sidebar cart here
+  document.getElementById('sidebar-cart').classList.add('open'); // Example
+}
 
