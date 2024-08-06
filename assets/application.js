@@ -194,51 +194,54 @@ function fetchCartData() {
   fetch('/cart.js')
     .then(response => response.json())
     .then(cart => {
-      updateCartUI(cart); // Update the UI with the new cart data
+      updateCartUI(cart); // Update the cart UI with the new data
     })
     .catch(error => console.error('Error fetching cart data:', error));
 }
 
 
-function updateCartUI(cart) {
-  let sideCartItems = document.getElementById('side-cart-items');
-  let sideCartSubtotal = document.getElementById('side-cart-subtotal');
 
-  if (!sideCartItems || !sideCartSubtotal) {
-    console.error('Side cart items or subtotal container not found');
+function updateCartUI(cart) {
+  let cartItemsContainer = document.getElementById('cart-items');
+
+  if (!cartItemsContainer) {
+    console.error('Cart items container not found');
     return;
   }
 
-  // Clear the existing items
-  sideCartItems.innerHTML = '';
+  cartItemsContainer.innerHTML = ''; // Clear current items
+
+  if (cart.items.length > 0) {
+    cart.items.forEach(item => {
+      let itemElement = document.createElement('tr');
+
+      itemElement.innerHTML = `
+        <td>
+          <a href="${item.url}">
+            <img src="${item.image}" alt="${item.title}">
+          </a>
+        </td>
+        <td>
+          <a href="${item.url}">${item.product_title}</a>
+          ${item.variant_title}
+          <a href="/cart/change?line=${item.key}&quantity=0">Remove</a>
+        </td>
+        <td>${Shopify.formatMoney(item.price)}</td>
+        <td>
+          <input type="number" name="updates[]" value="${item.quantity}" min="0">
+        </td>
+        <td>${Shopify.formatMoney(item.line_price)}</td>
+      `;
+
+      cartItemsContainer.appendChild(itemElement);
+    });
+  } else {
+    document.getElementById('cart-container').innerHTML = '<h2>Cart</h2><p>Your cart is currently empty.</p>';
+  }
 
   // Update subtotal
-  sideCartSubtotal.textContent = Shopify.formatMoney(cart.total_price);
-
-  // Populate cart items
-  cart.items.forEach(item => {
-    let itemElement = document.createElement('div');
-    itemElement.className = 'side-cart-item';
-
-    itemElement.innerHTML = `
-      <div class="side-cart-item-image">
-        <a href="${item.url}">
-          <img src="${item.image}" alt="${item.title}">
-        </a>
-      </div>
-      <div class="side-cart-item-details">
-        <p class="side-cart-item-title"><a href="${item.url}">${item.product_title}</a></p>
-        <p class="side-cart-item-variant">${item.variant_title}</p>
-        <p class="side-cart-item-price">${Shopify.formatMoney(item.line_price)}</p>
-        <p class="side-cart-item-quantity">Qty: ${item.quantity}</p>
-        <a href="/cart/change?line=${item.key}&quantity=0" class="side-cart-item-remove">Remove</a>
-      </div>
-    `;
-
-    sideCartItems.appendChild(itemElement);
-  });
+  document.querySelector('.shop-card p').textContent = `Subtotal: ${Shopify.formatMoney(cart.total_price)}`;
 }
-
 
 
 
