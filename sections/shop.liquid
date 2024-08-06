@@ -387,7 +387,6 @@ responsive for larger than 575px screen
       return response.json();
     })
     .then(data => {
-      console.log('Product added to cart:', data);
       openCart(); // Show the side cart
       updateCartUI(data); // Update the side cart with the new data
     })
