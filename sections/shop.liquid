@@ -376,23 +376,20 @@ responsive for larger than 575px screen
 
 <script>
   function submitAddToCartForm() {
-    const form = document.getElementById('add-to-cart-form');
-    const formData = new FormData(form);
-  
-    fetch(form.action, {
+    let addToCartForm = document.querySelector('form[action$="/cart/add"]');
+    let formData = new FormData(addToCartForm);
+    
+    fetch(window.Shopify.routes.root + 'cart/add.js', {
       method: 'POST',
-      body: formData,
+      body: formData
     })
-    .then(response => response.json())
-    .then(data => {
-      if (data.status === 'success' || data.ok) {
-        // Open the sidebar cart
-        openCart();
-      } else {
-        console.error('Error adding to cart:', data);
-      }
+    .then(response => {
+      return response.json();
     })
-    .catch(error => console.error('Error:', error));
+    .catch((error) => {
+      console.error('Error:', error);
+    });
+    
   }
 </script>
 {% schema %}
