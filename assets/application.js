@@ -191,12 +191,15 @@ addEventOnElem(window, "scroll", scrollReveal)
 
 
 function fetchCartData() {
-  fetch('/cart.js')
+  fetch(window.Shopify.routes.root + 'cart.js')
     .then(response => response.json())
-    .then(cart => {
-      updateCartUI(cart); // Update the cart UI with the new data
+    .then(cartData => {
+      console.log('Current cart data:', cartData);
+      // updateCartUI(cartData);  // Update the side cart UI with the fetched data
     })
-    .catch(error => console.error('Error fetching cart data:', error));
+    .catch((error) => {
+      console.error('Error fetching cart data:', error);
+    });
 }
 
 
