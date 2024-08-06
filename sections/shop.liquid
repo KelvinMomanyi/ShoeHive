@@ -85,9 +85,9 @@
                                 <img src="{{ product.featured_image.src | img_url: 'large' }}" alt="{{ product.featured_image.alt | escape }}" class="img-cover" width="540" height="720" loading="lazy">
                                 <span class="badge" aria-label="20% off">-20%</span>
                                 <div class="card-actions">
-                                  <form   action="/cart/add" method="post" enctype="multipart/form-data">
-                                    <input type="hidden" name="id" value="{{ product.variants.first.id }}">
-                                    <button type="button" onclick="submitAddToCartForm()" class="action-btn" aria-label="add to cart">
+                                  <form   action="/cart/add" method="post" enctype="multipart/form-data" onsubmit="submitAddToCartForm(); return false;">
+                                    <input type="hidden" name="id" value="{{ product.selected_or_first_available_variant.id }}">
+                                    <button type="submit" class="action-btn" aria-label="add to cart">
                                       <ion-icon name="bag-handle-outline" aria-hidden="true"></ion-icon>
                                     </button>
                                   </form>
@@ -385,6 +385,11 @@ responsive for larger than 575px screen
     })
     .then(response => {
       return response.json();
+    })
+    .then(data => {
+      console.log('Product added to cart:', data);
+      openCart(); // Assuming openCart is defined to show the side cart
+      // Optionally update the UI with the new cart data
     })
     .catch((error) => {
       console.error('Error:', error);
