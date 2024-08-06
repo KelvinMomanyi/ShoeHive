@@ -372,7 +372,7 @@ responsive for larger than 575px screen
      
 }  
 </style>
-
+<script>
 function submitAddToCartForm() {
   let addToCartForm = document.querySelector('form[action$="/cart/add"]');
   let formData = new FormData(addToCartForm);
@@ -392,9 +392,7 @@ function submitAddToCartForm() {
     console.error('Error:', error);
   });
   return false; 
-}
-<script>
- 
+} 
 </script>
 {% schema %}
 {
