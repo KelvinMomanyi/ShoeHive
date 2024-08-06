@@ -238,26 +238,7 @@ function updateCartUI(data) {
 }
 
 
-function submitAddToCartForm() {
-  let addToCartForm = document.querySelector('form[action$="/cart/add"]');
-  let formData = new FormData(addToCartForm);
-  
-  fetch(window.Shopify.routes.root + 'cart/add.js', {
-    method: 'POST',
-    body: formData
-  })
-  .then(response => {
-    return response.json();
-  })
-  .then(data => {
-    openCart(); // Show the side cart
-    updateCartUI(data); // Update the side cart with the new data
-  })
-  .catch((error) => {
-    console.error('Error:', error);
-  });
-  return false; 
-}
+
 
 
 
