@@ -128,7 +128,7 @@
               <button class="nav-close-btn" onclick="closeCartbar()">
                   <ion-icon name="close-outline" aria-hidden="true" ></ion-icon>
               </button>
- 
+{% comment %}  
               <div id="side-cart" class="side-cart">
                 <div class="side-cart-header">
                   <h2>Your Cart</h2>
@@ -142,10 +142,10 @@
                   <a href="/cart" class="btn">View Cart</a>
                   <a href="/checkout" class="btn">Checkout</a>
                 </div>
-              </div>
+              </div> {% endcomment %}
               
 
-              {% comment %} {% if cart.item_count > 0 %}
+              {% if cart.item_count > 0 %}
                 <h1>Cart</h1>
                 <form action="/cart" method="post" novalidate>
                   <div class="shop-card">
@@ -240,7 +240,7 @@
               {% else %}
                 <h2>cart</h2>
                 Cart is empty
-              {% endif %} {% endcomment %}
+              {% endif %}
            
            </div>
      </div> 
