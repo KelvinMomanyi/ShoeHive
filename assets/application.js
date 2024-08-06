@@ -193,25 +193,7 @@ addEventOnElem(window, "scroll", scrollReveal)
 
 
 
-function submitAddToCartForm() {
-  const form = document.getElementById('add-to-cart-form');
-  const formData = new FormData(form);
 
-  fetch(form.action, {
-    method: 'POST',
-    body: formData,
-  })
-  .then(response => response.json())
-  .then(data => {
-    if (data.status === 'success' || data.ok) {
-      // Open the sidebar cart
-      openCart();
-    } else {
-      console.error('Error adding to cart:', data);
-    }
-  })
-  .catch(error => console.error('Error:', error));
-}
 
 
 
