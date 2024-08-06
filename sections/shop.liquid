@@ -413,14 +413,14 @@ responsive for larger than 575px screen
         cartSubtotalElement.textContent = `Subtotal: ${(cartData.total_price / 100).toFixed(2)} ${cartData.currency}`;
       }
       
-      
+       // Open the cart after updating the UI
+    openCart();
       
     } catch (error) {
       console.error('Error updating cart UI:', error);
     }
 
-    // Open the cart after updating the UI
-    openCart();
+   
   }
   
 
