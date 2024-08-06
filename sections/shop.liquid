@@ -385,7 +385,7 @@ responsive for larger than 575px screen
       });
   }
 
-  
+
   async function updateCartUI(cartData) {
     try {
       let cartItemElements = document.querySelectorAll('.cart-item');
@@ -438,7 +438,7 @@ responsive for larger than 575px screen
     .then(data => {
       console.log('Product added to cart:', data);
       fetchCartData();
-      openCart();
+      {% comment %} openCart(); {% endcomment %}
 
  // Show the side cart
       {% comment %} updateCartUI(data); // Update the side cart with the new data {% endcomment %}
