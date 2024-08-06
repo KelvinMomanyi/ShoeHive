@@ -386,7 +386,7 @@ responsive for larger than 575px screen
     .then(response => {
       return response.json();
     })
-    .then(data => {
+    .then(cartData => {
       openCart(); 
       // Update subtotal
       sideCartSubtotal.textContent = Shopify.formatMoney(cartData.total_price);
