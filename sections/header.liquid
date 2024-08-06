@@ -198,7 +198,7 @@
                         </div>
                     </div> {% endcomment %}
                 </div>
-                  <table>
+                  {% comment %} <table>
                     <thead>
                       <th colspan="2">Prod</th>
                       <th>Price</th>
@@ -230,7 +230,7 @@
                         </tr>
                       {% endfor %}
                     </tbody>
-                  </table>
+                  </table> {% endcomment %}
                   <div>
                     <p>sub total : {{ cart.total_price | money }}</p>
                     <button type="submit" name="update">Update</button>
