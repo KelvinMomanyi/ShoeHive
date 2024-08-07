@@ -181,25 +181,7 @@
 
 
 
-<script >
-  var myModal2 = document.getElementById('myModal2');
-
-myModal2.addEventListener("DOMContentLoaded", function() {
-  var loader = myModal2.querySelector('#loader');
-  var cartContent = myModal2.querySelector('#cart-content');
-
-  // Show the loader
-  loader.style.display = 'block';
-
-  // Simulate data fetching (you can replace this with actual data fetching logic)
-  setTimeout(function() {
-    // Hide the loader
-    loader.style.display = 'none';
-
-    // Show the cart content
-    cartContent.style.display = 'block';
-  }, 1000); // Adjust the time according to your data fetching process
-});
+<script src="{{ 'application.js' | asset_url }}" defer>
 
   </script>
   

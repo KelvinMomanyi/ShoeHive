@@ -431,6 +431,19 @@ responsive for larger than 575px screen
 
   function submitAddToCartForm(formElement) {
     let formData = new FormData(formElement);
+    var myModal2 = document.getElementById('myModal2');
+    var loader = myModal2.querySelector('#loader');
+    var cartContent = myModal2.querySelector('#cart-content');
+  
+    // Show the modal
+    myModal2.style.display = 'block';
+  
+    // Show the loader and hide the cart content initially
+    loader.style.display = 'block';
+    cartContent.style.display = 'none';
+  
+    // Simulate data fetching (or actual AJAX request)
+   // Adjust this timeout based on actual data fetching time
   
     fetch(window.Shopify.routes.root + 'cart/add.js', {
       method: 'POST',
@@ -441,7 +454,11 @@ responsive for larger than 575px screen
       console.log('Product added to cart:', data);
       {% comment %} fetchCartData(); {% endcomment %}
       openCart(); 
-
+      setTimeout(function() {
+        // Hide the loader and show the cart content
+        loader.style.display = 'none';
+        cartContent.style.display = 'block';
+      }, 1000); 
  // Show the side cart
       {% comment %} updateCartUI(data); // Update the side cart with the new data {% endcomment %}
     })
