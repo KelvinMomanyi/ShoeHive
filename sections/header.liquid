@@ -150,7 +150,7 @@
                     {% if cart.item_count > 0 %}
                       <h1>Cart</h1>
                       <form action="/cart" method="post" novalidate>
-                        <div class="shop-card">
+                         <div class="shop-card">
                           <tbody>
                             {% for item in cart.items %}
                               <tr>
@@ -199,7 +199,7 @@
                                   <p class="rating-text">5170 reviews</p>
                               </div>
                           </div> {% endcomment %}
-                      </div>
+                         </div>
                         {% comment %} <table>
                           <thead>
                             <th colspan="2">Prod</th>
@@ -243,6 +243,7 @@
                     <h2>Cart</h2>
                        Cart is empty
                      {% endif %}
+                  </div>
                   </div>
               
 {% comment %} 
