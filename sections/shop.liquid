@@ -380,7 +380,7 @@ responsive for larger than 575px screen
         console.log('Current cart data:', cartData);
         {% comment %} updateCartUI(cartData); {% endcomment %}
           // Open the cart after updating the UI
-     openCart();  // Update the side cart UI with the fetched data
+     {% comment %} openCart();  // Update the side cart UI with the fetched data {% endcomment %}
       })
       .catch((error) => {
         console.error('Error fetching cart data:', error);
