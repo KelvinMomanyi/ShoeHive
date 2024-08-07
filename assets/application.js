@@ -234,6 +234,27 @@ async function updateCartUI(cartData) {
 
 
 
+document.addEventListener("DOMContentLoaded", function() {
+  var loader = document.getElementById('loader');
+  var cartContent = document.getElementById('cart-content');
+
+  // Show the loader
+  loader.style.display = 'block';
+
+  // Simulate data fetching (you can replace this with actual data fetching logic)
+  setTimeout(function() {
+    // Hide the loader
+    loader.style.display = 'none';
+
+    // Show the cart content
+    cartContent.style.display = 'block';
+  }, 1000); // Adjust the time according to your data fetching process
+});
+
+
+
+
+
 
 
 
