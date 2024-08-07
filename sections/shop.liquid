@@ -466,20 +466,20 @@ responsive for larger than 575px screen
                           </a>
                         </td>
                         <td style="flex: 1; display: flex; align-items: center; justify-content: center;" >
-                        <td>
-                          <a href="${item.url}">${item.product_title}</a>
-                           ${item.variant_title}
-                          <a href="/cart/change?line=${index + 1}&amp;quantity=0">remove</a>
-                        </td>
-                        <td>{{ item.price | money }}</td>
-                        <td>
-                          <input type="number" name="updates[]" id="updates_{{ item.key }}" value="{{ item.quantity }}" min="0">
-                        </td>
-                        <td>
-                          {% if item.original_line_price != item.line_price %}{{ item.original_line_price | money }}{% endif %}
-                          {{ item.line_price | money }}
-                          {% for discount in item.discounts %}{{ discount.title }}{% endfor %}
-                        </td>
+                           <td>
+                             <a href="${item.url}">${item.product_title}</a>
+                              ${item.variant_title}
+                             <a href="/cart/change?line=${index + 1}&amp;quantity=0">remove</a>
+                          </td>
+                          <td>{{ item.price | money }}</td>
+                          <td>
+                            <input type="number" name="updates[]" id="updates_{{ item.key }}" value="{{ item.quantity }}" min="0">
+                          </td>
+                          <td>
+                            {% if item.original_line_price != item.line_price %}{{ item.original_line_price | money }}{% endif %}
+                            {{ item.line_price | money }}
+                            {% for discount in item.discounts %}{{ discount.title }}{% endfor %}
+                         </td>
                         </td>
                       </tr>
                   </tbody>
