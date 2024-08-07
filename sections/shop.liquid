@@ -458,13 +458,14 @@ responsive for larger than 575px screen
             {% comment %} <td>${Shopify.formatMoney(item.line_price)}</td> {% endcomment %}
           </tr> {% endcomment %}
                 <div class="shop-card">
-                  <tbody class="card-banner img-holder" style="--width:540 ; --height:720 ;">
-                      <tr>
-                        <td>
+                  <tbody class="card-banner img-holder" style="--width:540 ; --height:720 ;display: flex;  ">
+                      <tr style="display: flex;" >
+                        <td style="flex: 1; display: flex; align-items: center; justify-content: center;">
                           <a href="${item.url}">
                             <img src="${item.image}" alt="${item.title}" class="img-cover" width="540" height="720" loading="lazy">
                           </a>
                         </td>
+                        <td style="flex: 1; display: flex; align-items: center; justify-content: center;" >
                         <td>
                           <a href="${item.url}">${item.product_title}</a>
                            ${item.variant_title}
@@ -478,6 +479,7 @@ responsive for larger than 575px screen
                           {% if item.original_line_price != item.line_price %}{{ item.original_line_price | money }}{% endif %}
                           {{ item.line_price | money }}
                           {% for discount in item.discounts %}{{ discount.title }}{% endfor %}
+                        </td>
                         </td>
                       </tr>
                   </tbody>
