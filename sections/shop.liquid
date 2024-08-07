@@ -484,17 +484,14 @@ responsive for larger than 575px screen
                       </div>
                   {% comment %} </div> {% endcomment %}
                 {% comment %} </div> {% endcomment %}
-      
-                <div>
-                  <p>Sub total: {{ cart.total_price | money }}</p>
-                  <button type="submit" name="update">Update</button>
-                  <button type="submit" name="checkout">Checkout</button>
-                </div>
         `;
       });
   
       cartHTML += `
         <div>
+          <p>Sub total: {{ cart.total_price | money }}</p>
+          <button type="submit" name="update">Update</button>
+          <button type="submit" name="checkout">Checkout</button>
           {% comment %} <p>Sub total: ${Shopify.formatMoney(cart.total_price)}</p> {% endcomment %}
           <button type="submit" name="update">Update</button>
           <button type="submit" name="checkout">Checkout</button>
