@@ -144,9 +144,9 @@
                 </div>
               </div> {% endcomment %}
 
-{% comment %} 
+ 
                <div id="loader" style="display: none;">Loading...</div>
-                 <div id="cart-content" style="display: none;"> {% endcomment %}
+                 <div id="cart-content" style="display: none;">
                     {% if cart.item_count > 0 %}
                       <h1>Cart</h1>
                       <form action="/cart" method="post" novalidate>
@@ -243,8 +243,8 @@
                     <h2>Cart</h2>
                        Cart is empty
                      {% endif %}
-                  {% comment %} </div>
-                  </div> {% endcomment %}
+                   </div>
+                  </div> 
               
 {% comment %} 
               {% if cart.item_count > 0 %}
