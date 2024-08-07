@@ -457,7 +457,7 @@ responsive for larger than 575px screen
             </td>
             {% comment %} <td>${Shopify.formatMoney(item.line_price)}</td> {% endcomment %}
           </tr> {% endcomment %}
-                <div class="shop-card">
+                {% comment %} <div class="shop-card"> {% endcomment %}
                   <div class="card-banner img-holder" style="--width:540 ; --height:720 ;display: flex;  ">
                       <div style="display: flex;" >
                         <div style="flex: 1; display: flex; align-items: center; justify-content: center;">
@@ -483,7 +483,7 @@ responsive for larger than 575px screen
                         </div>
                       </div>
                   </div>
-                </div>
+                {% comment %} </div> {% endcomment %}
       
                 <div>
                   <p>Sub total: {{ cart.total_price | money }}</p>
