@@ -378,7 +378,7 @@ responsive for larger than 575px screen
       .then(response => response.json())
       .then(cartData => {
         console.log('Current cart data:', cartData);
-        updateCartUI(cartData);
+        {% comment %} updateCartUI(cartData); {% endcomment %}
           // Open the cart after updating the UI
      openCart();  // Update the side cart UI with the fetched data
       })
