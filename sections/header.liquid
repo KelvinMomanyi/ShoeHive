@@ -137,15 +137,15 @@
       <!--
           ADD CART SIDEBAR
       -->
-      <div id="myModal2" class="cartBar" style="overflow-y: auto;">
-        <div class="cartBar-content">
+      <div id="myModal2" class="cartBar" >
+        <div class="cartBar-content" style="overflow-y:auto;" >
           <button class="nav-close-btn" onclick="closeCartbar()">
             <ion-icon name="close-outline" aria-hidden="true"></ion-icon>
           </button>
       
           <div id="loader" style="display: none;">Loading...</div>
       
-          <div id="cart-content" style="overflow-y:auto;" >
+          <div id="cart-content">
              {% if cart.item_count > 0 %}
               <h1>Cart</h1>
               <form action="/cart" method="post" novalidate>
