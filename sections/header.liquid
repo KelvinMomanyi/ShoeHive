@@ -152,10 +152,10 @@
                 <div class="shop-card">
                   <tbody>
                     {% for item in cart.items %}
-                      <tr>
+                      <tr class="card-banner img-holder"  style="--width:540 ; --height:720 ;">
                         <td>
                           <a href="{{ item.url | within: collections.all }}">
-                            <img src="{{ item | img_url: 'medium' }}" alt="{{ item.title | escape }}">
+                            <img src="{{ item | img_url: 'medium' }}" alt="{{ item.title | escape }}" class="img-cover" width="540" height="720" loading="lazy">
                           </a>
                         </td>
                         <td>
