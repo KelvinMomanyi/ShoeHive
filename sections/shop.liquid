@@ -422,6 +422,59 @@ responsive for larger than 575px screen
 
    
   } {% endcomment %}
+  function fetchCart() {
+    fetch('/cart.js')
+      .then(response => response.json())
+      .then(cart => {
+        updateCartUI(cart);
+      })
+      .catch(error => console.error('Error fetching cart:', error));
+  }
+  
+  function updateCartUI(cart) {
+    var cartContent = document.getElementById('cart-content');
+    cartContent.innerHTML = ''; // Clear existing content
+  
+    if (cart.item_count > 0) {
+      var cartHTML = '<h1>Cart</h1><form action="/cart" method="post" novalidate>';
+      
+      cart.items.forEach(function(item, index) {
+        cartHTML += `
+          <tr>
+            <td>
+              <a href="${item.url}">
+                <img src="${item.image}" alt="${item.title}">
+              </a>
+            </td>
+            <td>
+              <a href="${item.url}">${item.product_title}</a>
+              ${item.variant_title}
+              <a href="/cart/change?line=${index + 1}&amp;quantity=0">remove</a>
+            </td>
+            <td>${Shopify.formatMoney(item.price)}</td>
+            <td>
+              <input type="number" name="updates[]" id="updates_${item.key}" value="${item.quantity}" min="0">
+            </td>
+            <td>${Shopify.formatMoney(item.line_price)}</td>
+          </tr>
+        `;
+      });
+  
+      cartHTML += `
+        <div>
+          <p>Sub total: ${Shopify.formatMoney(cart.total_price)}</p>
+          <button type="submit" name="update">Update</button>
+          <button type="submit" name="checkout">Checkout</button>
+        </div>
+      </form>`;
+  
+      cartContent.innerHTML = cartHTML;
+    } else {
+      cartContent.innerHTML = '<h2>Cart</h2><p>Cart is empty</p>';
+    }
+  }
+  
+
   
 
 
@@ -454,6 +507,7 @@ responsive for larger than 575px screen
       console.log('Product added to cart:', data);
       {% comment %} fetchCartData(); {% endcomment %}
       openCart(); 
+      fetchCart();
       setTimeout(function() {
         // Hide the loader and show the cart content
         loader.style.display = 'none';
