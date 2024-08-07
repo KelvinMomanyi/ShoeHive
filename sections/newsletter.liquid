@@ -1,4 +1,28 @@
-<div id="myModal" class="modal">
+<div id="newsletter-popup" class="newsletter-popup">
+    <div class="newsletter-popup-content">
+      <button class="close-popup" onclick="closePopup()">
+        <ion-icon name="close-outline" aria-hidden="true"></ion-icon>
+      </button>
+      <div class="newsletter-card">
+        <div class="card-image">
+          <img src="https://via.placeholder.com/600x400" alt="Newsletter Image">
+        </div>
+        <div class="newcard-content">
+          <h2>Stay Updated!</h2>
+          <p>Subscribe to our newsletter and get the latest updates right in your inbox.</p>
+          <form action="{{ shop.url }}/contact#contact_form" method="post" accept-charset="UTF-8" class="subscribe-form">
+            <input type="hidden" name="form_type" value="customer">
+            <input type="hidden" name="utf8" value="✓">
+            <input type="email" name="contact[email]" placeholder="Enter your email" required>
+            <button type="submit">Subscribe</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+
+{% comment %} <div id="myModal" class="modal">
     <div class="modal-content">
         <button class="nav-close-btn" onclick="closeModal()">
             <ion-icon name="close-outline" aria-hidden="true" ></ion-icon>
@@ -29,9 +53,32 @@
           </div>
         </div>
      </div>
-</div> 
+</div>  {% endcomment %}
 
 <style>
+    .newsletter-popup {
+        display: none; /* Hidden by default */
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.5);
+        justify-content: center;
+        align-items: center;
+        z-index: 1000;
+      }
+      
+      .newsletter-popup-content {
+        background: white;
+        border-radius: 10px;
+        padding: 20px;
+        max-width: 600px;
+        width: 90%;
+        position: relative;
+      }
+      
+ 
     .newsletter-card {
       display: flex;
       width: 100%;
@@ -103,3 +150,42 @@
     }
     
   </style>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const popup = document.getElementById('newsletter-popup');
+        const cookieName = 'newsletterPopupSeen';
+      
+        function showPopup() {
+          popup.style.display = 'flex';
+        }
+      
+        function closePopup() {
+          popup.style.display = 'none';
+          // Set a cookie to remember that the user has seen the popup
+          document.cookie = `${cookieName}=true; max-age=86400; path=/`; // Cookie expires in 1 day
+        }
+      
+        // Check if the popup has been shown before
+        if (!document.cookie.split('; ').find(row => row.startsWith(cookieName))) {
+          // Show the popup after 5 seconds (5000 milliseconds)
+          setTimeout(showPopup, 5000);
+        }
+      
+        // Add event listener to close the popup
+        document.querySelector('.close-popup').addEventListener('click', closePopup);
+      });
+      
+  </script>
+  {% schema %}
+{
+  "name": "newsletter",
+  "settings": [],
+  "blocks": [],
+  "presets": [
+    {
+      "name": "newsletter"
+    }
+  ]
+}
+{% endschema %}

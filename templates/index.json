@@ -28,6 +28,10 @@
     "blog":{
       "type":"blog",
       "settings":{}
+    },
+    "newsletter":{
+      "type":"newsletter",
+      "settings":{}
     }
   },
   "order": [
@@ -37,6 +41,7 @@
     "banner",
     "feature",
     "offer",
-    "blog"
+    "blog",
+    "newsletter"
   ]
 }
