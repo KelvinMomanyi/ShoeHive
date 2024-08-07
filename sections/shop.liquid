@@ -458,11 +458,11 @@ responsive for larger than 575px screen
             {% comment %} <td>${Shopify.formatMoney(item.line_price)}</td> {% endcomment %}
           </tr> {% endcomment %}
                 <div class="shop-card">
-                  <tbody>
+                  <tbody class="card-banner img-holder" style="--width:540 ; --height:720 ;">
                       <tr>
                         <td>
                           <a href="${item.url}">
-                            <img src="${item.image}" alt="${item.title}" width:200;>
+                            <img src="${item.image}" alt="${item.title}" class="img-cover" width="540" height="720" loading="lazy">
                           </a>
                         </td>
                         <td>
