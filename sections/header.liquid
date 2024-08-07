@@ -146,7 +146,7 @@
           <div id="loader" style="display: none;">Loading...</div>
       
           <div id="cart-content" style="overflow-y:auto;" >
-             {% comment %} {% if cart.item_count > 0 %}
+             {% if cart.item_count > 0 %}
               <h1>Cart</h1>
               <form action="/cart" method="post" novalidate>
                 <div class="shop-card">
@@ -186,7 +186,7 @@
             {% else %}
               <h2>Cart</h2>
               <p>Cart is empty</p>
-            {% endif %}  {% endcomment %}
+            {% endif %} 
           </div>
         </div>
       </div>
