@@ -461,14 +461,14 @@ responsive for larger than 575px screen
                   <tbody>
                       <tr>
                         <td>
-                          <a href="{{ item.url | within: collections.all }}">
-                            <img src="{{ item | img_url: 'medium' }}" alt="{{ item.title | escape }}">
+                          <a href="${item.url}">
+                            <img src="${item.image}" alt="${item.title}">
                           </a>
                         </td>
                         <td>
-                          <a href="{{ item.url }}">{{ item.product.title }}</a>
-                          {{ item.variant.title }}
-                          <a href="/cart/change?line={{ forloop.index }}&amp;quantity=0">remove</a>
+                          <a href="${item.url}">${item.product_title}</a>
+                           ${item.variant_title}
+                          <a href="/cart/change?line=${index + 1}&amp;quantity=0">remove</a>
                         </td>
                         <td>{{ item.price | money }}</td>
                         <td>
