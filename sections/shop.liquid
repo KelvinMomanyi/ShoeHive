@@ -378,9 +378,8 @@ responsive for larger than 575px screen
       .then(response => response.json())
       .then(cartData => {
         console.log('Current cart data:', cartData);
-        {% comment %} updateCartUI(cartData); {% endcomment %}
-          // Open the cart after updating the UI
-        openCart();  // Update the side cart UI with the fetched data {% endcomment %}
+        
+        openCart(); 
       })
       .catch((error) => {
         console.error('Error fetching cart data:', error);
@@ -440,8 +439,8 @@ responsive for larger than 575px screen
     .then(response => response.json())
     .then(data => {
       console.log('Product added to cart:', data);
-      fetchCartData();
-      {% comment %} openCart(); {% endcomment %}
+      {% comment %} fetchCartData(); {% endcomment %}
+      openCart(); 
 
  // Show the side cart
       {% comment %} updateCartUI(data); // Update the side cart with the new data {% endcomment %}
