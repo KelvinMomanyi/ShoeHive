@@ -152,26 +152,28 @@
                 <div class="shop-card">
                   <tbody>
                     {% for item in cart.items %}
-                      <tr class="card-banner img-holder"  style="--width:240 ; --height:320 ;">
-                        <td>
+                      <tr class="card-banner img-holder" style="display: flex;"  style="--width:240 ; --height:320 ;">
+                        <td style="flex: 1; display: flex; align-items: center; justify-content: center;">
                           <a href="{{ item.url | within: collections.all }}">
                             <img src="{{ item | img_url: 'medium' }}" alt="{{ item.title | escape }}" class="img-cover" width="540" height="720" loading="lazy">
                           </a>
                         </td>
-                        <td>
+                        <td style="flex: 1; display: flex; flex-direction: column; justify-content: space-between; padding: 0 10px;">
+                          <td>
                           <a href="{{ item.url }}">{{ item.product.title }}</a>
                           {{ item.variant.title }}
                           <a href="/cart/change?line={{ forloop.index }}&amp;quantity=0">remove</a>
-                        </td>
-                        <td>{{ item.price | money }}</td>
-                        <td>
+                          </td>
+                          <td>{{ item.price | money }}</td>
+                           <td>
                           <input type="number" name="updates[]" id="updates_{{ item.key }}" value="{{ item.quantity }}" min="0">
-                        </td>
-                        <td>
+                          </td>
+                          <td>
                           {% if item.original_line_price != item.line_price %}{{ item.original_line_price | money }}{% endif %}
                           {{ item.line_price | money }}
                           {% for discount in item.discounts %}{{ discount.title }}{% endfor %}
-                        </td>
+                           </td>
+                      </td>
                       </tr>
                     {% endfor %}
                   </tbody>
