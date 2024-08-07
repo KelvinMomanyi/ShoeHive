@@ -5,17 +5,19 @@
       </button>
       <div class="newsletter-card">
         <div class="card-image">
-          <img src="https://via.placeholder.com/600x400" alt="Newsletter Image">
+          <img src="{{'shoes.jpg' | asset_url}}" alt="Newsletter Image">
         </div>
         <div class="newcard-content">
           <h2>Stay Updated!</h2>
           <p>Subscribe to our newsletter and get the latest updates right in your inbox.</p>
+          {% form 'customer' %}
           <form action="{{ shop.url }}/contact#contact_form" method="post" accept-charset="UTF-8" class="subscribe-form">
             <input type="hidden" name="form_type" value="customer">
             <input type="hidden" name="utf8" value="✓">
             <input type="email" name="contact[email]" placeholder="Enter your email" required>
             <button type="submit">Subscribe</button>
           </form>
+        {% endform %}
         </div>
       </div>
     </div>
