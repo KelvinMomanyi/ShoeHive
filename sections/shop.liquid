@@ -440,10 +440,7 @@ responsive for larger than 575px screen
     .then(data => {
       console.log('Product added to cart:', data);
       {% comment %} fetchCartData(); {% endcomment %}
-      setTimeout(function() {
-        openCart(); 
-      }, 1000); 
-     
+      openCart(); 
 
  // Show the side cart
       {% comment %} updateCartUI(data); // Update the side cart with the new data {% endcomment %}
