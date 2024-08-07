@@ -451,18 +451,18 @@ responsive for larger than 575px screen
               ${item.variant_title}
               <a href="/cart/change?line=${index + 1}&amp;quantity=0">remove</a>
             </td>
-            <td>${Shopify.formatMoney(item.price)}</td>
+            {% comment %} <td>${Shopify.formatMoney(item.price)}</td> {% endcomment %}
             <td>
               <input type="number" name="updates[]" id="updates_${item.key}" value="${item.quantity}" min="0">
             </td>
-            <td>${Shopify.formatMoney(item.line_price)}</td>
+            {% comment %} <td>${Shopify.formatMoney(item.line_price)}</td> {% endcomment %}
           </tr>
         `;
       });
   
       cartHTML += `
         <div>
-          <p>Sub total: ${Shopify.formatMoney(cart.total_price)}</p>
+          {% comment %} <p>Sub total: ${Shopify.formatMoney(cart.total_price)}</p> {% endcomment %}
           <button type="submit" name="update">Update</button>
           <button type="submit" name="checkout">Checkout</button>
         </div>
