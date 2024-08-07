@@ -458,7 +458,7 @@ responsive for larger than 575px screen
             {% comment %} <td>${Shopify.formatMoney(item.line_price)}</td> {% endcomment %}
           </tr> {% endcomment %}
                 {% comment %} <div class="shop-card"> {% endcomment %}
-                  <div class="card-banner img-holder" style="--width:540 ; --height:720 ;display: flex;  ">
+                  {% comment %} <div class="card-banner img-holder" style="--width:540 ; --height:720 ;display: flex;  "> {% endcomment %}
                       <div style="display: flex;" >
                         <div style="flex: 1; display: flex; align-items: center; justify-content: center;">
                           <a href="${item.url}">
@@ -482,7 +482,7 @@ responsive for larger than 575px screen
                          </td>
                         </div>
                       </div>
-                  </div>
+                  {% comment %} </div> {% endcomment %}
                 {% comment %} </div> {% endcomment %}
       
                 <div>
