@@ -204,37 +204,53 @@
 
 
 
-<script>
-  document.addEventListener('DOMContentLoaded', function () {
-    const quantityDisplay = document.querySelector('#quantity_{{ item.key }}');
-    const priceDisplay = document.querySelector('#price_{{ item.key }}');
-    const incrementButton = document.querySelector('#increment_{{ item.key }}');
-    const decrementButton = document.querySelector('#decrement_{{ item.key }}');
-    {% comment %} const unitPrice = {{ item.price | divided_by: 100 }}; // Shopify price is in cents, so divide by 100 to get the correct value {% endcomment %}
-
-    let quantity = parseInt(quantityDisplay.textContent);
-    console.log('quantity', quantity)
-    incrementButton.addEventListener('click', function () {
-        quantity++;
-        updateQuantityAndPrice();
-        console.log('quantity', quantity)
-    });
-
-    decrementButton.addEventListener('click', function () {
-        if (quantity > 0) {
-            quantity--;
-            updateQuantityAndPrice();
-        }
-    });
-
-    function updateQuantityAndPrice() {
-        quantityDisplay.textContent = quantity;
-        const newPrice = quantity.toFixed(2);
-        priceDisplay.textContent = `$${newPrice}`;
-    }
-});
-
-</script>
+      <script>
+        document.addEventListener('DOMContentLoaded', function () {
+          console.log("Script running");
+      
+          const quantityDisplay = document.querySelector('#quantity_{{ item.key }}');
+          const priceDisplay = document.querySelector('#price_{{ item.key }}');
+          const incrementButton = document.querySelector('#increment_{{ item.key }}');
+          const decrementButton = document.querySelector('#decrement_{{ item.key }}');
+          
+          // Check if the elements were found
+          console.log("Quantity Display:", quantityDisplay);
+          console.log("Price Display:", priceDisplay);
+          console.log("Increment Button:", incrementButton);
+          console.log("Decrement Button:", decrementButton);
+      
+          // If any element is not found, stop execution
+          if (!quantityDisplay || !priceDisplay || !incrementButton || !decrementButton) {
+              console.error("One or more elements were not found.");
+              return;
+          }
+      
+          let quantity = parseInt(quantityDisplay.textContent);
+          console.log('Initial quantity:', quantity);
+      
+          incrementButton.addEventListener('click', function () {
+              quantity++;
+              updateQuantityAndPrice();
+              console.log('Incremented quantity:', quantity);
+          });
+      
+          decrementButton.addEventListener('click', function () {
+              if (quantity > 0) {
+                  quantity--;
+                  updateQuantityAndPrice();
+                  console.log('Decremented quantity:', quantity);
+              }
+          });
+      
+          function updateQuantityAndPrice() {
+              quantityDisplay.textContent = quantity;
+              const newPrice = quantity.toFixed(2); // Dummy calculation
+              priceDisplay.textContent = `$${newPrice}`;
+              console.log('Updated price:', newPrice);
+          }
+        });
+      </script>
+      
  <style>
   .quantity-selector {
     display: flex;
