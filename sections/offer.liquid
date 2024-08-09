@@ -22,7 +22,7 @@
                                 Made using clean, non-toxic ingredients, our products are designed for everyone.
                             </p>
                             <div class="countdown">
-                                <div id="countdown" class="time" aria-label="days">15</div>
+                                <span  class="time" aria-label="days">15</span>
                                 <span class="time" aria-label="hours">21</span>
                                 <span class="time" aria-label="minutes">46</span>
                                 <span class="time" aria-label="seconds">08</span>
@@ -42,35 +42,40 @@
                         function updateTimer() {
                             let now = Date.now();
                             let timeRemaining = endTime - now;
-            
+                    
                             if (timeRemaining <= 0) {
-                                document.getElementById('countdown').textContent = "Time's up!";
+                                document.querySelector('.countdown').innerHTML = "Time's up!";
                                 return;
                             }
-            
+                    
                             // Convert milliseconds to days, hours, minutes, and seconds
                             let days = Math.floor(timeRemaining / (1000 * 60 * 60 * 24));
                             let hours = Math.floor((timeRemaining % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
                             let minutes = Math.floor((timeRemaining % (1000 * 60 * 60)) / (1000 * 60));
                             let seconds = Math.floor((timeRemaining % (1000 * 60)) / 1000);
-            
+                    
                             // Format the time
                             days = String(days).padStart(2, '0');
                             hours = String(hours).padStart(2, '0');
                             minutes = String(minutes).padStart(2, '0');
                             seconds = String(seconds).padStart(2, '0');
-            
-                            document.getElementById('countdown').textContent = `${days}d ${hours}h ${minutes}m ${seconds}s`;
-            
+                    
+                            // Update the HTML elements
+                            document.querySelector('.countdown [aria-label="days"]').textContent = days;
+                            document.querySelector('.countdown [aria-label="hours"]').textContent = hours;
+                            document.querySelector('.countdown [aria-label="minutes"]').textContent = minutes;
+                            document.querySelector('.countdown [aria-label="seconds"]').textContent = seconds;
+                    
                             // Update every second
                             setTimeout(updateTimer, 1000);
                         }
-            
+                    
                         updateTimer();
                     }
-            
+                    
                     // Start a countdown of 3 days (259200000 milliseconds)
                     startCountdown(259200000);
+                    
                 </script>          
 {% schema %}
 {
