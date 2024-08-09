@@ -213,7 +213,7 @@
     {% comment %} const unitPrice = {{ item.price | divided_by: 100 }}; // Shopify price is in cents, so divide by 100 to get the correct value {% endcomment %}
 
     let quantity = parseInt(quantityDisplay.textContent);
-
+    console.log('quantity', quantity)
     incrementButton.addEventListener('click', function () {
         quantity++;
         updateQuantityAndPrice();
