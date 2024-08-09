@@ -146,42 +146,47 @@
           <div id="loader" style="display: none;">Loading...</div>
       
           <div id="cart-content">
-            {% if cart.item_count > 0 %}
+             {% if cart.item_count > 0 %}
               <h1>Cart</h1>
               <form action="/cart" method="post" novalidate>
                 <div class="shop-card">
-                  <table>
-                    <tbody>
-                      {% for item in cart.items %}
-                        <tr class="card-banner img-holder" style="display: flex;" style="--width:240 ; --height:320 ;">
-                          <td style="flex: 1; display: flex; align-items: center; justify-content: center;">
-                            <a href="{{ item.url | within: collections.all }}">
-                              <img src="{{ item | img_url: 'medium' }}" alt="{{ item.title | escape }}" class="img-cover" width="540" height="720" loading="lazy">
-                            </a>
+                  <tbody>
+                    {% for item in cart.items %}
+                      <tr class="card-banner img-holder" style="display: flex;"  style="--width:240 ; --height:320 ;">
+                        <td style="flex: 1; display: flex; align-items: center; justify-content: center;">
+                          <a href="{{ item.url | within: collections.all }}">
+                            <img src="{{ item | img_url: 'medium' }}" alt="{{ item.title | escape }}" class="img-cover" width="540" height="720" loading="lazy">
+                          </a>
+                        </td>
+                        <td style="flex: 1; display: flex; flex-direction: column; justify-content: space-between; padding: 0 10px;">
+                          <td>
+                          <a href="{{ item.url }}">{{ item.product.title }}</a>
+                          {{ item.variant.title }}
+                          <a href="/cart/change?line={{ forloop.index }}&amp;quantity=0">remove</a>
                           </td>
-                          <td style="flex: 1; display: flex; flex-direction: column; justify-content: space-between; padding: 0 10px;">
-                            <div>
-                              <a href="{{ item.url }}">{{ item.product.title }}</a>
-                              {{ item.variant.title }}
-                              <a href="/cart/change?line={{ forloop.index }}&amp;quantity=0">remove</a>
-                            </div>
-                            <div>
-                              {{ item.price | money }}
-                            </div>
-                            <div>
-                              <div class="quantity-selector">
-                                <button type="button" class="decrement" id="decrement_{{ item.key }}">-</button>
-                                <span id="quantity_{{ item.key }}">{{ item.quantity }}</span>
-                                <button type="button" class="increment" id="increment_{{ item.key }}">+</button>
-                              </div>
-                              <span id="price_{{ item.key }}">{{ item.line_price | money }}</span>
-                            </div>
+                          <td>{{ item.price | money }}</td>
+                           <td>
+                          <input type="number" name="updates[]" id="updates_{{ item.key }}" value="{{ item.quantity }}" min="0">
                           </td>
-                        </tr>
-                      {% endfor %}
-                    </tbody>
-                  </table>
+                          <td>
+                          {% if item.original_line_price != item.line_price %}{{ item.original_line_price | money }}{% endif %}
+                          {{ item.line_price | money }}
+                          {% for discount in item.discounts %}{{ discount.title }}{% endfor %}
+                           </td>
+                      </td>
+                      </tr>
+                      <div class="quantity-selector">
+                        <button type="button" class="decrement" id="decrement_{{ item.key }}">-</button>
+                        <span id="quantity_{{ item.key }}">{{ item.quantity }}</span>
+                        <button type="button" class="increment" id="increment_{{ item.key }}">+</button>
+                    </div>
+                    <span id="price_{{ item.key }}">{{ item.final_price | money }}</span>
+                    
+                    
+                    {% endfor %}
+                  </tbody>
                 </div>
+      
                 <div>
                   <p>Sub total: {{ cart.total_price | money }}</p>
                   <button type="submit" name="update">Update</button>
@@ -191,9 +196,8 @@
             {% else %}
               <h2>Cart</h2>
               <p>Cart is empty</p>
-            {% endif %}
+            {% endif %} 
           </div>
-          
         </div>
       </div>
        
