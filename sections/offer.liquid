@@ -48,25 +48,29 @@
                                 return;
                             }
             
-                            // Convert milliseconds to minutes and seconds
-                            let minutes = Math.floor(timeRemaining / 60000);
+                            // Convert milliseconds to hours, minutes, seconds, and milliseconds
+                            let hours = Math.floor(timeRemaining / 3600000);
+                            let minutes = Math.floor((timeRemaining % 3600000) / 60000);
                             let seconds = Math.floor((timeRemaining % 60000) / 1000);
+                            let milliseconds = timeRemaining % 1000;
             
                             // Format the time
+                            hours = String(hours).padStart(2, '0');
                             minutes = String(minutes).padStart(2, '0');
                             seconds = String(seconds).padStart(2, '0');
+                            milliseconds = String(milliseconds).padStart(3, '0');
             
-                            document.getElementById('countdown').textContent = `${minutes}:${seconds}`;
+                            document.getElementById('countdown').textContent = `${hours}:${minutes}:${seconds}:${milliseconds}`;
             
-                            // Update every second
-                            setTimeout(updateTimer, 1000);
+                            // Update every 10 milliseconds
+                            setTimeout(updateTimer, 10);
                         }
             
                         updateTimer();
                     }
             
-                    // Start a countdown of 5 minutes (300,000 milliseconds)
-                    startCountdown(300000);
+                    // Start a countdown of 1 hour (3600000 milliseconds)
+                    startCountdown(3600000);
                 </script>          
 {% schema %}
 {
