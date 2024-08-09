@@ -252,6 +252,21 @@ document.addEventListener("DOMContentLoaded", function() {
 });
 
 
+document.addEventListener('DOMContentLoaded', function () {
+  const quantityInput = document.querySelector('#updates_{{ item.key }}');
+  const priceDisplay = document.querySelector('#price_{{ item.key }}');
+  const unitPrice = {{ item.price | divided_by: 100 }}; // Shopify price is in cents, so divide by 100 to get the correct value
+
+  quantityInput.addEventListener('input', function () {
+      const newQuantity = parseInt(quantityInput.value);
+      const newPrice = (newQuantity * unitPrice).toFixed(2);
+
+      priceDisplay.textContent = `$${newPrice}`;
+  });
+});
+
+
+
 
 
 
