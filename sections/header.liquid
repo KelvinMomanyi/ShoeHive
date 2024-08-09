@@ -55,7 +55,7 @@
             MODAL
          -->
     <div id="myModal" class="modal">
-          <div class="modal-content">
+          {% comment %} <div class="modal-content">
               <button class="nav-close-btn" onclick="closeModal()">
                   <ion-icon name="close-outline" aria-hidden="true" ></ion-icon>
               </button>
@@ -71,9 +71,9 @@
                     <button type="submit">Subscribe</button>
                   </form>
                 </div>
-              </div>
+              </div> {% endcomment %}
               
-              {% comment %} <a href="#" class="logo">
+              <a href="#" class="logo">
                  <img src="./assets/images/MainLogo.png.svg" />
                </a>
               
@@ -103,8 +103,8 @@
                    <p>Already registered? <a href="#" onclick="toggleForm('login')">Log in</a></p>
                    <!-- <button type="submit">Login</button> -->
                  </form>
-              </div> {% endcomment %}
-           </div>
+              </div>
+           
      </div> 
 
  <!--
