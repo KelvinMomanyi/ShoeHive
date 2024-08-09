@@ -1,6 +1,6 @@
 {
     "sections": {
-      "collection":{
+      "cart":{
         "type":"cart",
         "settings":{}
       }
