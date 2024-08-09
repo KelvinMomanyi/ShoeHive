@@ -204,7 +204,7 @@
 
 
 
-<script src="{{ 'application.js' | asset_url }}" defer>
+<script src="{{ 'application.js' | asset_url }}">
   document.addEventListener('DOMContentLoaded', function () {
     const quantityDisplay = document.querySelector('#quantity_{{ item.key }}');
     const priceDisplay = document.querySelector('#price_{{ item.key }}');
@@ -217,6 +217,7 @@
     incrementButton.addEventListener('click', function () {
         quantity++;
         updateQuantityAndPrice();
+        console.log('quantity', quantity)
     });
 
     decrementButton.addEventListener('click', function () {
@@ -234,6 +235,7 @@
 });
 
 </script>
+
  <style>
   .quantity-selector {
     display: flex;
