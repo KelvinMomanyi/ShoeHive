@@ -175,6 +175,13 @@
                            </td>
                       </td>
                       </tr>
+                      <div class="quantity-selector">
+                        <button type="button" class="decrement" id="decrement_{{ item.key }}">-</button>
+                        <span id="quantity_{{ item.key }}">{{ item.quantity }}</span>
+                        <button type="button" class="increment" id="increment_{{ item.key }}">+</button>
+                    </div>
+                    <span id="price_{{ item.key }}">{{ item.final_price | money }}</span>
+                    
                     {% endfor %}
                   </tbody>
                 </div>
@@ -198,9 +205,55 @@
 
 
 <script src="{{ 'application.js' | asset_url }}" defer>
+  document.addEventListener('DOMContentLoaded', function () {
+    const quantityDisplay = document.querySelector('#quantity_{{ item.key }}');
+    const priceDisplay = document.querySelector('#price_{{ item.key }}');
+    const incrementButton = document.querySelector('#increment_{{ item.key }}');
+    const decrementButton = document.querySelector('#decrement_{{ item.key }}');
+    const unitPrice = {{ item.price | divided_by: 100 }}; // Shopify price is in cents, so divide by 100 to get the correct value
 
-  </script>
- 
+    let quantity = parseInt(quantityDisplay.textContent);
+
+    incrementButton.addEventListener('click', function () {
+        quantity++;
+        updateQuantityAndPrice();
+    });
+
+    decrementButton.addEventListener('click', function () {
+        if (quantity > 0) {
+            quantity--;
+            updateQuantityAndPrice();
+        }
+    });
+
+    function updateQuantityAndPrice() {
+        quantityDisplay.textContent = quantity;
+        const newPrice = (quantity * unitPrice).toFixed(2);
+        priceDisplay.textContent = `$${newPrice}`;
+    }
+});
+
+</script>
+ <style>
+  .quantity-selector {
+    display: flex;
+    align-items: center;
+}
+
+.quantity-selector button {
+    background-color: #f0f0f0;
+    border: none;
+    padding: 8px 12px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.quantity-selector #quantity_{{ item.key }} {
+    margin: 0 10px;
+    font-size: 16px;
+}
+
+</style>
 {% schema %}
 {
   "name": "header",
