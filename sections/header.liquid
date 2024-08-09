@@ -210,7 +210,7 @@
     const priceDisplay = document.querySelector('#price_{{ item.key }}');
     const incrementButton = document.querySelector('#increment_{{ item.key }}');
     const decrementButton = document.querySelector('#decrement_{{ item.key }}');
-    const unitPrice = {{ item.price | divided_by: 100 }}; // Shopify price is in cents, so divide by 100 to get the correct value
+    {% comment %} const unitPrice = {{ item.price | divided_by: 100 }}; // Shopify price is in cents, so divide by 100 to get the correct value {% endcomment %}
 
     let quantity = parseInt(quantityDisplay.textContent);
 
@@ -228,7 +228,7 @@
 
     function updateQuantityAndPrice() {
         quantityDisplay.textContent = quantity;
-        const newPrice = (quantity * unitPrice).toFixed(2);
+        const newPrice = quantity.toFixed(2);
         priceDisplay.textContent = `$${newPrice}`;
     }
 });
