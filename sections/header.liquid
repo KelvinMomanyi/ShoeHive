@@ -204,7 +204,7 @@
 
 
 
-<script src="{{ 'application.js' | asset_url }}">
+<script>
   document.addEventListener('DOMContentLoaded', function () {
     const quantityDisplay = document.querySelector('#quantity_{{ item.key }}');
     const priceDisplay = document.querySelector('#price_{{ item.key }}');
@@ -235,7 +235,6 @@
 });
 
 </script>
-
  <style>
   .quantity-selector {
     display: flex;
