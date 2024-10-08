@@ -20,9 +20,15 @@
                     {{ section.settings.percent_offer }}
                 </span>
             </p>
-            <h2 class="h2-large section-title">
+            {% if section.settings.select_product.title != blank %}
+              <h2 class="h2-large section-title">
                 {{ section.settings.select_product.title }}
-            </h2>
+             </h2>
+            {% else %} 
+            <h2 class="h2-large section-title">
+              Nike Jordan
+           </h2>
+            {% endif %}
             {% if section.settings.product_desc %}
               <p>
                {{section.settings.product_desc }}
