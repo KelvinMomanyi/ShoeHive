@@ -1,0 +1,69 @@
+
+                 <!--
+                   #BLOG
+                -->
+                {% comment %} data-section {% endcomment %}
+                <section class="section-blog" id="blog" aria-label="blog" >
+                    <div class="container">
+                       <h2 class="h2-large section-title">More to Discover</h2>
+                       <ul class="flex-list">
+                           <li class="flex-item">
+                               <div class="blog-card">
+                                   <figure class="card-banner img-holder has-before hover:shine" style="--width:700; --height:450;">
+                                     <img src="{{ 'shoBlog1.jpg' | asset_url }}" alt="Find a Store" class="img-cover" width="700" height="450" loading="lazy">
+                                   </figure>
+   
+                                   <h3 class="h3">
+                                       <a href="#" class="card-title">Find Our Store near you</a>
+                                   </h3>
+                                   <a href="#" class="btn-link">
+                                      <span class="span">Read More</span>
+                                      <ion-icon name="arrow-forward-outline" aria-hidden="true"></ion-icon>
+                                   </a>
+                               </div>
+                           </li>
+                           <li class="flex-item">
+                               <div class="blog-card">
+                                   <figure class="card-banner img-holder has-before hover:shine" style="--width:700; --height:450;">
+                                     <img src="{{ 'shoBlog2.jpg' | asset_url }}" alt="From Our Blog" class="img-cover" width="700" height="450" loading="lazy">
+                                   </figure>
+   
+                                   <h3 class="h3">
+                                       <a href="#" class="card-title">From Our Blog</a>
+                                   </h3>
+                                   <a href="#" class="btn-link">
+                                      <span class="span">Read More</span>
+                                      <ion-icon name="arrow-forward-outline" aria-hidden="true"></ion-icon>
+                                   </a>
+                               </div>
+                           </li>
+                           <li class="flex-item">
+                               <div class="blog-card">
+                                   <figure class="card-banner img-holder has-before hover:shine" style="--width:700; --height:450;">
+                                     <img src="{{ 'shoBlog3.jpg' | asset_url }}" alt="Our Story" class="img-cover" width="700" height="450" loading="lazy">
+                                   </figure>
+   
+                                   <h3 class="h3">
+                                       <a href="#" class="card-title">Our Story</a>
+                                   </h3>
+                                   <a href="#" class="btn-link">
+                                      <span class="span">Read More</span>
+                                      <ion-icon name="arrow-forward-outline" aria-hidden="true"></ion-icon>
+                                   </a>
+                               </div>
+                           </li>
+                       </ul>
+                    </div>
+                  </section>
+{% schema %}
+{
+  "name": "blog",
+  "settings": [],
+  "blocks": [],
+  "presets": [
+    {
+      "name": "blog"
+    }
+  ]
+}
+{% endschema %}

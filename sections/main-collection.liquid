@@ -1,0 +1,167 @@
+<div class="container" style="padding-top:5px;">
+     <section class="section shop" id="shop" aria-label="shop">
+          <div class="container">
+            
+            <div class="title-wrapper">
+                <h2 class="h2 section-title">{{ collection.title }}</h2>
+                <div style='display:flex'> 
+                    <a href="#" class="btn-link">
+                        {% render 'sorting-filter' %}
+                        <ion-icon class="arrow-forward" aria-hidden="true"></ion-icon>
+                    </a>
+                    <a href="#" class="btn-link">
+                        {% render 'collection-filter' %}
+                        <ion-icon class="arrow-forward" aria-hidden="true"></ion-icon>
+                    </a>
+               </div>
+            </div>
+            <div class="collection-container">
+                <div class="collection">
+                {% for product in collection.products %}
+                <li class="scrollbar-item">
+                    <div class="shop-card">
+                     <div class="card-banner img-holder" style="--width:540 ; --height:720 ;">
+                         <img src="{{ product.featured_image.src | img_url: 'large' }}" alt="{{ product.featured_image.alt | escape }}" class="img-cover" width="540" height="720" loading="lazy">
+                         <span class="badge"  aria-label="20% off">-20%</span>
+                         <div class="card-actions">
+                             <button class="action-btn" aria-label="add to cart">
+                                 <ion-icon name="bag-handle-outline" aria-hidden="true"></ion-icon>
+                             </button>
+             
+                             <button class="action-btn" aria-label="add to wishlist">
+                                 <ion-icon name="star-outline" aria-hidden="true"></ion-icon>
+                             </button>
+             
+                             <button class="action-btn" aria-label="compare">
+                                 <ion-icon name="repeat-outline" aria-hidden="true"></ion-icon>
+                             </button>
+                         </div>
+                     </div>
+                     <div class="card-content">
+                         <div class="price">
+                             <del class="del">   {{ product.price | money }}</del>
+                             <span class="span">   {{ product.price | money }}</span>
+                         </div>
+                         {% unless product.available %}<br><strong>sold out</strong>{% endunless %}
+                         <h3>
+                             <a href="#" class="card-title">{{- product.title | link_to: product.url -}}</a>
+                         </h3>
+                         <div class="card-rating">
+                             <div class="rating-wrapper" aria-label="5 star rating">
+                                <ion-icon name="star" aria-hidden="true"></ion-icon>
+                                <ion-icon name="star"  aria-hidden="true"></ion-icon>
+                                <ion-icon name="star"  aria-hidden="true"></ion-icon>
+                                <ion-icon name="star"  aria-hidden="true"></ion-icon>
+                                <ion-icon name="star"  aria-hidden="true"></ion-icon>
+                             </div>
+                             <p class="rating-text">5170 reviews</p>
+                         </div>
+                     </div>
+                    </div>
+                 </li>
+                 {% else %}
+                 <p>no matches</p>
+                  {% endfor %}
+              </div>
+            </div>
+          </div>
+      </section> 
+</div>  
+ <style>
+    .hero-small {
+        min-height: 30vh;
+    }
+    
+    .collection-container {
+        {% comment %} overflow-y: auto;  {% endcomment %}
+        {% comment %} height: auto; {% endcomment %}
+        {% comment %} padding: 20px; {% endcomment %}
+        box-sizing: border-box;
+      
+    }
+
+    
+    .collection {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+        {% comment %} grid-template-columns: repeat(4, 1fr); {% endcomment %}
+        gap: 20px;
+    }
+
+    @media (min-width: 1200px) {
+        .collection {
+            grid-template-columns: repeat(5, 1fr);
+        }
+    }
+    
+    /* For medium screens, display 3 cards */
+    @media (min-width: 900px) and (max-width: 1199px) {
+        .collection {
+            grid-template-columns: repeat(4, 1fr);
+        }
+    }
+    
+    /* For smaller screens, display 2 cards */
+    @media (min-width: 750px) and (max-width: 899px) {
+        .collection {
+            grid-template-columns: repeat(3, 1fr);
+        }
+    }
+
+    @media (min-width: 575px) and (max-width:750px) {
+        .collection {
+            grid-template-columns: repeat(2, 1fr);
+        }
+    }
+
+
+    .card {
+        background-color: #fff;
+        border-radius: 10px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        overflow: hidden;
+        opacity: 0;
+        transform: translateY(50px);
+        transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+    
+    .card.in-view {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    
+    .card img {
+        width: 100%;
+        height: auto;
+    }
+    
+    .card-content {
+        padding: 20px;
+    }
+    
+    .card h3 {
+        margin: 0 0 10px;
+    }
+    
+    .card p {
+        margin: 0;
+        color: #666;
+    }
+         
+      
+
+</style>    
+
+      
+      {% schema %}
+      {
+        "name": "main-collection",
+        "settings": [],
+        "blocks": [],
+        "presets": [
+          {
+            "name": "main-collection"
+          }
+        ]
+      }
+      {% endschema %}

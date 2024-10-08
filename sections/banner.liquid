@@ -1,0 +1,803 @@
+<!--#BANNER-->
+{% comment %} data-section {% endcomment %}
+<section class="section banner" aria-label="banner" >
+    <div class="container">
+        <ul class="banner-list">
+            <li>
+                <div class="banner-card banner-card-1 has-before hover:shine">
+                   <p class="card-subtitle">{{section.settings.subtitle1 }}</p>
+                   <h2 class="h2 card-title">{{section.settings.title1 }}</h2>
+                   <a {% if section.settings.link %}
+                     href="{{ section.settings.link }}"
+                     {% else %}
+                      role="link" aria-disabled="true"
+                      {% endif %}
+                     class="btn btn-secondary">{{section.settings.btn_label1}}</a>
+                     {% if section.settings.image1 != blank %}
+                      <div class="has-bg-image" style="background-image: url('{{ section.settings.image1 | image_url}}');">
+                      </div>   
+                     {% else %}
+                     <div class="has-bg-image" style="background-image: url('{{ 'shoe10.jpg' | asset_url}}');">
+                     </div> 
+                    {% endif %}
+                </div>
+            </li>
+            <li>
+               <div class="banner-card banner-card-2 has-before hover:shine">
+                  <h2 class="h2 card-title">{{section.settings.title2 }}</h2>
+                  <p class="card-text">
+                    {{section.settings.description}}
+                  </p>
+                  <a {% if section.settings.link %}
+                    href="{{ section.settings.link }}"
+                    {% else %}
+                     role="link" aria-disabled="true"
+                     {% endif %}
+                    class="btn btn-secondary">{{section.settings.btn_label2}}</a>
+                    {% if section.settings.image2 != blank %}
+                      <div class="has-bg-image" style="background-image: url('{{ section.settings.image2 | image_url}}');">
+                      </div>   
+                     {% else %}
+                     <div class="has-bg-image" style="background-image: url('{{ 'shoe21.jpg' | asset_url}}');">
+                     </div>
+                    {% endif %}
+                </div>
+            </li>
+        </ul>
+    </div>   
+</section>
+
+<style>
+    /*-----------------------------------*\
+  #style.css
+\*-----------------------------------*/
+
+/**
+ * copyright 2022 codewithsadee
+ */
+
+
+
+
+
+
+
+
+
+
+
+
+ /*-----------------------------------*\
+  #CUSTOM PROPERTY
+\*-----------------------------------*/
+:root{
+    --hoockers-green_20: hsl(148, 20%, 38%, 0.2);
+    --pale-spring-bud: hsl(60, 68%, 85%);
+    --hoockers-green: hsl(148, 20%, 38%);
+    --spanish-gray: hsl(0, 0%, 61%);
+    --light-gray: hsl(0, 0%, 80%);
+    --cultured-1: hsl(0, 0%, 97%);
+    --cultured-2: hsl(60, 6%, 93%);
+    --gray-web: hsl(0, 0%, 49%);
+    --white_30: hsl(0, 0%, 100%, 0.3);
+    --black_70: hsla(0, 0%, 0%, 0.7);
+    --black_50: hsla(0, 0%, 0%, 0.5);
+    --black_15: hsla(0, 0%, 0%, 0.15);
+    --black_10: hsla(0, 0%, 0%, 0.1);
+    --black_5: hsla(0, 0%, 0%, 0.05);
+    --white: hsl(0, 0%, 100%);
+    --black: hsl(0, 0%, 0%);
+  
+    /*gradient*/
+    --gradient: linear-gradient(to right, transparent 50%, var(--white_30) 100%);
+  
+    /*spacing*/
+    --section-padding: 35px;
+  
+  
+    /*typography*/
+  --ff-urbanist: 'Urbanist', sans-serif;
+  
+  --fs-1: 4.8rem;
+  --fs-2: 4rem;
+  --fs-3: 3.4rem;
+  --fs-4: 2.4rem;
+  --fs-5: 2rem;
+  --fs-6: 1.8rem;
+  --fs-7: 1.5rem;
+  --fs-8: 1.4rem;
+  --fs-9: 1.3rem;
+  
+  --fw-400: 400;
+  --fw-500: 500;
+  --fw-600: 600;
+  --fw-700: 700;
+  --fw-800: 800;
+  
+  /*Border Radius */
+  --radius-3: 3px;
+  
+  
+  /*Transition*/
+  --transition-1: 0.25s ease;
+  --transition-2: 0.5s ease;
+  --cubic-in: cubic-bezier(0.51, 0.03, 0.64, 0.28);
+  --cubic-out: cubic-bezier(0.33, 0.85, 0.4, 0.96);
+  
+  /*Shadow*/
+  --shadow-1: 0 8px 16px var(--black_15);
+  --shadow-2: 0 4px 10px var(--black_5);
+  
+  }
+  
+  
+  
+  /*-----------------------------------*\
+    #RESET
+  \*-----------------------------------*/
+  *,
+  *::before,
+  *::after{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  li {list-style: none;}
+  
+  a,
+  img,
+  span,
+  input,
+  button ,
+  ion-icon { display: block;}
+  
+  
+  a{
+    text-decoration: none;
+    color: inherit;
+  }
+  
+  img {height: auto;}
+  
+  input,
+  button {
+    background: none;
+    border: none;
+    font: inherit;
+  }
+  
+  input {width: 100%;}
+  
+  button {cursor: pointer;}
+  
+  ion-icon{
+    pointer-events:none;
+    --ionicon-stroke-width: 25px;
+  }
+  
+  html{
+    font-family: var(--ff-urbanist);
+    font-size: 10px;
+    scroll-behavior: smooth;
+  }
+  
+  body{
+    background-color: var(--white);
+    color: var(--gray-web);
+    font-size: 1.6rem;
+    font-weight: var(--fw-500);
+    line-height: 1.6;
+    height: 300vh;
+  }
+  
+  
+  :focus-visible{outline-offset: 4px;}
+  
+  ::-webkit-scrollbar{
+    width:10px;
+    height:5px;
+  }
+  
+  ::-webkit-scrollbar-track{background-color: hsl(0, 0%, 95%);}
+  ::-webkit-scrollbar-thumb{background-color: hsl(0, 0%, 80%);}
+  ::-webkit-scrollbar-thumb:hover{background-color: hsl(0, 0%, 70%);}
+  
+  /*-----------------------------------*\
+    #REUSED STYLE
+  \*-----------------------------------*/
+  
+  .container{
+    padding-inline: 15px;
+  }
+  
+  .section{padding-block: var(--section-padding);}
+  
+  .has-bg-image{
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+  }
+  
+  .h1,
+  .h2,
+  .h3,
+  .h2-large {
+    color: var(--black);
+    font-weight: var(--fw-600);
+    line-height: 1.3;
+  }
+  
+  .h1{
+    font-size: var(--fs-1);
+    line-height: 1.2;
+  }
+  
+  .h2{
+    font-size: var(--fs-3);
+  }
+  
+  .h2-large{
+    font-size: var(--fs-2);
+  }
+  
+  .h3{
+    font-size: var(--fs-4);
+  }
+  
+  .btn{
+    font-weight: var(--fw-600);
+    max-width: max-content;
+    padding: 10px 30px;
+    border-radius: var(--radius-3);
+    transition: var(--transition-1);
+  }
+  
+  .btn-primary,
+  .btn-secondary:is(:hover, :focus){
+    background-color: var(--black);
+    color: var(--white);
+  }
+  
+  .btn-primary:is(:hover, :focus){background-color: var(--hoockers-green);}
+  
+  .btn-secondary{
+    background-color: var(--white);
+    color: var(--black);
+    box-shadow: var(--shadow-2);
+  }
+  
+  
+  .has-scrollbar{
+   display: flex;
+   gap: 15px;
+   overflow-x: auto;
+   padding-block-end: 15px;
+   margin-block-end: -15px;
+   scroll-snap-type: inline mandatory;
+  }
+  
+  .scrollbar-item{
+    min-width: 100%;
+    scroll-snap-align: start;
+  }
+  
+  .has-scrollbar::-webkit-scrollbar-track,
+  .has-scrollbar::-webkit-scrollbar-thumb{
+    background-color: transparent;
+  }
+  
+  .has-scrollbar:is(:hover, :focus-within)::-webkit-scrollbar-track{
+    background-color: hsl(0, 0%, 98%);
+  }
+  
+  .has-scrollbar:is(:hover, :focus-visible)::-webkit-scrollbar-thumb{
+    background-color: hsl(0, 0%, 70%);
+  }
+  .has-before,
+  .has-after{
+    position:relative;
+    z-index: 1;
+  }
+  
+  
+  .has-before::before,
+  .has-after::after{
+    content:"";
+    position:absolute;
+  }
+  
+  .hover\:shine {
+    overflow:hidden;
+  }
+  
+  .hover\:shine .has-bg-image{
+    position:absolute;
+    top:0;
+    right:0;
+    bottom: 0;
+    left:0;
+    z-index:-1;
+    transition: var(--transition-2);
+  }
+  
+  .hover\:shine:is(:hover, :focus) .has-bg-image {transform: scale(1.15);}
+  
+  .hover\:shine::before {
+    top: 0;
+    left: -140%;
+    bottom:0;
+    width:100%;
+    background-image: var(--gradient);
+    transform: skewX(-25deg);
+    transition: var(--transition-2);
+    z-index: 1;
+  }
+  
+  .hover\:shine:is(:hover, :focus-visible)::before{animation: shine 1s ease forwards;}
+  
+  @keyframes shine{
+    0%{transform: skewX(-25deg) translateX(0%);}
+    100%{transform: skewX(-25deg) translateX(250%);}
+  }
+  
+  .btn-link{
+    color: var(--black);
+    font-weight: var(--fw-600);
+    display: flex;
+    align-items: center;
+    gap: 3px;
+    transition: var(--transition-1);
+  }
+  
+  .img-holder{
+    aspect-ratio: var(--width) / var(--height);
+    background-color: var(--light-gray);
+  }
+  
+  .img-cover{
+    width:100%;
+    height:100%;
+    object-fit: cover;
+  }
+  
+  .badge{
+    max-width: max-content;
+    background-color: var(--hoockers-green);
+    color: var(--white);
+    font-weight: var(--fw-700);
+    padding-inline: 12px;
+    border-radius: var(--radius-3);
+  }
+  
+  .flex-list{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+  }
+  
+  .w-100 {width: 100%;}
+  
+  [data-section] > * {
+    transform: translateY(100px);
+    opacity: 0;
+    transition: var(--transition-3);
+  }
+  
+  [data-section].active > * {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  
+  
+  /*-----------------------------------*\
+    #MODAL
+  \*-----------------------------------*/
+  
+  .modal {
+    display:none; /* Hide the modal by default */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black background */
+    justify-content: center;
+    align-items: center;
+    z-index: 999;
+  }
+  
+  /* Style for the modal content */
+  .modal-content {
+    background-color: #fefefe;
+    display: relative;
+    padding: 20px 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 400px;
+    min-width: 300px;
+    margin: 0 auto;
+    text-align: center;
+  }
+  .modal-close{
+    width: 100%;
+    height: auto;
+    text-align: end;
+  }
+  
+  /* Style for the close button */
+   .close {
+    display: absolute;
+    right: 2px;
+    top: -2px;
+    color:black;
+    /* float: right; */
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+  }
+  
+  /* Style for the close button on hover */
+  .close:hover {
+    color: black;
+  }
+  
+  .modal-content a img{
+    width:80px;
+    height:80px;
+    text-align: center;
+  }
+  
+  .modal-content form {
+    display:flex;
+    gap: .4rem;
+    flex-direction: column;
+    text-align: start;
+  }
+  .modal-content form label {
+   justify-content: left;
+  }
+  
+  
+  .modal-content form p a {
+    font-size: medium;
+   }
+  
+   .modal-content form p a:hover {
+    text-decoration: underline;
+   }
+   .hidden{
+    display: none;
+   }
+  
+  
+   /*-----------------------------------*\
+    #OPEN-CART
+  \*-----------------------------------*/
+  
+  .cartBar {
+    display:none; /* Hide the modal by default */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black background */
+    justify-content: center;
+    align-items: center;
+    z-index: 999;
+  }
+  
+  /* Style for the modal content */
+  .cartBar-content {
+    background-color: #fefefe;
+    display: relative;
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    padding: 20px 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    max-width: 350px;
+    width: 100%;
+    margin: 0 auto;
+    text-align: center;
+    
+  }
+  .cartBar-close{
+    width: 100%;
+    height: auto;
+    text-align: end;
+  }
+  
+  /* Style for the close button */
+   .close {
+    display: absolute;
+    right: 2px;
+    top: -2px;
+    color:black;
+    /* float: right; */
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+  }
+  
+  /* Style for the close button on hover */
+  .close:hover {
+    color: black;
+  }
+  
+  .cart-content a img{
+    width:80px;
+    height:80px;
+    text-align: center;
+  }
+  
+  .cart-content form {
+    display:flex;
+    gap: .4rem;
+    flex-direction: column;
+    text-align: start;
+  }
+  .cart-content form label {
+   justify-content: left;
+  }
+  
+  
+  .cart-content form p a {
+    font-size: medium;
+   }
+  
+   .cart-content form p a:hover {
+    text-decoration: underline;
+   }
+   .hidden{
+    display: none;
+   }
+  
+  
+  
+  /*-----------------------------------*\
+    #BANNER
+  \*-----------------------------------*/
+  
+  .banner-list{
+   display: grid;
+   gap:30px;
+  }
+  
+  .banner-card{
+    min-height: 420px;
+    padding:30px;
+  }
+  
+  .banner-card .card-subtitle{
+    color: var(--black);
+    font-size: var(--fs-6);
+    font-weight: var(--fw-600);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+  }
+  
+  .banner-card :is(.card-subtitle, .card-title) {text-shadow: 0 0 2px var(--cultured-2);}
+  
+  .banner-card-1  .card-title {margin-block:10px 30px;}
+  
+  .banner-card .card-text{
+    color:var(--black);
+    font-size: var(--fs-7);
+    margin-block: 10px 25px;
+  }
+  
+  
+  
+ 
+  
+  
+  
+  /*-----------------------------------*\
+    #MEDIA QUERIES
+  \*-----------------------------------*/
+  
+  /*
+  responsive for larger than 575px screen
+  */
+  @media screen and (min-width: 575px) {
+  /*
+  REUSED STYLE
+  */
+  
+  .container{
+    max-width: 540px;
+    width: 100%;
+    margin-inline: auto;
+  }
+  
+  :is(.header, .hero) .container{max-width: unset;}
+  
+  .has-scrollbar {gap: 30px;}
+  
+  .scrollbar-item{ min-width: calc(50% - 15px);}
+  
+  
+  /*
+  BANNER
+  */
+  .banner-card .card-text { max-width: 30ch;}
+  
+  
+  }
+  
+  
+  /*
+  responsive for larger than 768px screen
+  */
+  @media screen and (min-width: 768px) {
+    /*
+   CUSTOM PROPERTY
+    */
+  
+    :root{
+      /*
+      typography
+      */
+      --fs-1: 5.6rem;
+    }
+  
+    /*
+    REUSED STYLE
+    */
+    
+    .container{max-width: 730px;}
+  
+    .flex-item{max-width: calc(50% - 15px);}
+    
+    
+    /*
+   BANNER
+    */
+    
+    .banner-list{grid-template-columns: 1fr 0.7fr;}
+    
+   .banner-card {padding: 50px;}
+  
+ 
+    }
+  
+  
+  /*
+  responsive for larger than 992px screen
+  */
+  @media screen and (min-width: 992px) {
+     /*
+   CUSTOM PROPERTY
+    */
+  
+    :root{
+      /*
+      spacing
+      */
+      --section-padding:50px;
+    }
+  
+      /*
+   REUSED STYLE
+    */
+  
+    .container{max-width: 960px;}
+  
+    .scrollbar-item {min-width: calc(33.33% - 20px);}
+  
+    .flex-item {max-width: calc(33.33% - 20px);}
+
+  
+   /*
+    BANNER
+    */
+  
+    .banner-list {grid-template-columns: 1fr 0.5fr;}
+  
+  
+  }
+  
+  /*
+  responsive for larger than 1200px screen
+  */
+  @media screen and (min-width: 1200px) {
+  
+     /*
+  REUSED STYLE
+   */
+  
+   .container{max-width: 1300px;}
+  
+   .scrollbar-item {min-width: calc(20% - 24px);}
+  
+   .flex-item {max-width: calc(33.33% - 20px);}
+
+  
+   /*
+  BANNER
+   */
+  
+   .banner-card-1 .card-title{max-width: 15ch;}
+  
+
+
+
+
+  }
+</style>
+
+{% schema %}
+{
+  "name": "banner",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "image1",
+      "label": "Image 1"
+    },
+    {
+      "type": "text",
+      "id": "subtitle1",
+      "label": "Subtitle 1",
+      "default": "NEW COLLECTION"
+    },
+    {
+      "type": "text",
+      "id": "title1",
+      "label": "Title 1",
+      "default": "Discover New Sneaker Collection"
+    },
+    {
+      "type": "text",
+      "id": "btn_label1",
+      "label": "Button Label",
+      "default":"Explore More"
+    },
+    {
+      "type": "url",
+      "id": "button_url1",
+      "label": "Button URL 1",
+      "default": "/collections/all"
+    },
+    {
+      "type": "image_picker",
+      "id": "image2",
+      "label": "Image 2"
+    },
+    {
+      "type": "text",
+      "id": "title2",
+      "label": "Title 2",
+      "default": "25% off Everything"
+    },
+    {
+      "type": "inline_richtext",
+      "id": "description",
+      "label": "Description",
+      "default": "Sneakers in a range of styles and colors for every taste"
+    },
+    {
+      "type": "text",
+      "id": "btn_label2",
+      "label": "Button Label 2",
+      "default":"Shop Now"
+    },
+    {
+      "type": "url",
+      "id": "button_url2",
+      "label": "Button URL 2",
+      "default": "/collections/all"
+    }
+  ],
+  "blocks": [],
+  "presets": [
+    {
+      "name": "banner"
+    }
+  ]
+}
+{% endschema %}
