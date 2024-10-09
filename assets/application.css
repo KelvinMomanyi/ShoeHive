@@ -1253,7 +1253,10 @@
   
     
     
-
+    .header-action-btn .btn-badge {
+      right:20px;
+     }
+  
 
     /*
     COLLECTION
