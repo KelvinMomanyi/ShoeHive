@@ -583,7 +583,7 @@
   .header-action-btn .btn-badge {
     position: absolute;
     top: 0;
-    right: -1px;
+    right:0;
     background-color: var(--black);
     color: var(--white);
     font-size: var(--fs-9);
