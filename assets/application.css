@@ -587,8 +587,8 @@
     background-color: var(--black);
     color: var(--white);
     font-size: var(--fs-9);
-    min-width: 12px;
-    height: 12px;
+    min-width: 16px;
+    height: 16px;
     line-height: 1.4;
     border-radius: 20px;
    }
