@@ -7,8 +7,8 @@
                     <div class="container">
                        <h2 class="h2-large section-title">{{section.settings.heading_text}}</h2>
                        <ul class="flex-list">
-                        {% for article in blogs['news'].articles %}
                            <li class="flex-item">
+                            {% for article in blogs['news'].articles %}
                                <div class="blog-card">
                                    <figure class="card-banner img-holder has-before hover:shine" style="--width:700; --height:450;">
                                      <img src="{{ article.image | img_url }}" alt="Find a Store" class="img-cover" width="700" height="450" loading="lazy">
@@ -22,8 +22,8 @@
                                       <ion-icon name="arrow-forward-outline" aria-hidden="true"></ion-icon>
                                    </a>
                                </div>
+                              {% endfor %}
                            </li>
-                        {% endfor %}
                            {% comment %} <li class="flex-item">
                                <div class="blog-card">
                                    <figure class="card-banner img-holder has-before hover:shine" style="--width:700; --height:450;">
