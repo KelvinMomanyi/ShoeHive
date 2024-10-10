@@ -47,7 +47,23 @@
                             </li>
                           {% endfor %}
                         {% else %}
-                          <p>Please select a blog category from the settings.</p>
+                          {% for article in blogs['news'].articles %}
+                           <li class="flex-item">
+                               <div class="blog-card">
+                                   <figure class="card-banner img-holder has-before hover:shine" style="--width:700; --height:450;">
+                                     <img src="{{ article.image | img_url : 'large' }}" alt="Find a Store" class="img-cover" width="700" height="450" loading="lazy">
+                                   </figure>
+   
+                                   <h3 class="h3">
+                                       <a href="#" class="card-title">{{ article.title }}</a>
+                                   </h3>
+                                   <a href="{{ article.url }}" class="btn-link">
+                                      <span class="span">Read More</span>
+                                      <ion-icon name="arrow-forward-outline" aria-hidden="true"></ion-icon>
+                                   </a>
+                               </div>
+                           </li>
+                         {% endfor %} 
                         {% endif %}
                         
                            {% comment %} <li class="flex-item">
