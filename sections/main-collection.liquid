@@ -38,24 +38,24 @@
                          </div>
                      </div>
                      <div class="card-content">
-                         <div class="price">
-                             <del class="del">   {{ product.price | money }}</del>
-                             <span class="span">   {{ product.price | money }}</span>
-                         </div>
-                         {% unless product.available %}<br><strong>sold out</strong>{% endunless %}
                          <h3>
                              <a href="#" class="card-title">{{- product.title | link_to: product.url -}}</a>
                          </h3>
-                         <div class="card-rating">
-                             <div class="rating-wrapper" aria-label="5 star rating">
-                                <ion-icon name="star" aria-hidden="true"></ion-icon>
-                                <ion-icon name="star"  aria-hidden="true"></ion-icon>
-                                <ion-icon name="star"  aria-hidden="true"></ion-icon>
-                                <ion-icon name="star"  aria-hidden="true"></ion-icon>
-                                <ion-icon name="star"  aria-hidden="true"></ion-icon>
-                             </div>
-                             <p class="rating-text">5170 reviews</p>
-                         </div>
+                         <div class="price">
+                            <del class="del">   {{ product.price | money }}</del>
+                            <span class="span">   {{ product.price | money }}</span>
+                        </div>
+                        {% unless product.available %}<br><strong>sold out</strong>{% endunless %}
+                        <div class="card-rating">
+                            <div class="rating-wrapper" aria-label="5 star rating">
+                               <ion-icon name="star" aria-hidden="true"></ion-icon>
+                               <ion-icon name="star"  aria-hidden="true"></ion-icon>
+                               <ion-icon name="star"  aria-hidden="true"></ion-icon>
+                               <ion-icon name="star"  aria-hidden="true"></ion-icon>
+                               <ion-icon name="star"  aria-hidden="true"></ion-icon>
+                            </div>
+                            <p class="rating-text">5170 reviews</p>
+                        </div>
                      </div>
                     </div>
                  </li>
