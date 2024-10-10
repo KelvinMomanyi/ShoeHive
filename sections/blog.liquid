@@ -28,7 +28,7 @@
 
                         {% if selected_blog_handle %}
                           <!-- Fetch the selected blog and its articles -->
-                          {% for article in blogs[selected_blog_handle].articles | limit: 3 %}
+                          {% for article in blogs[selected_blog_handle].articles limit: 3 %}
                             <li class="flex-item">
                               <div class="blog-card">
                                 <figure class="card-banner img-holder has-before hover:shine" style="--width:700; --height:450;">
