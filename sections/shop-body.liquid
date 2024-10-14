@@ -1,133 +1,5 @@
   {% if section.blocks.size == 0 %}
-        {% comment %} <section class="section shop" id="shop" aria-label="shop" >
-        {% comment %} {% if section.settings.specific_collection == blank %}
-            {% assign selected_collection = collections.all.products %}
-        {% else %}
-            {% assign selected_collection = collections[section.settings.specific_collection] %}
-        {% endif %} {% endcomment %}
-        <div class="container">
-            <div class="title-wrapper">
-                <h2 class="h2 section-title">{{ collections['nike'].title }}</h2> 
-                <a href="{{ collections['nike'].url }}" class="btn-link">
-                    <span class="span">Shop All Products</span>
-                    <ion-icon class="arrow-forward" aria-hidden="true"></ion-icon>
-                </a>
-            </div>
-            
-            <ul class="has-scrollbar">
-                {% if section.settings.specific_collection != blank %}
-                {% for product in collections['nike'].products %}
-                <li class="scrollbar-item">
-                    <div class="shop-card">
-                        <div class="card-banner img-holder" style="--width:540 ; --height:720 ;">
-                            <img src="{{ product.featured_image.src | img_url: 'large' }}" alt="{{ product.featured_image.alt | escape }}" class="img-cover" width="540" height="720" loading="lazy">
-                            <span class="badge" aria-label="20% off">-20%</span>
-                            <div class="card-actions">
-                                <form   action="/cart/add" method="post" enctype="multipart/form-data" onsubmit="submitAddToCartForm(this); return false;">
-                                <input type="hidden" name="id" value="{{ product.selected_or_first_available_variant.id }}">
-                                <button type="submit" class="action-btn" aria-label="add to cart">
-                                    <ion-icon name="bag-handle-outline" aria-hidden="true"></ion-icon>
-                                </button>
-                                </form>
-                                
-                            
-
-
-
-
-                                <button class="action-btn" aria-label="add to wishlist">
-                                    <ion-icon name="star-outline" aria-hidden="true"></ion-icon>
-                                </button>
-
-                                <button class="action-btn" aria-label="compare">
-                                    <ion-icon name="repeat-outline" aria-hidden="true"></ion-icon>
-                                </button>
-                            </div>
-                        </div>
-                        <div class="card-content">
-                            <div class="price">
-                                <del class="del">{{ product.compare_at_price | money }}</del>
-                                <span class="span">{{ product.price | money }}</span>
-                            </div>
-                            {% unless product.available %}<br><strong>Sold Out</strong>{% endunless %}
-                            <h3>
-                                <a href="{{ product.url }}" class="card-title">{{ product.title }}</a>
-                            </h3>
-                            <div class="card-rating">
-                                <div class="rating-wrapper" aria-label="5 star rating">
-                                    <ion-icon name="star" aria-hidden="true"></ion-icon>
-                                    <ion-icon name="star" aria-hidden="true"></ion-icon>
-                                    <ion-icon name="star" aria-hidden="true"></ion-icon>
-                                    <ion-icon name="star" aria-hidden="true"></ion-icon>
-                                    <ion-icon name="star" aria-hidden="true"></ion-icon>
-                                </div>
-                                <p class="rating-text">5170 reviews</p>
-                            </div>
-                        </div>
-                    </div>
-                </li>
-                {% endfor %}
-                {% else %}
-                {% for product in collections.all.products %}
-                <li class="scrollbar-item">
-                    <div class="shop-card">
-                            <div class="card-banner img-holder" style="--width:540 ; --height:720 ;">
-                                <img src="{{ product.featured_image.src | img_url: 'large' }}" alt="{{ product.featured_image.alt | escape }}" class="img-cover" width="540" height="720" loading="lazy">
-                                <span class="badge" aria-label="20% off">-20%</span>
-                                <div class="card-actions">
-                                <form   action="/cart/add" method="post" enctype="multipart/form-data" onsubmit="submitAddToCartForm(this); return false;">
-                                    <input type="hidden" name="id" value="{{ product.selected_or_first_available_variant.id }}">
-                                    <button type="submit" class="action-btn" aria-label="add to cart">
-                                    <ion-icon name="bag-handle-outline" aria-hidden="true"></ion-icon>
-                                    </button>
-                                </form>
-                                
-                                
         
-        
-        
-        
-                                    <button class="action-btn" aria-label="add to wishlist">
-                                        <ion-icon name="star-outline" aria-hidden="true"></ion-icon>
-                                    </button>
-        
-                                    <button class="action-btn" aria-label="compare">
-                                        <ion-icon name="repeat-outline" aria-hidden="true"></ion-icon>
-                                    </button>
-                                </div>
-                            </div>
-                            <div class="card-content">
-                                <div class="price">
-                                    <del class="del">{{ product.compare_at_price | money }}</del>
-                                    <span class="span">{{ product.price | money }}</span>
-                                </div>
-                                {% unless product.available %}<br><strong>Sold Out</strong>{% endunless %}
-                                <h3>
-                                    <a href="{{ product.url }}" class="card-title">{{ product.title }}</a>
-                                </h3>
-                                <div class="card-rating">
-                                    <div class="rating-wrapper" aria-label="5 star rating">
-                                        <ion-icon name="star" aria-hidden="true"></ion-icon>
-                                        <ion-icon name="star" aria-hidden="true"></ion-icon>
-                                        <ion-icon name="star" aria-hidden="true"></ion-icon>
-                                        <ion-icon name="star" aria-hidden="true"></ion-icon>
-                                        <ion-icon name="star" aria-hidden="true"></ion-icon>
-                                    </div>
-                                    <p class="rating-text">5170 reviews</p>
-                                </div>
-                            </div>
-                    </div>
-                </li>
-                {% endfor %}
-                {% endif %}  
-            </ul>
-            
-            {% comment %} <ul class="has-scrollbar">
-            
-            </ul> {% endcomment %}
-            
-        </div>
-        </section> {% endcomment %}
         <section class="section shop" id="shop" aria-label="shop">
             <div class="container">
                 <div class="title-wrapper">
@@ -274,7 +146,7 @@
         <div class="container">
             <div class="title-wrapper">
                 <h2 class="h2 section-title">{{ collections['asics'].title }}</h2>
-                <a href="{{ collections['adidas'].url }}" class="btn-link">
+                <a href="{{ collections['asics'].url }}" class="btn-link">
                     <span class="span">Shop All Products</span>
                     <ion-icon class="arrow-forward" aria-hidden="true"></ion-icon>
                 </a>
@@ -346,7 +218,7 @@
         <div class="container">
             <div class="title-wrapper">
                 <h2 class="h2 section-title">{{ collections['vans'].title }}</h2>
-                <a href="{{ collections['adidas'].url }}" class="btn-link">
+                <a href="{{ collections['vans'].url }}" class="btn-link">
                     <span class="span">Shop All Products</span>
                     <ion-icon class="arrow-forward" aria-hidden="true"></ion-icon>
                 </a>
@@ -418,7 +290,7 @@
         <div class="container">
             <div class="title-wrapper">
                 <h2 class="h2 section-title">{{ collections['puma'].title }}</h2>
-                <a href="{{ collections['adidas'].url }}" class="btn-link">
+                <a href="{{ collections['puma'].url }}" class="btn-link">
                     <span class="span">Shop All Products</span>
                     <ion-icon class="arrow-forward" aria-hidden="true"></ion-icon>
                 </a>
@@ -490,7 +362,7 @@
         <div class="container">
             <div class="title-wrapper">
                 <h2 class="h2 section-title">{{ collections['converse'].title }}</h2>
-                <a href="{{ collections['adidas'].url }}" class="btn-link">
+                <a href="{{ collections['converse'].url }}" class="btn-link">
                     <span class="span">Shop All Products</span>
                     <ion-icon class="arrow-forward" aria-hidden="true"></ion-icon>
                 </a>
@@ -562,7 +434,7 @@
                 <div class="container">
                     <div class="title-wrapper">
                         <h2 class="h2 section-title">{{ collections[block.settings.specific_collection].title }}</h2>
-                        <a href="{{ collections['adidas'].url }}" class="btn-link">
+                        <a href="{{ collections[block.settings.specific_collection].url }}" class="btn-link">
                             <span class="span">Shop All Products</span>
                             <ion-icon class="arrow-forward" aria-hidden="true"></ion-icon>
                         </a>
