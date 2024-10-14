@@ -1,7 +1,7 @@
    <!--
             FOOTER
         -->
-        <footer class="footer">
+        {% comment %} <footer class="footer">
             <div class="container">
                 <div class="footer-top">
                     <ul class="footer-list">
@@ -86,9 +86,75 @@
                     <img src="{{ 'pay.png' | asset_url }}" width="313" height="28" loading="lazy" alt="available all payment method" class="w-100">
                 </div>
             </div>
-        </footer>
+        </footer> {% endcomment %}
 
-{% schema %}
+
+        <footer class="footer">
+            <div class="container">
+                <div class="footer-top">
+                    <ul class="footer-list">
+                        <li>
+                            <p class="footer-list-title">{{ section.settings.company_title }}</p>
+                        </li>
+                        <li>
+                            <p class="footer-list-text">
+                                {{ section.settings.company_description }} <a href="{{ section.settings.store_link }}" class="Link">{{ section.settings.store_text }}</a>
+                            </p>
+                        </li>
+                        <li>
+                            <p class="footer-list-text bold">{{ section.settings.phone_number }}</p>
+                        </li>
+                        <li>
+                            <p class="footer-list-text">{{ section.settings.email_address }}</p>
+                        </li>
+                    </ul>
+                    <ul class="footer-list">
+                        <li>
+                            <p class="footer-list-title">{{ section.settings.useful_links_title }}</p>
+                        </li>
+                        {% for link in section.settings.useful_links %}
+                        <li><a href="{{ link.url }}" class="footer-link">{{ link.label }}</a></li>
+                        {% endfor %}
+                    </ul>
+                    <ul class="footer-list">
+                        <li>
+                            <p class="footer-list-title">{{ section.settings.information_title }}</p>
+                        </li>
+                        {% for link in section.settings.information_links %}
+                        <li><a href="{{ link.url }}" class="footer-link">{{ link.label }}</a></li>
+                        {% endfor %}
+                    </ul>
+                    <div class="footer-list">
+                        <p class="newsletter-title">{{ section.settings.newsletter_title }}</p>
+                        <p class="newsletter-text">{{ section.settings.newsletter_description }}</p>
+                        <form action="" class="newsletter-form">
+                            <input type="text" class="email-field" name="email_address" placeholder="{{ section.settings.newsletter_placeholder }}" required>
+                            <button type="submit" class="btn btn-primary">{{ section.settings.newsletter_button_text }}</button>
+                        </form>
+                    </div>
+                </div>
+                <div class="footer-bottom">
+                    <div class="wrapper">
+                        <p class="copyright">
+                            {{ section.settings.copyright_text }}
+                        </p>
+                        <ul class="social-list">
+                            {% for social in section.settings.social_links %}
+                            <li>
+                                <a href="{{ social.url }}" class="social-link">
+                                    <ion-icon name="{{ social.icon }}"></ion-icon>
+                                </a>
+                            </li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                    <img src="{{ 'pay.png' | asset_url }}" width="313" height="28" loading="lazy" alt="available all payment method" class="w-100">
+                </div>
+            </div>
+        </footer>
+        
+
+{% comment %} {% schema %}
 {
   "name": "footer",
   "settings": [],
@@ -96,6 +162,140 @@
   "presets": [
     {
       "name": "footer"
+    }
+  ]
+}
+{% endschema %} {% endcomment %}
+
+
+{% schema %}
+{
+  "name": "Footer",
+  "settings": [
+    {
+      "type": "text",
+      "id": "company_title",
+      "label": "Company Title",
+      "default": "Company"
+    },
+    {
+      "type": "text",
+      "id": "company_description",
+      "label": "Company Description",
+      "default": "Find a location nearest you. See"
+    },
+    {
+      "type": "url",
+      "id": "store_link",
+      "label": "Store Link",
+      "default": "#"
+    },
+    {
+      "type": "text",
+      "id": "store_text",
+      "label": "Store Link Text",
+      "default": "Our Stores"
+    },
+    {
+      "type": "text",
+      "id": "phone_number",
+      "label": "Phone Number",
+      "default": "+1 (123) 456-7890"
+    },
+    {
+      "type": "text",
+      "id": "email_address",
+      "label": "Email Address",
+      "default": "hello@domain.com"
+    },
+    {
+      "type": "text",
+      "id": "useful_links_title",
+      "label": "Useful Links Title",
+      "default": "Useful Links"
+    },
+    {
+      "type": "list",
+      "id": "useful_links",
+      "label": "Useful Links",
+      "default": [
+        { "label": "New Products", "url": "#" },
+        { "label": "Best Sellers", "url": "#" },
+        { "label": "Bundle & Save", "url": "#" },
+        { "label": "Online Gift Card", "url": "#" }
+      ],
+      "settings": [
+        { "type": "text", "id": "label", "label": "Label" },
+        { "type": "url", "id": "url", "label": "URL" }
+      ]
+    },
+    {
+      "type": "text",
+      "id": "information_title",
+      "label": "Information Title",
+      "default": "Information"
+    },
+    {
+      "type": "list",
+      "id": "information_links",
+      "label": "Information Links",
+      "default": [
+        { "label": "Start a Return", "url": "#" },
+        { "label": "Contact Us", "url": "#" },
+        { "label": "Shipping FAQ", "url": "#" },
+        { "label": "Terms & Conditions", "url": "#" },
+        { "label": "Privacy Policy", "url": "#" }
+      ],
+      "settings": [
+        { "type": "text", "id": "label", "label": "Label" },
+        { "type": "url", "id": "url", "label": "URL" }
+      ]
+    },
+    {
+      "type": "text",
+      "id": "newsletter_title",
+      "label": "Newsletter Title",
+      "default": "Subscribe to Our Newsletter"
+    },
+    {
+      "type": "text",
+      "id": "newsletter_description",
+      "label": "Newsletter Description",
+      "default": "Enter your email below to be the first to know about new collections and product launches."
+    },
+    {
+      "type": "text",
+      "id": "newsletter_placeholder",
+      "label": "Newsletter Placeholder",
+      "default": "Enter your email address"
+    },
+    {
+      "type": "text",
+      "id": "newsletter_button_text",
+      "label": "Newsletter Button Text",
+      "default": "Subscribe"
+    },
+    {
+      "type": "text",
+      "id": "copyright_text",
+      "label": "Copyright Text",
+      "default": "&copy; 2024, Shoehive Powered By Shopify"
+    },
+    {
+      "type": "list",
+      "id": "social_links",
+      "label": "Social Links",
+      "default": [
+        { "label": "Twitter", "url": "#", "icon": "logo-twitter" },
+        { "label": "Facebook", "url": "#", "icon": "logo-facebook" },
+        { "label": "Instagram", "url": "#", "icon": "logo-instagram" },
+        { "label": "YouTube", "url": "#", "icon": "logo-youtube" }
+      ],
+      "settings": [
+        { "type": "text", "id": "label", "label": "Label" },
+        { "type": "url", "id": "url", "label": "URL" },
+        { "type": "text", "id": "icon", "label": "Icon Name" }
+      ]
     }
   ]
 }
