@@ -7,8 +7,7 @@
         {% endif %} {% endcomment %}
         <div class="container">
             <div class="title-wrapper">
-                {% comment %} <h2 class="h2 section-title">{{ collections['nike'].title }}</h2> {% endcomment %}
-                <h2 class="h2 section-title">{{ collections[section.settings.specific_collection].title }}</h2>
+                <h2 class="h2 section-title">{{ collections['nike'].title }}</h2> 
                 <a href="{{ collections['nike'].url }}" class="btn-link">
                     <span class="span">Shop All Products</span>
                     <ion-icon class="arrow-forward" aria-hidden="true"></ion-icon>
@@ -17,7 +16,7 @@
             
             <ul class="has-scrollbar">
                 {% if section.settings.specific_collection != blank %}
-                {% for product in collections[section.settings.specific_collection].products %}
+                {% for product in collections['nike'].products %}
                 <li class="scrollbar-item">
                     <div class="shop-card">
                         <div class="card-banner img-holder" style="--width:540 ; --height:720 ;">
