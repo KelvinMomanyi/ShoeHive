@@ -1,5 +1,6 @@
 <section class="hero  text-center" style="min-height: 50vh;" aria-label="home" id="home">
     <ul class="hero-slider" data-hero-slider>
+      {% if section.settings.hero_image != blank %}
       <li class="slider-item active" data-hero-slider-item style="padding-block-start: 70px;">
 
         <div class="slider-bg hero-card has-bg-image" 
@@ -17,6 +18,7 @@
         </div>
       
       </li>
+      {% else %}
       <li class="slider-item active" data-hero-slider-item style="padding-block-start: 70px;">
   
         <div class="slider-bg hero-card has-bg-image" style="background-image: url('{{ 'shoes31.png' | asset_url }}'); background-attachment: fixed; background-size: cover; background-repeat: no-repeat; background-attachment: fixed; background-position: center;">
@@ -34,6 +36,7 @@
         </div>
   
       </li>
+      {%  endif %}
       <li class="slider-item" data-hero-slider-item style="padding-block-start:70px;">
   
         <div class="slider-bg hero-card has-bg-image" style="background-image: url('{{ 'ShoesAsics.jpg' | asset_url }}'); background-attachment: fixed; background-size: cover; background-repeat: no-repeat; background-attachment: fixed; background-position: center;">
