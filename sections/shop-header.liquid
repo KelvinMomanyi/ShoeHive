@@ -1,6 +1,23 @@
 <section class="hero  text-center" style="min-height: 50vh;" aria-label="home" id="home">
     <ul class="hero-slider" data-hero-slider>
       <li class="slider-item active" data-hero-slider-item style="padding-block-start: 70px;">
+
+        <div class="slider-bg hero-card has-bg-image" 
+             style="background-image: url('{{ section.settings.hero_image | asset_url }}'); background-attachment: fixed; background-size: cover; background-repeat: no-repeat; background-position: center;">
+        </div>
+      
+        <div class="card-content">
+          <h1 class="h1 hero-title slider-reveal">
+            {{ section.settings.brand_name }}
+          </h1>
+          <p class="price slider-reveal"> Starting at {{ section.settings.starting_price }}</p>
+          <div style="display: flex; justify-content: flex-start;">
+            <a href="{{ section.settings.shop_now_link }}" class="btn btn-primary slider-reveal">{{ section.settings.shop_now_text }}</a>
+          </div>
+        </div>
+      
+      </li>
+      <li class="slider-item active" data-hero-slider-item style="padding-block-start: 70px;">
   
         <div class="slider-bg hero-card has-bg-image" style="background-image: url('{{ 'shoes31.png' | asset_url }}'); background-attachment: fixed; background-size: cover; background-repeat: no-repeat; background-attachment: fixed; background-position: center;">
          {% comment %} <img src="{{ 'shoe8.jpg' | asset_url }}" width="1880" height="950" alt="" class="img-cover hero-card has-bg-image"> {% endcomment %}
@@ -221,21 +238,34 @@
   "name": "shop-header",
   "settings": [
     {
-      "type": "collection",
-      "id": "specific_collection",
-      "label": "Select Specific Collection"
+      "type": "image_picker",
+      "id": "hero_image",
+      "label": "Hero Image",
+      "default": "shoes31.png"
     },
     {
       "type": "text",
-      "id": "section_heading",
-      "label": "Section Heading",
-      "default": "Hero Slider"
+      "id": "brand_name",
+      "label": "Brand Name",
+      "default": "Nike"
     },
     {
-      "type": "number",
-      "id": "slider_count",
-      "label": "Number of Slides",
-      "default": 3
+      "type": "text",
+      "id": "starting_price",
+      "label": "Starting Price",
+      "default": "$17.99"
+    },
+    {
+      "type": "url",
+      "id": "shop_now_link",
+      "label": "Shop Now Button Link",
+      "default": "#"
+    },
+    {
+      "type": "text",
+      "id": "shop_now_text",
+      "label": "Shop Now Button Text",
+      "default": "Shop Now"
     }
   ],
   "blocks": [
