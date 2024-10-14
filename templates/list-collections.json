@@ -1,11 +1,16 @@
 {
     "sections": {
-      "main": {
-        "type": "shop",
+      "shopHeader": {
+        "type": "shop-header",
         "settings": {}
+      },
+      "shopBody":{
+        "type":"shop-body",
+        "settings":{}
       }
     },
     "order": [
-      "main"
+      "shopHeader",
+      "shopBody"
     ]
   }
