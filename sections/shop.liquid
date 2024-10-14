@@ -91,7 +91,7 @@
   </div>
 </section> {% endcomment %}
 <section class="hero  text-center" style="min-height: 50vh;" aria-label="home" id="home">
-  <ul class="hero-slider" data-hero-slider>
+  {% comment %} <ul class="hero-slider" data-hero-slider>
     <li class="slider-item active" data-hero-slider-item style="padding-block-start: 70px;">
 
       <div class="slider-bg hero-card has-bg-image" style="background-image: url('{{ 'shoes31.png' | asset_url }}'); background-attachment: fixed; background-size: cover; background-repeat: no-repeat; background-attachment: fixed; background-position: center;">
@@ -191,8 +191,27 @@
           </div>
          </div>
     </li>
+  </ul> {% endcomment %}
+  <ul class="hero-slider" data-hero-slider>
+    {% for block in section.blocks %}
+      <li class="slider-item {% if forloop.first %}active{% endif %}" data-hero-slider-item>
+        
+        <div class="slider-bg hero-card has-bg-image" style="background-image: url('{{ block.settings.slide_image | img_url: 'master' }}');"></div>
+  
+        <div class="card-content">
+          <h1 class="h1 hero-title slider-reveal">
+            {{ block.settings.title }}
+          </h1>
+          <p class="price slider-reveal">{{ block.settings.price }}</p>
+          <div style="display: flex; justify-content: flex-start;">
+            <a href="{{ block.settings.link }}" class="btn btn-primary slider-reveal">{{ block.settings.button_label }}</a>
+          </div>
+        </div>
+  
+      </li>
+    {% endfor %}
   </ul>
-
+  
   <button class="slider-btn prev" aria-label="slide to previous" data-prev-btn>
   <ion-icon name="chevron-back"></ion-icon>
  </button>
@@ -785,8 +804,56 @@ window.addEventListener('mousemove', function(event){
       "type": "collection",
       "id": "specific_collection",
       "label": "Select Specific Collection"
+    },
+    {
+      "type": "text",
+      "id": "section_heading",
+      "label": "Section Heading",
+      "default": "Hero Slider"
+    },
+    {
+      "type": "number",
+      "id": "slider_count",
+      "label": "Number of Slides",
+      "default": 3,
+      "min": 1,
+      "max": 10
     }
   ],
+  "blocks": [
+      {
+        "type": "slide",
+        "name": "Slide",
+        "settings": [
+          {
+            "type": "image_picker",
+            "id": "slide_image",
+            "label": "Slide Background Image"
+          },
+          {
+            "type": "text",
+            "id": "title",
+            "label": "Slide Title"
+          },
+          {
+            "type": "text",
+            "id": "price",
+            "label": "Price"
+          },
+          {
+            "type": "url",
+            "id": "link",
+            "label": "Link for Button"
+          },
+          {
+            "type": "text",
+            "id": "button_label",
+            "label": "Button Label",
+            "default": "Shop Now"
+          }
+        ]
+      }
+    ],
   "presets": [
     {
       "name": "shop"
@@ -794,3 +861,5 @@ window.addEventListener('mousemove', function(event){
   ]
 }
 {% endschema %}
+
+
