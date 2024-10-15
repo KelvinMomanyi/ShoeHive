@@ -91,8 +91,33 @@
       </p>
 
       <ul class="grid-list">
+       {% assign selected_blog_handle = section.settings.blog_type %}
+        {% if selected_blog_handle %}
+          {% for article in blogs[selected_blog_handle].articles limit: 3 %}
+            <li>
+              <div class="blog-card">
+    
+                <figure class="card-banner img-holder" style="--width: 300; --height: 360;">
+                  <img src="{{ article.image | img_url: 'medium' }}" width="300" height="360" loading="lazy"
+                    alt="The trick to getting more done is to have the freedom to roam around " class="img-cover">
+                </figure>
+    
+                <div class="card-content">
+    
+                  <h3 class="h4">
+                    <a href="#" class="card-title hover:underline">
+                      {{ article.title }}
+                    </a>
+                  </h3>
+    
+                </div>
+    
+              </div>
+            </li>
+          {% endfor %}
+        {% else %}    
         {% for article in blogs['recommended'].articles %}
-        <li>
+          <li>
           <div class="blog-card">
 
             <figure class="card-banner img-holder" style="--width: 300; --height: 360;">
@@ -111,8 +136,9 @@
             </div>
 
           </div>
-        </li>
-      {% endfor  %} 
+          </li>
+        {% endfor  %} 
+    {%  endif %}
       </ul>
 
     </div>
@@ -763,7 +789,17 @@
 {
   "name": "blog-main",
   "settings": [
-   
+    {
+      "type":"text",
+      "id":"heading_text",
+      "label":"Blog Heading",
+      "default":"More to Discover"
+     },
+     {
+      "type": "blog",
+      "id": "blog_type",
+      "label": "Select Blog Category",
+    }
   ],
   "blocks": [],
   "presets": [
