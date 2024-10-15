@@ -8,14 +8,14 @@
         "type":"main-blog",
         "settings":{}
       },
-      "featured-blog":{
-        "type":"featured-blog",
+      "featured_blog":{
+        "type":"featured_blog",
         "settings":{}
       }
     },
     "order": [
       "blog-hero",
       "main-blog",
-      "featured-blog"
+      "featured_blog"
     ]
   }
