@@ -88,7 +88,7 @@
                         {% for product in collection.products  limit:3 %}
                             <li class="scrollbar-item">
                                 <div class="shop-card">
-                                    <div class="card-banner img-holder" style=" --height:720 ;">
+                                    <div class="card-banner img-holder" >
                                         <img src="{{ product.featured_image.src | img_url: 'large' }}" alt="{{ product.featured_image.alt | escape }}" class="img-cover" width="540" height="720" loading="lazy">
                                         <span class="badge" aria-label="20% off">-20%</span>
                                         <div class="card-actions">
