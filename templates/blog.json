@@ -1,13 +1,21 @@
 {
     "sections": {
-      "blog-main":{
-        "type":"blog-main",
+      "blog-hero":{
+        "type":"blog-hero",
+        "settings":{}
+      },
+      "main-blog":{
+        "type":"main-blog",
+        "settings":{}
+      },
+      "featured-blog":{
+        "type":"featured-blog",
         "settings":{}
       }
-      
     },
     "order": [
-      "blog-main"
-
+      "blog-hero",
+      "main-blog",
+      "featured-blog"
     ]
   }

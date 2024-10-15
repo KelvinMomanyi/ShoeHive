@@ -1,0 +1,47 @@
+<section class="section hero1" aria-label="home">
+    <div class="container">
+      <h1 class="h2 hero-title">
+        <strong class="strong">See our thoughts, stories and ideas.
+      </h1>
+
+      <div class="wrapper1">
+
+        <form action="" class="newsletter-form">
+          <input type="email" name="email_address" placeholder="Your email address" class="email-field">
+
+          <button type="submit" class="btn btn-primary">Subscribe</button>
+        </form>
+
+        <p class="newsletter-text">
+          Get the email newsletter and unlock access to members-only content and updates
+        </p>
+
+      </div>
+
+    </div>
+</section>
+
+{% schema %}
+{
+  "name": "blog-main",
+  "settings": [
+    {
+      "type":"text",
+      "id":"heading_text",
+      "label":"Blog Heading",
+      "default":"More to Discover"
+     },
+     {
+      "type": "blog",
+      "id": "blog_type",
+      "label": "Select Blog Category",
+    }
+  ],
+  "blocks": [],
+  "presets": [
+    {
+      "name": "blog-main"
+    }
+  ]
+}
+{% endschema %}
