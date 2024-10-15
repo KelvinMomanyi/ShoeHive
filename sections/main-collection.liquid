@@ -2,7 +2,7 @@
      <section class="section shop" id="shop" aria-label="shop">
           <div class="container">
             
-            <div class="title-wrapper">
+            {% comment %} <div class="title-wrapper">
                 <h2 class="h2 section-title">{{ collection.title }}</h2>
                 <div style='display:flex; z-index:5;'> 
                     <a href="#" class="btn-link">
@@ -14,8 +14,27 @@
                         <ion-icon class="arrow-forward" aria-hidden="true"></ion-icon>
                     </a>
                </div>
+            </div> {% endcomment %}
+            <div class="title-wrapper">
+                <h2 class="h2 section-title">
+                    {% if section.settings.selected_collection != blank %}
+                        {{ collections[section.settings.selected_collection].title }}
+                    {% else %}
+                        {{ collection.title }}
+                    {% endif %}
+                </h2>
+                <div style='display:flex; z-index:5;'> 
+                    <a href="#" class="btn-link">
+                        {% render 'sorting-filter' %}
+                        <ion-icon class="arrow-forward" aria-hidden="true"></ion-icon>
+                    </a>
+                    <a href="#" class="btn-link">
+                        {% render 'collection-filter' %}
+                        <ion-icon class="arrow-forward" aria-hidden="true"></ion-icon>
+                    </a>
+                </div>
             </div>
-          
+            
             <div class="collection-container">
                 <div class="collection">
                     {% if section.settings.selected_collection != blank %}
