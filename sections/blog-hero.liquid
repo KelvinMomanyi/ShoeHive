@@ -1,7 +1,7 @@
 <section class="section hero1" aria-label="home">
     <div class="container">
       <h1 class="h2 hero-title">
-        <strong class="strong">See our thoughts, stories and ideas.
+        <strong class="strong">{{ section.settings.heading_text }}
       </h1>
 
       <div class="wrapper1">
@@ -13,7 +13,7 @@
         </form>
 
         <p class="newsletter-text">
-          Get the email newsletter and unlock access to members-only content and updates
+            {{ section.settings.search_text }}
         </p>
 
       </div>
@@ -29,12 +29,13 @@
       "type":"text",
       "id":"heading_text",
       "label":"Blog Heading",
-      "default":"More to Discover"
+      "default":"See our thoughts, stories and ideas."
      },
      {
-      "type": "blog",
-      "id": "blog_type",
-      "label": "Select Blog Category",
+      "type":"text",
+      "id":"search_text",
+      "label":"Search Text",
+      "default":"Get the email newsletter and unlock access to members-only content and updates"
     }
   ],
   "blocks": [],
