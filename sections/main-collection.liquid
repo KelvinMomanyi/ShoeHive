@@ -18,7 +18,102 @@
           
             <div class="collection-container">
                 <div class="collection">
-              {% if section.settings.selected_collection != blank %}  
+                    {% if section.settings.selected_collection != blank %}
+                        {% assign selected_collection = collections[section.settings.selected_collection] %}
+                        {% for product in selected_collection.products %}
+                            <li class="scrollbar-item">
+                                <div class="shop-card">
+                                    <div class="card-banner img-holder" style="--width:540 ; --height:720 ;">
+                                        <img src="{{ product.featured_image.src | img_url: 'large' }}" alt="{{ product.featured_image.alt | escape }}" class="img-cover" width="540" height="720" loading="lazy">
+                                        <span class="badge"  aria-label="20% off">-20%</span>
+                                        <div class="card-actions">
+                                            <button class="action-btn" aria-label="add to cart">
+                                                <ion-icon name="bag-handle-outline" aria-hidden="true"></ion-icon>
+                                            </button>
+                    
+                                            <button class="action-btn" aria-label="add to wishlist">
+                                                <ion-icon name="star-outline" aria-hidden="true"></ion-icon>
+                                            </button>
+                    
+                                            <button class="action-btn" aria-label="compare">
+                                                <ion-icon name="repeat-outline" aria-hidden="true"></ion-icon>
+                                            </button>
+                                        </div>
+                                    </div>
+                                    <div class="card-content">
+                                        <h3>
+                                            <a href="{{ product.url }}" class="card-title">{{ product.title }}</a>
+                                        </h3>
+                                        <div class="price">
+                                            <del class="del">{{ product.compare_at_price | money }}</del>
+                                            <span class="span">{{ product.price | money }}</span>
+                                        </div>
+                                        {% unless product.available %}
+                                            <br><strong>Sold out</strong>
+                                        {% endunless %}
+                                        <div class="card-rating">
+                                            <div class="rating-wrapper" aria-label="5 star rating">
+                                                <ion-icon name="star" aria-hidden="true"></ion-icon>
+                                                <ion-icon name="star" aria-hidden="true"></ion-icon>
+                                                <ion-icon name="star" aria-hidden="true"></ion-icon>
+                                                <ion-icon name="star" aria-hidden="true"></ion-icon>
+                                                <ion-icon name="star" aria-hidden="true"></ion-icon>
+                                            </div>
+                                            <p class="rating-text">5170 reviews</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                        {% endfor %}
+                    {% else %}
+                        {% for product in collection.products %}
+                            <li class="scrollbar-item">
+                                <div class="shop-card">
+                                    <div class="card-banner img-holder" style="--width:540 ; --height:720 ;">
+                                        <img src="{{ product.featured_image.src | img_url: 'large' }}" alt="{{ product.featured_image.alt | escape }}" class="img-cover" width="540" height="720" loading="lazy">
+                                        <span class="badge" aria-label="20% off">-20%</span>
+                                        <div class="card-actions">
+                                            <button class="action-btn" aria-label="add to cart">
+                                                <ion-icon name="bag-handle-outline" aria-hidden="true"></ion-icon>
+                                            </button>
+                    
+                                            <button class="action-btn" aria-label="add to wishlist">
+                                                <ion-icon name="star-outline" aria-hidden="true"></ion-icon>
+                                            </button>
+                    
+                                            <button class="action-btn" aria-label="compare">
+                                                <ion-icon name="repeat-outline" aria-hidden="true"></ion-icon>
+                                            </button>
+                                        </div>
+                                    </div>
+                                    <div class="card-content">
+                                        <h3>
+                                            <a href="{{ product.url }}" class="card-title">{{ product.title }}</a>
+                                        </h3>
+                                        <div class="price">
+                                            <del class="del">{{ product.compare_at_price | money }}</del>
+                                            <span class="span">{{ product.price | money }}</span>
+                                        </div>
+                                        {% unless product.available %}
+                                            <br><strong>Sold out</strong>
+                                        {% endunless %}
+                                        <div class="card-rating">
+                                            <div class="rating-wrapper" aria-label="5 star rating">
+                                                <ion-icon name="star" aria-hidden="true"></ion-icon>
+                                                <ion-icon name="star" aria-hidden="true"></ion-icon>
+                                                <ion-icon name="star" aria-hidden="true"></ion-icon>
+                                                <ion-icon name="star" aria-hidden="true"></ion-icon>
+                                                <ion-icon name="star" aria-hidden="true"></ion-icon>
+                                            </div>
+                                            <p class="rating-text">5170 reviews</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                        {% endfor %}
+                    {% endif %}
+                       
+              {% comment %} {% if section.settings.selected_collection != blank %}  
                   {% for product in collection[section.settings.selected_collection].products %}
                       <li class="scrollbar-item">
                         <div class="shop-card">
@@ -106,7 +201,7 @@
                             </div>
                         </li>
                     {% endfor %}
-             {% endif %} 
+             {% endif %}  {% endcomment %}
               </div>
             </div>
           </div>
