@@ -194,41 +194,41 @@ addEventOnElem(window, "scroll", scrollReveal)
 
 
 
-async function updateCartUI(cartData) {
-  try {
-    // Assuming you have elements in your side cart with specific IDs or classes
-    let cartItemElements = document.querySelectorAll('.cart-item');
-    let cartSubtotalElement = document.getElementById('cart-subtotal');
+// async function updateCartUI(cartData) {
+//   try {
+//     // Assuming you have elements in your side cart with specific IDs or classes
+//     let cartItemElements = document.querySelectorAll('.cart-item');
+//     let cartSubtotalElement = document.getElementById('cart-subtotal');
     
-    // Loop through the cart items to update or fetch additional data if needed
-    for (let [index, item] of cartData.items.entries()) {
-      let itemElement = cartItemElements[index];
+//     // Loop through the cart items to update or fetch additional data if needed
+//     for (let [index, item] of cartData.items.entries()) {
+//       let itemElement = cartItemElements[index];
 
-      if (itemElement) {
-        // Update the existing item in the cart
-        itemElement.querySelector('.cart-item-title').textContent = item.product_title;
-        itemElement.querySelector('.cart-item-variant').textContent = item.variant_title;
-        itemElement.querySelector('.cart-item-quantity').textContent = `Quantity: ${item.quantity}`;
-        itemElement.querySelector('.cart-item-price').textContent = `${(item.price / 100).toFixed(2)} ${cartData.currency}`;
+//       if (itemElement) {
+//         // Update the existing item in the cart
+//         itemElement.querySelector('.cart-item-title').textContent = item.product_title;
+//         itemElement.querySelector('.cart-item-variant').textContent = item.variant_title;
+//         itemElement.querySelector('.cart-item-quantity').textContent = `Quantity: ${item.quantity}`;
+//         itemElement.querySelector('.cart-item-price').textContent = `${(item.price / 100).toFixed(2)} ${cartData.currency}`;
         
-        // Async fetch additional data if necessary (e.g., fetching an image)
-        let imageUrl = await fetchImageUrl(item);
-        itemElement.querySelector('.cart-item-image').src = imageUrl;
-        itemElement.querySelector('.cart-item-image').alt = item.title;
-      } else {
-        // Optionally handle adding new items asynchronously
-        await addNewCartItem(item);
-      }
-    }
+//         // Async fetch additional data if necessary (e.g., fetching an image)
+//         let imageUrl = await fetchImageUrl(item);
+//         itemElement.querySelector('.cart-item-image').src = imageUrl;
+//         itemElement.querySelector('.cart-item-image').alt = item.title;
+//       } else {
+//         // Optionally handle adding new items asynchronously
+//         await addNewCartItem(item);
+//       }
+//     }
 
-    // Update the subtotal
-    if (cartSubtotalElement) {
-      cartSubtotalElement.textContent = `Subtotal: ${(cartData.total_price / 100).toFixed(2)} ${cartData.currency}`;
-    }
-  } catch (error) {
-    console.error('Error updating cart UI:', error);
-  }
-}
+//     // Update the subtotal
+//     if (cartSubtotalElement) {
+//       cartSubtotalElement.textContent = `Subtotal: ${(cartData.total_price / 100).toFixed(2)} ${cartData.currency}`;
+//     }
+//   } catch (error) {
+//     console.error('Error updating cart UI:', error);
+//   }
+// }
 
 
 
