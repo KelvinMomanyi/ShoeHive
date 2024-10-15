@@ -12,10 +12,51 @@
     <div class="container">
 
       <p class="section-subtitle">
-        Get started with our <strong class="strong">best story</strong>
+       {{ section.settings.mainBlog_text }}
       </p>
 
       <ul class="has-scrollbar">
+      {% assign selected_blog_handle = section.settings.blog_type %}
+      {% if selected_blog_handle %}
+        {% for article in blogs[selected_blog_handle].articles  %}
+          <li class="scrollbar-item">
+            <div class="blog-card">
+ 
+               <figure class="card-banner img-holder" style="--width: 500; --height: 600;">
+                  <img src="{{ article.image | img_url: 'medium' }}" width="500" height="600" loading="lazy"
+                 alt="New technology is not good or evil in and of itself" class="img-cover"/>
+               </figure>
+ 
+               <div class="card-content">
+ 
+               <ul class="card-meta-list">
+                 {% for article in article.tags %}
+                 <li>
+                   <a href="#" class="card-tag"> {{ article}}</a>
+                 </li>
+                  {% endfor %}
+               </ul>
+ 
+               <h3 class="h4">
+                 <a href="#" class="card-title hover:underline">
+                   {{ article.title }}
+                 </a>
+               </h3>
+ 
+               <p class="card-text">
+                 Vestibulum vehicula dui venenatis neque tempor, accumsan iaculis sapien ornare. Sed at ante porta,
+                 ullamcorper massa eu,
+                 ullamcorper sapien. Donec pretium tortor augue. Integer egestas ut tellus sed pretium. Nullam
+                 tristique augue ut mattis
+                 vulputate. Duis et lorem in odio ultricies porttitor.
+               </p>
+ 
+               </div>
+ 
+            </div>
+          </li>
+        {% endfor %}  
+      {% else %}  
         {% for article in blogs['news'].articles %}
          <li class="scrollbar-item">
            <div class="blog-card">
@@ -53,7 +94,8 @@
 
            </div>
          </li>
-         {% endfor %}
+        {% endfor %}
+      {% endif %}  
       </ul>
 
     </div>
@@ -711,9 +753,9 @@
   "settings": [
     {
       "type":"text",
-      "id":"heading_text",
-      "label":"Blog Heading",
-      "default":"More to Discover"
+      "id":"mainBlog_text",
+      "label":"Main Blog Heading",
+      "default":" Get started with our best story"
      },
      {
       "type": "blog",
