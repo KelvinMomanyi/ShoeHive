@@ -107,14 +107,7 @@
   
 
 
-<style>
-  
-{% comment %} .newsletter-text { display: none; } {% endcomment %}
-
-{% comment %} .hero1 { padding-block-start: 10px; }
-
-.hero-title { margin-block-end: 25px; } {% endcomment %}
-
+<style>  
 
 /*FEATURED POST*/
 .blog-card .card-banner {
@@ -161,76 +154,7 @@
   
   }
 
-  
-  
-  
-  
-  
-  /*-----------------------------------*\
-    #RESET
-  \*-----------------------------------*/
-  
-  
-  
-  {% comment %} li { list-style: none; }
-  
-  :focus-visible { outline-offset: 4px; }
-  
-  ::-webkit-scrollbar { width: 10px; }
-  
-  ::-webkit-scrollbar-track { background-color: hsl(0, 0%, 98%); }
-  
-  ::-webkit-scrollbar-thumb { background-color: hsl(0, 0%, 80%); }
-  
-  ::-webkit-scrollbar-thumb:hover { background-color: hsl(0, 0%, 70%); }*/ {% endcomment %}
-  
-  
-  
-  
-  
-  /*-----------------------------------*\
-    #REUSED STYLE
-  \*-----------------------------------*/
-  
-  {% comment %} .section { margin-inline: 15px; }
-  
-  .hover\:underline { text-underline-offset: 3px; }
-  
-  .hover\:underline:is(:hover, :focus) { text-decoration: underline; }
-  
-  .section:not(.header, .footer-bottom) {
-    padding-block-end: var(--section-padding);
-    border-block-end: 1px solid var(--light-gray-2);
-  }
-  
-.has-scrollbar {
-    display: flex;
-    gap: 10px;
-    overflow-x: auto;
-    scroll-snap-type: inline mandatory;
-    padding-block-end: 20px;
-    margin-block-end: -20px;
-    margin-inline: -15px;
-    padding-inline: 15px;
-  }
-  
-  .has-scrollbar::-webkit-scrollbar { height: 10px; }
-  
-  .has-scrollbar::-webkit-scrollbar-track { background: transparent; }
-  
-  .has-scrollbar::-webkit-scrollbar-thumb {
-    background-color: transparent;
-    border-radius: var(--radius-pill);
-  }
-  
-  .has-scrollbar::-webkit-scrollbar-button { width: 10px; }
-  
-  .has-scrollbar:is(:hover, :focus-within)::-webkit-scrollbar-thumb { background-color: var(--light-gray-1); }
-  
-  .scrollbar-item {
-    min-width: 70%;
-    scroll-snap-align: center;
-  } {% endcomment %}
+
   
   .blog-card .card-banner {
     position: relative;
@@ -420,166 +344,64 @@
   
   
   
-  
-  
-  /*-----------------------------------*\
-    #NEWSLETTER
-  \*-----------------------------------*/
-  
-  {% comment %} .newsletter { padding-block-start: 40px; }
-  
-  .newsletter .section-title { margin-block-end: 25px; } {% endcomment %}
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  /*-----------------------------------*\
-    #MEDIA QUERIES
-  \*-----------------------------------*/
-  
-  /**
-   * responsive for large than 575px screen
-   */
-  
   @media (min-width: 575px) {
+
+  .section { margin-inline: 30px; }
   
-    /**
-     * CUSTOM PROPERTY
-     */
-  
-  
-  
-  
-    /**
-     * REUSED STYLE
-     */
-  
-    .section { margin-inline: 30px; }
-  
-    {% comment %} .newsletter-form,
-    .btn { --fs-6: 2.2rem; }
-  
-    .newsletter-form .email-field {
-      font-size: var(--fs-6);
-      padding-inline-end: 170px;
-    } {% endcomment %}
-  
-    {% comment %} .btn { padding: 14px 30px; }
-  
-    .section-subtitle { font-size: var(--fs-6); }
-  
-    .has-scrollbar {
-      margin-inline: -30px;
-      padding-inline: 30px;
-    }
-  
-    .has-scrollbar::-webkit-scrollbar-button { width: 15px; }
-  
-    .scrollbar-item { min-width: 40%; }
-   {% endcomment %}
-    .grid-list {
+   
+  .grid-list {
       grid-template-columns: 1fr 1fr;
       column-gap: 10px;
-    }
+  }
+  
+
+  
+  .search-bar .input-field { --fs-1: 3.6rem; }
   
   
-    /**
-     * SEARCH BAR
-     */
-  
-    .search-bar .input-field { --fs-1: 3.6rem; }
-  
-  
-  
-    /**
-     * RECOMMENDED POST, FOOTER
-     */
-  
-    .recommended .grid-list,
+  .recommended .grid-list,
      { grid-template-columns: repeat(3, 1fr); }
   
   }
   
   
-  
-  
-  
-  /**
-   * responsive for large than 768px screen
-   */
+
   
   @media (min-width: 768px) {
-  
-    /**
-     * CUSTOM PROPERTY
-     */
+
+  .grid-list { gap: 40px 15px; }
   
   
+  .search-bar { padding: 25px; }
   
-    /**
-     * REUSED STYLE
-     */
-  
-    {% comment %} .section { margin-inline: 50px; }
-  
-    .has-scrollbar {
-      margin-inline: -50px;
-      padding-inline: 50px;
-      gap: 15px;
-    }
-  
-    .has-scrollbar::-webkit-scrollbar-button { width: 25px; }
-  
-    .scrollbar-item { min-width: 30%; } {% endcomment %}
-  
-    .grid-list { gap: 40px 15px; }
+  .search-bar .input-field { --fs-1: 4.6rem; }
   
   
-  
-    /**
-     * SEARCH BAR
-     */
-  
-    .search-bar { padding: 25px; }
-  
-    .search-bar .input-field { --fs-1: 4.6rem; }
-  
-  
-  
-    /**
-     * RECENT POST
-     */
-  
-    .top-author {
+  .top-author {
       display: block;
       text-align: right;
-    }
+  }
   
-    .recent .title-wrapper {
-      display: flex;
-      justify-content: space-between;
-      margin-block-end: 10px;
-    }
+  .recent .title-wrapper {
+    display: flex;
+    justify-content: space-between;
+    margin-block-end: 10px;
+  }
   
-    .top-author .avatar-item:not(:first-child) { margin-inline-end: -25px; }
+  .top-author .avatar-item:not(:first-child) { margin-inline-end: -25px; }
   
-    .top-author .span {
-      color: var(--eerie-black_80);
-      font-size: var(--fs-8);
-      margin-block-start: 10px;
-    }
+  .top-author .span {
+    color: var(--eerie-black_80);
+    font-size: var(--fs-8);
+    margin-block-start: 10px;
+  }
   
-    .avatar.large {
-      border: 6px solid var(--white);
-      width: 70px;
-    }
+  .avatar.large {
+    border: 6px solid var(--white);
+    width: 70px;
+  }
   
-    .avatar.large:is(:hover, :focus) { transform: translateY(-3px); }
+  .avatar.large:is(:hover, :focus) { transform: translateY(-3px); }
   
   
   
@@ -587,20 +409,17 @@
      * RECOMMENDED POST
      */
   
-    .recommended .grid-list {
+  .recommended .grid-list {
       grid-template-columns: repeat(4, 1fr);
       column-gap: 15px;
-    }
   }
+}
   
   
   
   
   
-  /**
-   * responsive for large than 992px screen
-   */
-  
+
 @media (min-width: 992px) {
   
   .blog-card .card-title { padding-inline-end: 15px; }
