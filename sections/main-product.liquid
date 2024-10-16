@@ -23,6 +23,10 @@
             </span>
             <span class="titleOverlay"></span>
          </h1>
+         <div class="pricing">
+            <h4>Price</h4>
+            <h4 class="price">{{ product.price }}</h4>
+        </div>
         <p class="description">
           {{ product.description }}
           </p>
@@ -47,10 +51,7 @@
                 <ion-icon name="star"  aria-hidden="true"></ion-icon>
                </div>
             </div>
-          <div class="pricing">
-             <h4>Price</h4>
-             <h4 class="price">{{ product.price }}</h4>
-         </div>
+         
          <div class="colors">
            {% comment %} <h4>Colors</h4>
             <ul>
