@@ -109,11 +109,11 @@
 
 <style>
   
-.newsletter-text { display: none; }
+{% comment %} .newsletter-text { display: none; } {% endcomment %}
 
-.hero1 { padding-block-start: 10px; }
+{% comment %} .hero1 { padding-block-start: 10px; }
 
-.hero-title { margin-block-end: 25px; }
+.hero-title { margin-block-end: 25px; } {% endcomment %}
 
 
 /*FEATURED POST*/
@@ -426,9 +426,9 @@
     #NEWSLETTER
   \*-----------------------------------*/
   
-  .newsletter { padding-block-start: 40px; }
+  {% comment %} .newsletter { padding-block-start: 40px; }
   
-  .newsletter .section-title { margin-block-end: 25px; }
+  .newsletter .section-title { margin-block-end: 25px; } {% endcomment %}
   
   
   
@@ -461,15 +461,15 @@
   
     .section { margin-inline: 30px; }
   
-    .newsletter-form,
+    {% comment %} .newsletter-form,
     .btn { --fs-6: 2.2rem; }
   
     .newsletter-form .email-field {
       font-size: var(--fs-6);
       padding-inline-end: 170px;
-    }
+    } {% endcomment %}
   
-    .btn { padding: 14px 30px; }
+    {% comment %} .btn { padding: 14px 30px; }
   
     .section-subtitle { font-size: var(--fs-6); }
   
@@ -481,7 +481,7 @@
     .has-scrollbar::-webkit-scrollbar-button { width: 15px; }
   
     .scrollbar-item { min-width: 40%; }
-  
+   {% endcomment %}
     .grid-list {
       grid-template-columns: 1fr 1fr;
       column-gap: 10px;
@@ -525,7 +525,7 @@
      * REUSED STYLE
      */
   
-    .section { margin-inline: 50px; }
+    {% comment %} .section { margin-inline: 50px; }
   
     .has-scrollbar {
       margin-inline: -50px;
@@ -535,7 +535,7 @@
   
     .has-scrollbar::-webkit-scrollbar-button { width: 25px; }
   
-    .scrollbar-item { min-width: 30%; }
+    .scrollbar-item { min-width: 30%; } {% endcomment %}
   
     .grid-list { gap: 40px 15px; }
   
@@ -615,7 +615,7 @@
      * REUSED STYLE
      */
   
-    .section { margin-inline: 60px; }
+    {% comment %} .section { margin-inline: 60px; }
   
     .has-scrollbar {
       margin-inline: -60px;
@@ -627,9 +627,9 @@
     .btn {
       --fs-6: 2.4rem;
       padding: 18px 36px;
-    }
+    } {% endcomment %}
   
-    .newsletter-form { max-width: 450px; }
+    {% comment %} .newsletter-form { max-width: 450px; } {% endcomment %}
   
   
   
@@ -644,7 +644,7 @@
      * HERO
      */
   
-    .hero { padding-block-start: 25px; }
+    {% comment %} .hero { padding-block-start: 25px; }
   
     .hero-title { margin-block-end: 30px; }
   
@@ -659,7 +659,7 @@
       display: flex;
       align-items: center;
       gap: 15px;
-    }
+    } {% endcomment %}
   
   
   
@@ -683,7 +683,7 @@
      * NEWSLETTER
      */
   
-    .newsletter {
+    {% comment %} .newsletter {
       display: flex;
       align-items: center;
       justify-content: space-between;
@@ -691,7 +691,7 @@
   
     .newsletter .section-title { margin-block-end: 0; }
   
-  }
+  } {% endcomment %}
   
   
   
@@ -706,14 +706,14 @@
      * REUSED STYLE
      */
   
-    .section { margin-inline: 70px; }
+    {% comment %} .section { margin-inline: 70px; }
   
     .has-scrollbar {
       margin-inline: -70px;
       padding-inline: 70px;
     }
   
-    .has-scrollbar::-webkit-scrollbar-button { width: 35px; }
+    .has-scrollbar::-webkit-scrollbar-button { width: 35px; } {% endcomment %}
   
     .card-tag {
       --fs-9: 1.4rem;
@@ -728,9 +728,9 @@
      * HERO
      */
   
-    .section.hero { padding-block: 50px 80px; }
+    {% comment %} .section.hero { padding-block: 50px 80px; }
   
-    .hero-title { margin-block-end: 50px; }
+    .hero-title { margin-block-end: 50px; } {% endcomment %}
   
   
   
