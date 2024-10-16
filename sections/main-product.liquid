@@ -60,7 +60,8 @@
             <form   action="/cart/add" method="post" enctype="multipart/form-data" onsubmit="submitAddToCartForm(this); return false;">
               <input type="hidden" name="id" value="{{ product.selected_or_first_available_variant.id }}">
               <button type="submit" class="action-btn" aria-label="add to cart">
-                <ion-icon name="bag-handle-outline" aria-hidden="true"></ion-icon>
+                {% comment %} <ion-icon name="bag-handle-outline" aria-hidden="true"></ion-icon> {% endcomment %}
+                <a href="#" class="btn btn-primary">Add to Cart</a>
               </button>
             </form>
             {% comment %} <a href="#" class="btn btn-primary">Add to Cart</a> {% endcomment %}
