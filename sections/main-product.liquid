@@ -13,7 +13,7 @@
            <img src="{{ product.featured_image | image_url }}" alt=""> {% endcomment %}
           </div> 
           <div class="card-banner img-holder">
-             <img src="{{product.featured_image | image_url : 'large'}}" alt="{{product.featured_image.alt | escape }}" class="img-cover"  loading="lazy">
+             <img src="{{product.featured_image | img_url : 'large'}}" alt="{{product.featured_image.alt | escape }}" class="img-cover"  loading="lazy">
           </div>
        </div>
         <div class="offer-content">
