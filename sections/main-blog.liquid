@@ -172,7 +172,7 @@
   
   
   
-  li { list-style: none; }
+  {% comment %} li { list-style: none; }
   
   :focus-visible { outline-offset: 4px; }
   
@@ -182,7 +182,7 @@
   
   ::-webkit-scrollbar-thumb { background-color: hsl(0, 0%, 80%); }
   
-  ::-webkit-scrollbar-thumb:hover { background-color: hsl(0, 0%, 70%); }*/
+  ::-webkit-scrollbar-thumb:hover { background-color: hsl(0, 0%, 70%); }*/ {% endcomment %}
   
   
   
@@ -192,7 +192,7 @@
     #REUSED STYLE
   \*-----------------------------------*/
   
-  .section { margin-inline: 15px; }
+  {% comment %} .section { margin-inline: 15px; }
   
   .hover\:underline { text-underline-offset: 3px; }
   
@@ -230,7 +230,7 @@
   .scrollbar-item {
     min-width: 70%;
     scroll-snap-align: center;
-  }
+  } {% endcomment %}
   
   .blog-card .card-banner {
     position: relative;
@@ -701,7 +701,7 @@
    * responsive for large than 1200px screen
    */
   
-  {% comment %} @media (min-width: 1200px) {
+  @media (min-width: 1200px) {
     /**
      * REUSED STYLE
      */
@@ -743,7 +743,7 @@
     .recent .btn { margin-block-start: 70px; }
   
   
-  } {% endcomment %}
+  } 
 
  </style> 
 
