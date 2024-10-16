@@ -5,7 +5,7 @@
        <div class="product-banner"> 
           <div class="thumbs">
             {% for image in product.images %}
-                <img src="{{ image | image_url}}"  alt="{{ image.alt }}" class="{% if forloop.first %}thumb-active{% endif %}">
+                <img src="{{ image | image_url : "large"}}"  alt="{{ image.alt }}" class="{% if forloop.first %}thumb-active{% endif %}">
               {% endfor %}
            {% comment %} <img src="{{ product.featured_image | image_url }}" alt="" class="thumb-active">
            <img src="{{ product.featured_image | image_url }}" alt="">
@@ -492,7 +492,7 @@ let shoe =1
       images: [
         {% for image in product.images %}
           {
-            src: "{{ image | img_url}}",
+            src: "{{ image | img_url: 'large'}}",
             alt: "{{ image.alt }}"
           }{% unless forloop.last %},{% endunless %}
         {% endfor %}
