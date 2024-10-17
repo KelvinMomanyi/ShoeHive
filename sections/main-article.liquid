@@ -51,7 +51,7 @@
       <figure>
           {% comment %} <div class="has-bg-image" style="background-image: url('{{ article.image | img_url}}');" width="540" height="720">
           </div> {% endcomment %}
-          <img src="{{article.image | img_url }}" alt="Web Development" class="article-image"> 
+          <img src="{{article.image | img_url : 'large' }}" alt="Web Development" class="article-image"> 
           <figcaption>The rapid evolution of web technologies.</figcaption>
       </figure>
 
