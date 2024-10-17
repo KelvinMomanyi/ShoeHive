@@ -78,281 +78,200 @@
   </article>
 </main>
 
-
-
-<main class="article-container">
-  <article class="article-content">
-      <h1 class="article-title">Understanding the Importance of Web Accessibility</h1>
-      <p class="article-meta">By <span class="author-name">John Doe</span> | Published on <span class="publish-date">October 12, 2024</span></p>
-
-      <img src="accessibility.jpg" alt="Web Accessibility" class="article-image">
-
-      <p>Web accessibility ensures that websites, tools, and technologies are designed and developed so that people with disabilities can use them. More specifically, people can perceive, understand, navigate, and interact with the web, and they can contribute to the web. Web accessibility also benefits others, including older people with changing abilities due to aging.</p>
-
-      <h2>Why It Matters</h2>
-      <p>Approximately 15% of the world's population lives with some form of disability. Inaccessible websites limit the ability of these individuals to access information and services online. By ensuring accessibility, organizations can expand their reach and comply with legal standards such as the Americans with Disabilities Act (ADA).</p>
-
-      <blockquote class="article-quote">"Accessibility is not a feature, it's a social right." – Tim Berners-Lee</blockquote>
-
-      <h2>Key Principles of Accessibility</h2>
-      <ul>
-          <li>Perceivable – Users must be able to perceive the information being presented.</li>
-          <li>Operable – Users must be able to operate the interface.</li>
-          <li>Understandable – Users must be able to understand the information and operation of the user interface.</li>
-          <li>Robust – Content must be robust enough to be interpreted by a wide variety of user agents, including assistive technologies.</li>
-      </ul>
-
-      <p>By adhering to these principles, web developers can create content that is inclusive for all users, regardless of their abilities.</p>
-
-  </article>
-
-  <!-- Author Bio Section -->
-  <aside class="author-bio">
-      <img src="john-doe.jpg" alt="Author John Doe" class="author-photo">
-      <h3>About the Author</h3>
-      <p>John Doe is a web accessibility expert with over 10 years of experience in creating inclusive digital environments. He writes extensively on topics related to web design and user experience.</p>
-  </aside>
-</main>
-
-<!-- Footer -->
-<footer class="site-footer">
-  <p>&copy; 2024 MyBlog. All rights reserved.</p>
-</footer>
-</body>
-</html>
-
-
-
+<aside class="sidebar">
+  <h2>Related Articles</h2>
+  <ul class="article-list">
+      <li><a href="#">10 Tips for Learning JavaScript Faster</a></li>
+      <li><a href="#">Why CSS Grid is the Future of Web Layouts</a></li>
+      <li><a href="#">Introduction to React: A Beginner's Guide</a></li>
+      <li><a href="#">Mastering Flexbox: Building Flexible Layouts</a></li>
+      <li><a href="#">Understanding REST APIs in Web Development</a></li>
+  </ul>
+</aside>
 
 
 
 <style>
-  .article-container {
-    margin: 40px 0;
-    background-color: #fff;
-    padding: 30px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  /* General Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Arial', sans-serif;
+  line-height: 1.6;
+  background-color: #f4f4f4;
+  color: #333;
+  padding: 20px;
+}
+
+/* Container */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* Header */
+.header {
+  background-color: #333;
+  color: #fff;
+  padding: 20px 0;
+  text-align: center;
+}
+
+.header h1 {
+  margin-bottom: 10px;
+  font-size: 2.5rem;
+}
+
+.header nav a {
+  color: #fff;
+  margin: 0 10px;
+  text-decoration: none;
+  font-size: 1.2rem;
+}
+
+.header nav a:hover {
+  text-decoration: underline;
+}
+
+/* Content Wrapper */
+.content-wrapper {
+  display: flex;
+  gap: 30px;
+  margin: 40px 0;
+}
+
+/* Main Article Section */
+.article-container {
+  flex: 3;
+  background-color: #fff;
+  padding: 30px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
 .article-title {
-    font-size: 2.8rem;
-    margin-bottom: 10px;
-    color: #333;
+  font-size: 2.8rem;
+  margin-bottom: 10px;
+  color: #333;
 }
 
 .article-subtitle {
-    font-size: 1.1rem;
-    color: #555;
-    margin-bottom: 30px;
+  font-size: 1.1rem;
+  color: #555;
+  margin-bottom: 30px;
 }
 
 .article-image {
-    width: 100%;
-    height: auto;
-    margin-bottom: 15px;
-    border-radius: 5px;
+  width: 100%;
+  height: auto;
+  margin-bottom: 15px;
+  border-radius: 5px;
 }
 
 figcaption {
-    font-size: 0.9rem;
-    color: #666;
-    text-align: center;
-    margin-bottom: 30px;
+  font-size: 0.9rem;
+  color: #666;
+  text-align: center;
+  margin-bottom: 30px;
 }
 
 .article-body p {
-    margin-bottom: 20px;
-    font-size: 1.15rem;
-    color: #444;
+  margin-bottom: 20px;
+  font-size: 1.15rem;
+  color: #444;
 }
 
 .article-body h2 {
-    font-size: 1.8rem;
-    margin: 20px 0;
-    color: #111;
+  font-size: 1.8rem;
+  margin: 20px 0;
+  color: #111;
 }
 
 blockquote {
-    background: #f9f9f9;
-    border-left: 10px solid #ccc;
-    margin: 20px 0;
-    padding: 15px;
-    font-style: italic;
-    font-size: 1.1rem;
-    color: #555;
+  background: #f9f9f9;
+  border-left: 10px solid #ccc;
+  margin: 20px 0;
+  padding: 15px;
+  font-style: italic;
+  font-size: 1.1rem;
+  color: #555;
 }
 
 /* Article Footer */
 .article-footer {
-    margin-top: 30px;
-    padding-top: 20px;
-    border-top: 1px solid #e0e0e0;
-    font-size: 1rem;
-    color: #777;
+  margin-top: 30px;
+  padding-top: 20px;
+  border-top: 1px solid #e0e0e0;
+  font-size: 1rem;
+  color: #777;
+}
+
+/* Sidebar */
+.sidebar {
+  flex: 1;
+  background-color: #fff;
+  padding: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.sidebar h2 {
+  font-size: 1.5rem;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.article-list {
+  list-style: none;
+}
+
+.article-list li {
+  margin-bottom: 15px;
+}
+
+.article-list a {
+  text-decoration: none;
+  font-size: 1.1rem;
+  color: #007bff;
+}
+
+.article-list a:hover {
+  text-decoration: underline;
 }
 
 /* Site Footer */
 .site-footer {
-    text-align: center;
-    padding: 20px 0;
-    background-color: #333;
-    color: #fff;
-    margin-top: 40px;
+  text-align: center;
+  padding: 20px 0;
+  background-color: #333;
+  color: #fff;
+  margin-top: 40px;
 }
 
 .site-footer p {
-    margin: 0;
+  margin: 0;
 }
 
 /* Responsive Design */
 @media (max-width: 768px) {
-    .header h1 {
-        font-size: 2rem;
-    }
+  .header h1 {
+      font-size: 2rem;
+  }
 
-    .article-title {
-        font-size: 2rem;
-    }
+  .content-wrapper {
+      flex-direction: column;
+  }
 
-    .article-body p {
-        font-size: 1rem;
-    }
+  .article-title {
+      font-size: 2rem;
+  }
+
+  .article-body p {
+      font-size: 1rem;
+  }
 }
 
-
-
-
-
-.site-header {
-  background-color: #333;
-  padding: 10px 0;
-  color: white;
-  text-align: center;
-  }
-  
-  .navbar {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 0 20px;
-  }
-  
-  .logo {
-  font-size: 24px;
-  font-weight: bold;
-  color: white;
-  text-decoration: none;
-  }
-  
-  .nav-links {
-  list-style: none;
-  display: flex;
-  }
-  
-  .nav-links li {
-  margin-left: 20px;
-  }
-  
-  .nav-links a {
-  color: white;
-  text-decoration: none;
-  font-weight: bold;
-  }
-  
-  .nav-links a:hover {
-  text-decoration: underline;
-  }
-  
-  /* Article styles */
-  .article-container {
-  max-width: 800px;
-  margin: 40px auto;
-  padding: 0 20px;
-  background-color: white;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  padding: 20px;
-  }
-  
-  .article-content {
-  margin-bottom: 20px;
-  }
-  
-  .article-title {
-  font-size: 36px;
-  color: #333;
-  margin-bottom: 10px;
-  }
-  
-  .article-meta {
-  font-size: 14px;
-  color: #777;
-  margin-bottom: 20px;
-  }
-  
-  .article-image {
-  width: 100%;
-  height: auto;
-  margin-bottom: 20px;
-  }
-  
-  h2 {
-  color: #333;
-  margin-top: 20px;
-  font-size: 24px;
-  }
-  
-  p {
-  margin-bottom: 20px;
-  font-size: 18px;
-  }
-  
-  ul {
-  margin-bottom: 20px;
-  }
-  
-  .article-quote {
-  font-style: italic;
-  padding: 10px 20px;
-  background-color: #f9f9f9;
-  border-left: 4px solid #333;
-  margin: 20px 0;
-  }
-  
-  /* Author bio styles */
-  .author-bio {
-  margin-top: 20px;
-  padding: 20px;
-  background-color: #f9f9f9;
-  display: flex;
-  align-items: center;
-  }
-  
-  .author-photo {
-  width: 80px;
-  height: 80px;
-  border-radius: 50%;
-  margin-right: 20px;
-  }
-  
-  .author-bio h3 {
-  font-size: 20px;
-  margin-bottom: 5px;
-  }
-  
-  .author-bio p {
-  font-size: 16px;
-  margin: 0;
-  }
-  
-  /* Footer styles */
-  .site-footer {
-  background-color: #333;
-  color: white;
-  text-align: center;
-  padding: 10px 0;
-  }
-  
-  .site-footer p {
-  margin: 0;
-  }
 </style>  
