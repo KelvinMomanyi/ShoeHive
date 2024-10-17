@@ -43,12 +43,12 @@
 <main class="article-container">
   <article class="article-content">
       <header>
-          <h1 class="article-title">The Importance of Learning Web Development in 2024</h1>
-          <p class="article-subtitle">By Jane Doe - October 12, 2024</p>
+          <h1 class="article-title">{{article.title }}</h1>
+          <p class="article-subtitle">By {{article.author }} - {{article.created_at }}</p>
       </header>
 
       <figure>
-          <img src="article-image.jpg" alt="Web Development" class="article-image">
+          <img src="{{article.image | img_url }}" alt="Web Development" class="article-image">
           <figcaption>The rapid evolution of web technologies.</figcaption>
       </figure>
 
