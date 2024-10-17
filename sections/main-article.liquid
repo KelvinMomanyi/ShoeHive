@@ -49,9 +49,9 @@
       </div>
 
       <figure>
-          <div class="has-bg-image" style="background-image: url('{{ article.image | img_url}}');" width="540" height="720">
-          </div>
-          {% comment %} <img src="{{article.image | img_url }}" alt="Web Development" class="article-image"> {% endcomment %}
+          {% comment %} <div class="has-bg-image" style="background-image: url('{{ article.image | img_url}}');" width="540" height="720">
+          </div> {% endcomment %}
+          <img src="{{article.image | img_url }}" alt="Web Development" class="article-image"> 
           <figcaption>The rapid evolution of web technologies.</figcaption>
       </figure>
 
@@ -123,7 +123,7 @@
 }
 
 .article-image {
-  width: 100%;
+  width: 540px;
   height: auto;
   margin-bottom: 15px;
   border-radius: 5px;
