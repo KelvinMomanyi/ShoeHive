@@ -17,7 +17,8 @@
         </ul>
       {% endif %}
 </div> {% endcomment %}
-<div class="register-container">
+<div class="mainregister-container">
+  <div class="register-container">
     {% form 'create_customer' %}
         {{ form.errors | default_errors }}
       
@@ -62,16 +63,26 @@
           {% endfor %}
         </ul>
     {% endif %} {% endcomment %}
+  </div>  
 </div>
+
                                                                                                                                                                                                                                   
 <style>
+    .mainregister-container{
+      display: flex;
+      justify-content: center;
+      flex-direction:column;
+      align-items: center;
+      padding:1rem;
+      margin-top:1rem
+    }
     .register-container {
         background-color: #fff;
         padding: 2rem;
         border-radius: 8px;
         box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         width: 100%;
-        max-width: 400px;
+        max-width: 600px;
     }
     .register-container h1 {
         font-size: 1.5rem;
