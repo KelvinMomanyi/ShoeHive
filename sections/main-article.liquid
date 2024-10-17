@@ -83,12 +83,11 @@
 
    <aside class="sidebar">
   <h2>Related Articles</h2>
+  
   <ul class="article-list">
-      <li><a href="#">10 Tips for Learning JavaScript Faster</a></li>
-      <li><a href="#">Why CSS Grid is the Future of Web Layouts</a></li>
-      <li><a href="#">Introduction to React: A Beginner's Guide</a></li>
-      <li><a href="#">Mastering Flexbox: Building Flexible Layouts</a></li>
-      <li><a href="#">Understanding REST APIs in Web Development</a></li>
+    {% for article in blogs.articles  %}
+      <li><a href="{{ article.url }}">{{ article.title }}</a></li>
+     {% endfor %} 
   </ul>
    </aside>
 </div>
