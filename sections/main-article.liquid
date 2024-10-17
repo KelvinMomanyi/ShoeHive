@@ -86,7 +86,7 @@
   
   <ul class="article-list">
     {% paginate blogs.articles by 50 %}
-      {% for article in blogs.articles %}
+      {% for article in blogs.all.articles %}
         <li><a href="{{ article.url }}">{{ article.title }}</a></li>
       {% endfor %}
     {% endpaginate %}
