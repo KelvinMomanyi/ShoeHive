@@ -1,28 +1,36 @@
 <!-- /templates/customers/login.liquid -->
-<div class="login-container">
-    {% form 'customer_login' %}
-        {{ form.errors | default_errors }}
-      
-        <div class="email">
-          <label for="email">Email</label>
-          <input type="email" name="customer[email]">
-        </div>
-      
-        <div class="password">
-          <label for="password">Password</label>
-          <input type="password" name="customer[password]">
-        </div>
-      
-        <div class="submit">
-          <input type="submit" value="Sign in">
-        </div>
-      {% endform %}
-      
-</div>
-
+  <div class="mainlogin-container">
+    <div class="login-container">
+        {% form 'customer_login' %}
+            {{ form.errors | default_errors }}
+        
+            <div class="email">
+            <label for="email">Email</label>
+            <input type="email" name="customer[email]">
+            </div>
+        
+            <div class="password">
+            <label for="password">Password</label>
+            <input type="password" name="customer[password]">
+            </div>
+        
+            <div class="submit">
+            <input type="submit" value="Sign in">
+            </div>
+        {% endform %}
+        
+    </div>
+  </div>
 
 <style>
-
+    .mainlogin-container{
+     
+        display: flex;
+        justify-content: center;
+        flex-direction:column;
+        align-items: center;
+    
+    }
    
     .login-container {
         background-color: #fff;
@@ -31,11 +39,6 @@
         box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         width: 100%;
         max-width: 400px;
-
-            display: flex;
-            justify-content: center;
-            flex-direction:column;
-            align-items: center;
     }
     .login-container h1 {
         font-size: 1.5rem;
