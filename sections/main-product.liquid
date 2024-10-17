@@ -57,7 +57,7 @@
                <li class="color color-active"></li>
                <li class="color"></li>
             </ul> {% endcomment %}
-            <form action="/cart/add" method="post" style='padding-top:1em;' enctype="multipart/form-data" onsubmit="submitAddToCartForm(this); return false;">
+            <form action="/cart/add" method="post" style='margin-top:1em;' enctype="multipart/form-data" onsubmit="submitAddToCartForm(this); return false;">
               <input type="hidden" name="id" value="{{ product.selected_or_first_available_variant.id }}">
               <button type="submit" class="action-btn btn btn-primary" aria-label="add to cart">
                 {% comment %} <ion-icon name="bag-handle-outline" aria-hidden="true"></ion-icon> {% endcomment %}
