@@ -572,7 +572,7 @@ responsive for larger than 575px screen
 
           // Update the subtotal
           subtotal = subtotal - (item.price * item.quantity) / 100 + newLinePrice;
-          subtotalDisplay.textContent = `Subtotal: ${currencySymbol}${subtotal.toFixed(2)}`;
+          subtotalDisplay.textContent = `Subtotal: ${subtotal.toFixed(2)}`;
 
           // Update item quantity to the new quantity
           item.quantity = newQuantity;
