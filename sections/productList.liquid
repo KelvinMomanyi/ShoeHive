@@ -444,7 +444,9 @@ responsive for larger than 575px screen
       }
 
 
-      const currencySymbol = "{{ shop.currency | escape }}"; 
+      
+
+      const currencySymbol = "{{ shop.currency | money }}"; 
       function updateCartUI(cart) {
         var cartContent = document.getElementById('cart-content');
         cartContent.innerHTML = ''; // Clear existing content
