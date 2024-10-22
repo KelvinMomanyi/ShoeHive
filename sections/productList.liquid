@@ -503,7 +503,7 @@ responsive for larger than 575px screen
             const safeItemId = `item_${item.key.replace(/[^a-zA-Z0-9_-]/g, '')}`;
 
             cartHTML += `
-                        <div style="display:flex; padding:20px;"  id="${safeItemId}">
+                        <div style="display:flex; padding:20px; margin-bottom:1rem;"  id="${safeItemId}">
                             <div style="flex:1; display:flex; align-items:center; justify-content:center;">
                                <a href="${item.url}">
                                  <img src="${item.image}" alt="${item.title}" class="img-cover" width="480" height="640" loading="lazy">
