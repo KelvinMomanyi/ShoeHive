@@ -455,7 +455,7 @@ responsive for larger than 575px screen
 
       const currencySymbol = "{{ shop.currency | escape }}"; 
       const currency_code = getCurrencySymbol(currencySymbol)
-      const currency_code1 = window.Shopify.currency.active
+      const currency_code1 = getCurrencySymbol(window.Shopify.currency.active)
       {% comment %} function getCurrencySymbol(currencyCode) {
         return (0).toLocaleString(undefined, {
           style: "currency",
