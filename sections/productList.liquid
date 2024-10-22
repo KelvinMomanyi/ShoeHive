@@ -453,9 +453,9 @@ responsive for larger than 575px screen
     }
       
 
-      const currencySymbol = "{{ shop.currency | escape }}"; 
-      const currency_code = getCurrencySymbol(currencySymbol)
-      const currency_code1 = getCurrencySymbol(window.Shopify.currency.active)
+      {% comment %} const currencySymbol = "{{ shop.currency | escape }}"; 
+      const currency_code = getCurrencySymbol(currencySymbol) {% endcomment %}
+      const currency_code = getCurrencySymbol(window.Shopify.currency.active)
       {% comment %} function getCurrencySymbol(currencyCode) {
         return (0).toLocaleString(undefined, {
           style: "currency",
@@ -512,7 +512,7 @@ responsive for larger than 575px screen
                             <div style="flex:1; display:flex; align-items:center; justify-content:center; flex-direction:column;" >
                               <td>
                                 <a href="${item.url}">${item.product_title}</a>
-                                  ${currency_code1}${item.price.toFixed(2)}
+                                  ${currency_code}${item.price.toFixed(2)}
                                 <a href="#" class="remove-item" data-line="${index + 1}" data-key="${item.key}" style="color: red;">Remove</a>
                                 
                               </td>
