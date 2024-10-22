@@ -522,8 +522,8 @@ responsive for larger than 575px screen
                                     <p style="font-size:1.5rem;">${currency_code}${itemPrice.toFixed(2)}</p>
                                     <p id="line_price_${item.key}" style="font-size:1.5rem;">Total:  ${currency_code}${initialTotalPrice.toFixed(2)}</p>
                                 </div> 
-                                <td style="visibility: hidden;">
-                                  <input type="number" name="updates[]" id="updates_${item.key}" value="${item.quantity}" min="0">
+                                <td>
+                                  <input style="visibility: hidden;" type="number" name="updates[]" id="updates_${item.key}" value="${item.quantity}" min="0">
                                 </td>
                               <td>
                                 {% if item.original_line_price != item.line_price %}{{ item.original_line_price | money }}{% endif %}
