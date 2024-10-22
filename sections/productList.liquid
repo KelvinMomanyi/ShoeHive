@@ -505,13 +505,13 @@ responsive for larger than 575px screen
             cartHTML += `
                         <div style="display:flex;"  id="${safeItemId}">
                             <div style="flex:1; display:flex; align-items:center; justify-content:center;">
-                            <a href="${item.url}">
-                                <img src="${item.image}" alt="${item.title}" class="img-cover" width="480" height="640" loading="lazy">
-                              </a>
+                               <a href="${item.url}">
+                                 <img src="${item.image}" alt="${item.title}" class="img-cover" width="480" height="640" loading="lazy">
+                               </a>
                             </div>
                             <div style="flex:1; display:flex; align-items:center; justify-content:center; flex-direction:column;" >
                                 <td>
-                                  <a href="${item.url}">${item.product_title}</a>
+                                  <a href="${item.url}" class="card-title">${item.product_title}</a>
                                     {% comment %} ${currency_code}${item.price.toFixed(2)} {% endcomment %}
                                   <a href="#" class="remove-item" data-line="${index + 1}" data-key="${item.key}" style="color: red;">Remove</a>
                                 </td>
@@ -536,7 +536,7 @@ responsive for larger than 575px screen
                               <button type="button" class="increment" id="increment_${item.key}">+</button>
                             </div> 
                             </div>
-                    </div>
+                      </div>
             `;
           });
       
