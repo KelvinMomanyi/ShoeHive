@@ -522,9 +522,9 @@ responsive for larger than 575px screen
                                     <p>Unit Price: ${currencySymbol}${itemPrice.toFixed(2)}</p>
                                     <p id="line_price_${item.key}">Total: ${currencySymbol}${initialTotalPrice.toFixed(2)}</p>
                                 </div> {% endcomment %}
-                                {% comment %} <td>
+                                <td>
                                   <input type="number" name="updates[]" id="updates_${item.key}" value="${item.quantity}" min="0">
-                                </td> {% endcomment %}
+                                </td>
                               <td>
                                 {% if item.original_line_price != item.line_price %}{{ item.original_line_price | money }}{% endif %}
                                 {{ item.line_price | money }}
