@@ -453,8 +453,8 @@ responsive for larger than 575px screen
     }
       
 
-      {% comment %} const currencySymbol = "{{ shop.currency | escape }}"; 
-      const currency_code = getCurrencySymbol(currencySymbol) {% endcomment %}
+      const currencySymbol = "{{ shop.currency | escape }}"; 
+      {% comment %} const currency_code = getCurrencySymbol(currencySymbol)  {% endcomment %}
       const currency_code = getCurrencySymbol(window.Shopify.currency.active)
       {% comment %} function getCurrencySymbol(currencyCode) {
         return (0).toLocaleString(undefined, {
