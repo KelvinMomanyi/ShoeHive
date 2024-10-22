@@ -453,7 +453,7 @@ responsive for larger than 575px screen
     }
       
 
-      const currencySymbol = "{{ shop.currency.iso_code | escape }}"; 
+      const currencySymbol = "{{ shop.currency | escape }}"; 
       const currency_code = getCurrencySymbol(currencySymbol)
       {% comment %} function getCurrencySymbol(currencyCode) {
         return (0).toLocaleString(undefined, {
@@ -511,7 +511,7 @@ responsive for larger than 575px screen
                             <div style="flex:1; display:flex; align-items:center; justify-content:center; flex-direction:column;" >
                               <td>
                                 <a href="${item.url}">${item.product_title}</a>
-                                  ${currencySymbol}${item.price.toFixed(2)}
+                                  ${currencySymbol.iso_code}${item.price.toFixed(2)}
                                 <a href="#" class="remove-item" data-line="${index + 1}" data-key="${item.key}" style="color: red;">Remove</a>
                                 
                               </td>
