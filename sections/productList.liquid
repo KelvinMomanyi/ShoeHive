@@ -518,10 +518,10 @@ responsive for larger than 575px screen
                                 <td id="price_${item.key}">
                                   ${currency_code}${initialTotalPrice.toFixed(2)}
                                 </td>
-                                {% comment %} <div>
+                                <div>
                                     <p>Unit Price: ${currencySymbol}${itemPrice.toFixed(2)}</p>
                                     <p id="line_price_${item.key}">Total: ${currencySymbol}${initialTotalPrice.toFixed(2)}</p>
-                                </div> {% endcomment %}
+                                </div> 
                                 <td>
                                   <input type="number" name="updates[]" id="updates_${item.key}" value="${item.quantity}" min="0">
                                 </td>
