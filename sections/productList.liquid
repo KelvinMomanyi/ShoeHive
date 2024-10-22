@@ -513,7 +513,7 @@ responsive for larger than 575px screen
                                 <td>
                                   <a href="${item.url}" class="card-title">${item.product_title}</a>
                                     {% comment %} ${currency_code}${item.price.toFixed(2)} {% endcomment %}
-                                  <a href="#" class="remove-item" data-line="${index + 1}" data-key="${item.key}" style="color: red;">Remove</a>
+                                  <a href="#" class="remove-item" data-line="${index + 1}" data-key="${item.key}" style="color: red;"><ion-icon name="close-circle-outline"></ion-icon></a>
                                 </td>
                                 {% comment %} <td id="price_${item.key}">
                                   ${currency_code}${initialTotalPrice.toFixed(2)}
