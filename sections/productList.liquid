@@ -527,6 +527,9 @@ responsive for larger than 575px screen
                                 <td>
                                   <input type="number" name="updates[]" id="updates_${item.key}" value="${item.quantity}" min="0">
                                 </td>
+                                  <td>
+                                    <a href="#" class="remove-item" data-line="${index + 1}" data-key="${item.key}" style="color: red;">Remove</a>
+                                </td>
                               <td>
                                 {% if item.original_line_price != item.line_price %}{{ item.original_line_price | money }}{% endif %}
                                 {{ item.line_price | money }}
