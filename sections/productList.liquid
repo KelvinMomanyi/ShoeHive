@@ -504,10 +504,12 @@ responsive for larger than 575px screen
 
             cartHTML += `
                         <div style="display:flex;"  id="${safeItemId}">
+                            <div class="card-banner img-holder">
                             <div style="flex:1; display:flex; align-items:center; justify-content:center;">
                                <a href="${item.url}">
                                  <img src="${item.image}" alt="${item.title}" class="img-cover" width="480" height="640" loading="lazy">
                                </a>
+                            </div>
                             </div>
                             <div style="flex:1; display:flex; align-items:center; justify-content:center; flex-direction:column;" >
                                 <td>
