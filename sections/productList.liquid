@@ -568,11 +568,11 @@ responsive for larger than 575px screen
           const newLinePrice = (item.price * newQuantity) / 100;
           quantityDisplay.textContent = newQuantity;
           quantityInput.value = newQuantity;
-          linePriceDisplay.textContent = `Total: ${currencySymbol}${newLinePrice.toFixed(2)}`;
+          linePriceDisplay.textContent = `Total: ${currency_code}${newLinePrice.toFixed(2)}`;
 
           // Update the subtotal
           subtotal = subtotal - (item.price * item.quantity) / 100 + newLinePrice;
-          subtotalDisplay.textContent = `Subtotal: ${subtotal.toFixed(2)}`;
+          subtotalDisplay.textContent = `Subtotal: ${currency_code}${subtotal.toFixed(2)}`;
 
           // Update item quantity to the new quantity
           item.quantity = newQuantity;
