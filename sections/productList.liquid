@@ -453,7 +453,7 @@ responsive for larger than 575px screen
     }
       
 
-      const currencySymbol = "{{ cart.currency | escape }}"; 
+      const currencySymbol = "{{ shop.currency | escape }}"; 
       const currency_code = getCurrencySymbol(currencySymbol)
       function updateCartUI(cart) {
         var cartContent = document.getElementById('cart-content');
