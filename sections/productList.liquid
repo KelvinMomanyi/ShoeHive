@@ -444,7 +444,7 @@ responsive for larger than 575px screen
       }
 
      function getCurrencySymbol(currencyCode){
-    return (0).toLocaleString(undefined, {
+      return (0).toLocaleString(undefined, {
           style: "currency",
           currency: currencyCode,
           minimumFractionDigits:0,
@@ -453,8 +453,38 @@ responsive for larger than 575px screen
     }
       
 
-      const currencySymbol = "{{ shop.currency | escape }}"; 
+      const currencySymbol = "{{ shop.currency.iso_code | escape }}"; 
       const currency_code = getCurrencySymbol(currencySymbol)
+      {% comment %} function getCurrencySymbol(currencyCode) {
+        return (0).toLocaleString(undefined, {
+          style: "currency",
+          currency: currencyCode,
+          minimumFractionDigits: 0,
+          maximumFractionDigits: 0,
+        }).replace(/\d/g, '').trim();
+      }
+    
+      // Function to update currency symbol when the currency changes
+      function updateCurrencySymbol() {
+        // Get the current currency from Shopify
+        const currencyCode = window.Shopify.currency.active || "{{ shop.currency.iso_code }}";
+        
+        // Update the symbol
+        const currencySymbol = getCurrencySymbol(currencyCode);
+    
+        // Now, do something with the updated symbol, like updating the UI
+        document.querySelector('#currency-symbol').innerText = currencySymbol;
+      }
+    
+      // Run on page load
+      document.addEventListener("DOMContentLoaded", function() {
+        updateCurrencySymbol();
+      });
+    
+      // Shopify typically triggers a 'currency:changed' event when the currency changes
+      document.addEventListener("currency:changed", function(event) {
+        updateCurrencySymbol();
+      }); {% endcomment %}
       function updateCartUI(cart) {
         var cartContent = document.getElementById('cart-content');
         cartContent.innerHTML = ''; // Clear existing content
