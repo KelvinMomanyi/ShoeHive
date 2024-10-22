@@ -510,17 +510,17 @@ responsive for larger than 575px screen
                               </a>
                             </div>
                             <div style="flex:1; display:flex; align-items:center; justify-content:center; flex-direction:column;" >
-                                <td>
+                                {% comment %} <td>
                                   <a href="${item.url}">${item.product_title}</a>
                                     ${currency_code}${item.price.toFixed(2)}
                                   <a href="#" class="remove-item" data-line="${index + 1}" data-key="${item.key}" style="color: red;">Remove</a>
                                 </td>
                                 <td id="price_${item.key}">
                                   ${currency_code}${initialTotalPrice.toFixed(2)}
-                                </td>
+                                </td> {% endcomment %}
                                 <div>
-                                    <p>Unit Price: ${currencySymbol}${itemPrice.toFixed(2)}</p>
-                                    <p id="line_price_${item.key}">Total: ${currencySymbol}${initialTotalPrice.toFixed(2)}</p>
+                                    <p>Unit Price:  ${currency_code}${currencySymbol}${itemPrice.toFixed(2)}</p>
+                                    <p id="line_price_${item.key}">Total:  ${currency_code}${currencySymbol}${initialTotalPrice.toFixed(2)}</p>
                                 </div> 
                                 <td>
                                   <input type="number" name="updates[]" id="updates_${item.key}" value="${item.quantity}" min="0">
