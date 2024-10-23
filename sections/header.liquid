@@ -112,7 +112,8 @@
       <!--
           ADD CART SIDEBAR
       -->
-      <div id="myModal2" class="cartBar" >
+      {% render 'cart-detail' %}
+      {% comment %} <div id="myModal2" class="cartBar" >
         <div class="cartBar-content" style="overflow-y:auto;" >
           <button class="nav-close-btn" onclick="closeCartbar()">
             <ion-icon name="close-outline" aria-hidden="true"></ion-icon>
@@ -183,7 +184,7 @@
             {% endif %}  {% endcomment %}
           </div>
         </div>
-      </div>
+      </div> {% endcomment %}
        
     <!-- SEARCH BAR TOP -->
     <div id="search-bar" class="search-bar">
