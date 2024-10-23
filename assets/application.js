@@ -7,9 +7,9 @@ function openModal() {
   document.getElementById('myModal').style.display = 'flex';
 }
 
-function openCart() {
-  document.getElementById('myModal2').style.display = 'flex';
-}
+// function openCart() {
+//   document.getElementById('myModal2').style.display = 'flex';
+// }
 
 function toggleForm(formToShow){
 const login=document.getElementById('login')
