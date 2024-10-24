@@ -8,7 +8,20 @@
 {% comment %} 
   <meta http-equiv="X-UA-Compatible" content="IE=edge"> {% endcomment %}
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Glowing- Reveal The Beauty of Skin</title>
+
+      <!-- Open Graph Tags for Facebook and other platforms -->
+  <meta property="og:title" content="{{ shop.name }}">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="{{ shop.url }}">
+  <meta property="og:image" content="{{ shop.logo | image_url }}">
+  <meta property="og:description" content="{{ shop.meta_description }}">
+
+  <!-- Twitter Card Tags -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="{{ shop.name }}">
+  <meta name="twitter:description" content="{{ shop.meta_description }}">
+  <meta name="twitter:image" content="{{ shop.logo | image_url }}">
+  <title>Shoehive</title>
 
   <link rel="shortcut icon" href="./favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="./assets/css/style.css">
@@ -33,6 +46,9 @@
   {% comment %} {{ 'application.js' | asset_url | script_tag }} {% endcomment %}
   <script src="{{ 'application.js' | asset_url }}" defer></script>
   <script src="https://cdn.shopify.com/s/assets/external/currencies.js"></script>
+   
+
+
 
 </head>
 <body id="top">
