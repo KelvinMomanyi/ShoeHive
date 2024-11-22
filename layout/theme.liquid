@@ -1,0 +1,71 @@
+<!doctype html>
+<head>
+  <title>{{ page_title }}</title>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="description" content="{{ page_description | escape }}">
+  <link rel="canonical" href="{{ canonical_url }}">
+{% comment %} 
+  <meta http-equiv="X-UA-Compatible" content="IE=edge"> {% endcomment %}
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+      <!-- Open Graph Tags for Facebook and other platforms -->
+  <meta property="og:title" content="{{ shop.name }}">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="{{ shop.url }}">
+  <meta property="og:image" content="{{ shop.logo | image_url }}">
+  <meta property="og:description" content="{{ shop.meta_description }}">
+
+  <!-- Twitter Card Tags -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="{{ shop.name }}">
+  <meta name="twitter:description" content="{{ shop.meta_description }}">
+  <meta name="twitter:image" content="{{ shop.logo | image_url }}">
+  <title>Shoehive</title>
+
+  <link rel="shortcut icon" href="./favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="./assets/css/style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  {% comment %} <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@400;500;600;700;800&display=swap" rel="stylesheet"> {% endcomment %}
+  {% comment %} <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@400;500;600;700;800&display=swap" rel="stylesheet"> {% endcomment %}
+  {% comment %} <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@400;500;600;700;800&display=swap" rel="stylesheet"> {% endcomment %}
+  {% comment %} <link href="https://fonts.googleapis.com/css2?family=Urbanist:wght@400;500;600;700;800&display=swap" rel="stylesheet"> {% endcomment %}
+  <!--
+      -preload images
+  -->
+  {% comment %} <link rel="preload" as="image" href="{{'MainLogo_png.svg' | asset_url}}">
+  <link rel="preload" as="image" href="{{'shoe8.jpg' | asset_url }}">
+  <link rel="preload" as="image" href="{{'shoes.jpg' | asset_url }}">
+  <link rel="preload" as="image" href="{{'shoe16.jpg' | asset_url}}"> {% endcomment %}
+  {{ content_for_header }} <!-- Header hook for plugins -->
+  {{ 'application.css' | asset_url | stylesheet_tag }} 
+  {% comment %} {{ 'application.js' | asset_url | script_tag }} {% endcomment %}
+  <script src="{{ 'application.js' | asset_url }}" defer></script>
+  <script src="https://cdn.shopify.com/s/assets/external/currencies.js"></script>
+   
+
+
+
+</head>
+<body id="top">
+  {% sections 'header-group' %}
+  <main role="main">
+    {{ content_for_layout }}
+    {% comment %} Include CSS once, if needed {% endcomment %}
+    {{ 'application.css' | asset_url | stylesheet_tag }}
+  </main>
+  {% sections 'cookie-group' %}
+  {% sections 'backToTop-group' %}
+  {% sections 'footer-group' %}
+  {{ 'sections.header.name' | t }}
+  {{ 'sections.aside.name' | t }}
+  <script src="{{ 'application.js' | asset_url }}" defer></script> 
+  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+  
+</body>
+</html>

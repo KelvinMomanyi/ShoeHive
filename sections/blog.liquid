@@ -1,0 +1,105 @@
+
+                 <!--
+                   #BLOG
+                -->
+                {% comment %} data-section {% endcomment %}
+                <section class="section-blog" id="blog" aria-label="blog" >
+                    <div class="container">
+                       <h2 class="h2-large section-title">{{section.settings.heading_text}}</h2>
+                       <ul class="flex-list">
+                        {% assign selected_blog_handle = section.settings.blog_type %}
+
+                        {% if selected_blog_handle %}
+                          <!-- Fetch the selected blog and its articles -->
+                          {% for article in blogs[selected_blog_handle].articles limit: 3 %}
+                            <li class="flex-item">
+                              <div class="blog-card">
+                                <figure class="card-banner img-holder has-before hover:shine" style="--width:700; --height:450;">
+                                  <img src="{{ article.image | img_url : 'large' }}" alt="{{ article.title }}" class="img-cover" width="700" height="450" loading="lazy">
+                                </figure>
+                        
+                                <h3 class="h3">
+                                  <a href="{{ article.url }}" class="card-title">{{ article.title }}</a>
+                                </h3>
+                                
+                                <a href="{{ article.url }}" class="btn-link">
+                                  <span class="span">Read More</span>
+                                  <ion-icon name="arrow-forward-outline" aria-hidden="true"></ion-icon>
+                                </a>
+                              </div>
+                            </li>
+                          {% endfor %}
+                        {% else %}
+                         <li class="flex-item">
+                          <div class="blog-card">
+                              <figure class="card-banner img-holder has-before hover:shine" style="--width:700; --height:450;">
+                                <img src="{{ 'shoBlog1.jpg' | asset_url }}" alt="From Our Blog" class="img-cover" width="700" height="450" loading="lazy">
+                              </figure>
+
+                              <h3 class="h3">
+                                  <a href="#" class="card-title">Our New Store</a>
+                              </h3>
+                              <a href="#" class="btn-link">
+                                 <span class="span">Read More</span>
+                                 <ion-icon name="arrow-forward-outline" aria-hidden="true"></ion-icon>
+                              </a>
+                          </div>
+                         </li>
+                         <li class="flex-item">
+                          <div class="blog-card">
+                              <figure class="card-banner img-holder has-before hover:shine" style="--width:700; --height:450;">
+                                <img src="{{ 'shoBlog2.jpg' | asset_url }}" alt="From Our Blog" class="img-cover" width="700" height="450" loading="lazy">
+                              </figure>
+
+                              <h3 class="h3">
+                                  <a href="#" class="card-title">From Our Blog</a>
+                              </h3>
+                              <a href="#" class="btn-link">
+                                 <span class="span">Read More</span>
+                                 <ion-icon name="arrow-forward-outline" aria-hidden="true"></ion-icon>
+                              </a>
+                          </div>
+                         </li>
+                         <li class="flex-item">
+                           <div class="blog-card">
+                              <figure class="card-banner img-holder has-before hover:shine" style="--width:700; --height:450;">
+                                <img src="{{ 'shoBlog3.jpg' | asset_url }}" alt="Our Story" class="img-cover" width="700" height="450" loading="lazy">
+                              </figure>
+
+                              <h3 class="h3">
+                                  <a href="#" class="card-title">Our Story</a>
+                              </h3>
+                              <a href="#" class="btn-link">
+                                 <span class="span">Read More</span>
+                                 <ion-icon name="arrow-forward-outline" aria-hidden="true"></ion-icon>
+                              </a>
+                           </div>
+                         </li>
+                        {% endif %}
+                       </ul>
+                    </div>
+                  </section>
+{% schema %}
+{
+  "name": "blog",
+  "settings": [
+     {
+      "type":"text",
+      "id":"heading_text",
+      "label":"Blog Heading",
+      "default":"More to Discover"
+     },
+     {
+      "type": "blog",
+      "id": "blog_type",
+      "label": "Select Blog Category",
+    }
+  ],
+  "blocks": [],
+  "presets": [
+    {
+      "name": "blog"
+    }
+  ]
+}
+{% endschema %}

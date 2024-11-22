@@ -1,0 +1,501 @@
+<section class="section shop" id="shop" aria-label="shop">
+  <div class="container">
+  {% if section.blocks.size == 0 %}
+    <div style='display:flex; flex-direction:column; gap:28px;'>
+      <div>
+          <div class="title-wrapper">
+              <h2 class="h2 section-title">Discover What's {{ collections['new-arrivals-1'].title }}</h2>
+              <a href="{{ collections['adidas'].url }}" class="btn-link">
+                  <span class="span">Shop All Products</span>
+                  <ion-icon class="arrow-forward" aria-hidden="true"></ion-icon>
+              </a>
+          </div>
+
+          <ul class="has-scrollbar">
+              {% assign nike_collection = collections['new-arrivals-1'] %}
+              {% if nike_collection != blank %}
+                  {% for product in nike_collection.products %}
+                      <li class="scrollbar-item">
+                          <div class="shop-card">
+                              <div class="card-banner img-holder" >
+                                  <img src="{{ product.featured_image.src | img_url: 'large' }}" alt="{{ product.featured_image.alt | escape }}" class="img-cover" width="540" height="720" loading="lazy">
+                                  <span class="badge" aria-label="20% off">-20%</span>
+                                  <div class="card-actions">
+                                    <form   action="/cart/add" method="post" enctype="multipart/form-data" onsubmit="submitAddToCartForm(this); return false;">
+                                      <input type="hidden" name="id" value="{{ product.selected_or_first_available_variant.id }}">
+                                      <button type="submit" class="action-btn" aria-label="add to cart">
+                                        <ion-icon name="bag-handle-outline" aria-hidden="true"></ion-icon>
+                                      </button>
+                                    </form>
+                                    
+                                  
+
+
+
+          
+                                      <button class="action-btn" aria-label="add to wishlist">
+                                          <ion-icon name="star-outline" aria-hidden="true"></ion-icon>
+                                      </button>
+          
+                                      <button class="action-btn" aria-label="compare">
+                                          <ion-icon name="repeat-outline" aria-hidden="true"></ion-icon>
+                                      </button>
+                                  </div>
+                              </div>
+                              <div class="card-content">
+                                  <h3>
+                                      <a href="{{ product.url }}" class="card-title">{{ product.title }}</a>
+                                  </h3>
+                                  <div class="price">
+                                      <del class="del">{{ product.compare_at_price | money }}</del>
+                                      <span class="span">{{ product.price | money }}</span>
+                                      {% unless product.available %}<br><strong>Sold Out</strong>{% endunless %}
+                                  </div>
+                                
+                                  <div class="card-rating">
+                                      <div class="rating-wrapper" aria-label="5 star rating">
+                                          <ion-icon name="star" aria-hidden="true"></ion-icon>
+                                          <ion-icon name="star" aria-hidden="true"></ion-icon>
+                                          <ion-icon name="star" aria-hidden="true"></ion-icon>
+                                          <ion-icon name="star" aria-hidden="true"></ion-icon>
+                                          <ion-icon name="star" aria-hidden="true"></ion-icon>
+                                      </div>
+                                      <p class="rating-text">5170 reviews</p>
+                                  </div>
+                              </div>
+                          </div>
+                      </li>
+                  {% endfor %}
+              {% else %}
+                  <p>No matches found</p>
+              {% endif %}
+          </ul>
+      </div> 
+      <div> 
+          <div class="title-wrapper">
+            <h2 class="h2 section-title">Top {{ collections['trending'].title }}</h2>
+            <a href="{{ collections['adidas'].url }}" class="btn-link">
+              <span class="span">Shop All Products</span>
+              <ion-icon class="arrow-forward" aria-hidden="true"></ion-icon>
+            </a>
+          </div>
+        
+          <ul class="has-scrollbar">
+            {% assign nike_collection = collections['trending'] %}
+            {% if nike_collection != blank %}
+              {% for product in nike_collection.products %}
+                <li class="scrollbar-item">
+                  <div class="shop-card">
+                    <div class="card-banner img-holder" >
+                      <img src="{{ product.featured_image.src | img_url: 'large' }}" alt="{{ product.featured_image.alt | escape }}" class="img-cover" width="540" height="720" loading="lazy">
+                      <span class="badge" aria-label="20% off">-20%</span>
+                      <div class="card-actions">
+                        <form action="/cart/add" method="post" enctype="multipart/form-data" onsubmit="submitAddToCartForm(this); return false;">
+                          <input type="hidden" name="id" value="{{ product.selected_or_first_available_variant.id }}">
+                          <button type="submit" class="action-btn" aria-label="add to cart">
+                            <ion-icon name="bag-handle-outline" aria-hidden="true"></ion-icon>
+                          </button>
+                        </form>
+                        <button class="action-btn" aria-label="add to wishlist">
+                          <ion-icon name="star-outline" aria-hidden="true"></ion-icon>
+                        </button>
+                        <button class="action-btn" aria-label="compare">
+                          <ion-icon name="repeat-outline" aria-hidden="true"></ion-icon>
+                        </button>
+                      </div>
+                    </div>
+                    <div class="card-content">
+                      <h3>
+                        <a href="{{ product.url }}" class="card-title">{{ product.title }}</a>
+                      </h3>
+                      <div class="price">
+                        <del class="del">{{ product.compare_at_price | money }}</del>
+                        <span class="span">{{ product.price | money }}</span>
+                        {% unless product.available %}<br><strong>Sold Out</strong>{% endunless %}
+                      </div>
+                      <div class="card-rating">
+                        <div class="rating-wrapper" aria-label="5 star rating">
+                          <ion-icon name="star" aria-hidden="true"></ion-icon>
+                          <ion-icon name="star" aria-hidden="true"></ion-icon>
+                          <ion-icon name="star" aria-hidden="true"></ion-icon>
+                          <ion-icon name="star" aria-hidden="true"></ion-icon>
+                          <ion-icon name="star" aria-hidden="true"></ion-icon>
+                        </div>
+                        <p class="rating-text">5170 reviews</p>
+                      </div>
+                    </div>
+                  </div>
+                </li>
+              {% endfor %}
+            {% else %}
+              <p>No matches found</p>
+            {% endif %}
+          </ul>
+       </div> 
+      </div>
+    </div>
+  {% else %}
+    {% for block in section.blocks %}
+      <div class="title-wrapper">
+        <h2 class="h2 section-title">{{ block.settings.title }}</h2>
+        <a href="{{ block.settings.button_url }}" class="btn-link">
+          <span class="span">{{ block.settings.button_label }}</span>
+          <ion-icon class="arrow-forward" aria-hidden="true"></ion-icon>
+        </a>
+      </div>
+  
+      <ul class="has-scrollbar"  style='margin-bottom:36px;'>
+        {% assign selected_collection = block.settings.collection %}
+        {% if selected_collection != blank %}
+          {% for product in selected_collection.products %}
+            <li class="scrollbar-item">
+              <div class="shop-card">
+                <div class="card-banner img-holder" >
+                  <img src="{{ product.featured_image.src | img_url: 'large' }}" alt="{{ product.featured_image.alt | escape }}" class="img-cover" width="540" height="720" loading="lazy">
+                  <div class="card-actions">
+                    <form action="/cart/add" method="post" enctype="multipart/form-data" onsubmit="submitAddToCartForm(this); return false;">
+                      <input type="hidden" name="id" value="{{ product.selected_or_first_available_variant.id }}">
+                      <button type="submit" class="action-btn" aria-label="add to cart">
+                        <ion-icon name="bag-handle-outline" aria-hidden="true"></ion-icon>
+                      </button>
+                    </form>
+                    <button class="action-btn" aria-label="add to wishlist">
+                      <ion-icon name="star-outline" aria-hidden="true"></ion-icon>
+                    </button>
+                    <button class="action-btn" aria-label="compare">
+                      <ion-icon name="repeat-outline" aria-hidden="true"></ion-icon>
+                    </button>
+                  </div>
+                </div>
+                <div class="card-content">
+                  <h3><a href="{{ product.url }}" class="card-title">{{ product.title }}</a></h3>
+                  <div class="price">
+                    <del class="del">{{ product.compare_at_price | money }}</del>
+                    <span class="span">{{ product.price | money }}</span>
+                  </div>
+                  <div class="card-rating">
+                    <div class="rating-wrapper" aria-label="5 star rating">
+                      <ion-icon name="star" aria-hidden="true"></ion-icon>
+                      <ion-icon name="star" aria-hidden="true"></ion-icon>
+                      <ion-icon name="star" aria-hidden="true"></ion-icon>
+                      <ion-icon name="star" aria-hidden="true"></ion-icon>
+                      <ion-icon name="star" aria-hidden="true"></ion-icon>
+                    </div>
+                    <p class="rating-text">5170 reviews</p>
+                  </div>
+                </div>
+              </div>
+            </li>
+          {% endfor %}
+        {% else %}
+          <p>No products found for this collection.</p>
+        {% endif %}
+      </ul>
+  
+    {% endfor %}
+  {% endif %}
+  </div>
+</section>
+
+
+<style>
+/*-----------------------------------*\
+  #SHOP
+\*-----------------------------------*/
+.shop .title-wrapper{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    gap: 18px;
+    margin-block-end:50px;
+  }
+  
+  .shop .btn-link:is(:hover, :focus){color: var(--hoockers-green);}
+  
+  .shop-card  .card-banner{
+    position: relative;
+    overflow: hidden;
+  }
+  .shop-card .badge{
+    position: absolute;
+    top:20px;
+    left:20px;
+  }
+  
+  
+  
+  .shop-card .card-actions{
+      position: absolute;
+      top: 50%;
+      right:0;
+      transform:translate(0, -50%);
+      display: grid;
+      gap:10px;
+      opacity: 0;
+      transition:var(--transition-2)
+  }
+  
+  .shop-card .action-btn{
+    background-color: var(--white);
+    font-size: 24px;
+    padding:12px;
+    border-radius: 50%;
+    transition: var(--transition-1);
+  }
+  
+  
+  .shop-card .action-btn:is(:hover, :focus){
+    background-color: var(--black);
+    color: var(--white);
+  }
+  
+  
+  .shop-card:is(:hover, :focus-within) .card-actions{
+    opacity: 1;
+    transform: translate(-20px, -50%);
+  }
+  
+  .shop-card .card-content{
+    padding-block: 20px;
+    text-align: center;
+  }
+  
+  .shop-card :is(.price, .card-rating, .rating-wrapper){
+    display: flex;
+    justify-content:center;
+    align-items: center;
+    gap:5px;
+  }
+  .shop-card .del{
+    font-size: var(--fs-7);
+    font-weight: var(--fw-400);
+  }
+  
+  
+  .shop-card .price .span{
+    color: var(--black);
+    font-weight: var(--fw-500);
+  }
+  
+  .shop-card .card-title{
+    color:var(--black);
+    font-size: var(--fs-9);
+    font-weight: var(--fw-700);
+    margin-block-end:8px;
+    transition: var(--transition-1);
+  }
+  .shop-card .card-title:is(:hover, :focus){
+    text-decoration: underline;
+    color: var(--hoockers-green);
+  }
+  
+  .shop-card .rating-wrapper{
+    gap:2px;
+    color: var(--hoockers-green);
+    font-size: 15px;
+  }
+  
+  .shop-card .rating-text{
+    font-size: var(--fs-8); 
+    font-weight: var(--fw-400);
+    line-height: 1;
+  }
+/*-----------------------------------*\
+  #MEDIA QUERIES
+\*-----------------------------------*/
+
+/*
+responsive for larger than 575px screen
+*/
+@media screen and (min-width: 575px) {
+    /*
+    REUSED STYLE
+    */
+    
+    .container{
+      max-width: 540px;
+      width: 100%;
+      margin-inline: auto;
+    }
+    
+    :is(.header, .hero) .container{max-width: unset;}
+    
+    .has-scrollbar {gap: 30px;}
+    
+    .scrollbar-item{ min-width: calc(50% - 15px);}
+    
+    
+    /*
+    HEADER
+    */
+    
+    .alert{
+      padding-block: 8px;
+    }
+    
+    .header-top .container {padding-inline:30px;}
+    
+    /*
+    HERO
+    */
+    
+    .hero-card {padding-inline: 70px;}
+    
+    .hero-text {max-width: 30ch;}
+    
+    
+    /*
+    BANNER
+    */
+    .banner-card .card-text { max-width: 30ch;}
+    
+    /*
+    OFFER
+    */
+    
+    .offer .countdown { --fs-2: 4.8rem;}
+    
+    .offer .countdown .time:not(:last-child)::after{
+      margin-inline: 20px;
+    }
+    
+    }
+    
+    
+    /*
+    responsive for larger than 768px screen
+    */
+    @media screen and (min-width: 768px) {
+      /*
+     CUSTOM PROPERTY
+      */
+    
+      :root{
+        /*
+        typography
+        */
+        --fs-1: 5.6rem;
+      }
+    
+      /*
+      REUSED STYLE
+      */
+      
+      .container{max-width: 730px;}
+    
+      .flex-item{max-width: calc(50% - 15px);}
+    
+    }
+    
+    
+    /*
+    responsive for larger than 992px screen
+    */
+    @media screen and (min-width: 992px) {
+       /*
+     CUSTOM PROPERTY
+      */
+    
+      :root{
+        /*
+        spacing
+        */
+        --section-padding:50px;
+      }
+    
+        /*
+     REUSED STYLE
+      */
+    
+      .container{max-width: 960px;}
+    
+      .scrollbar-item {min-width: calc(33.33% - 20px);}
+    
+      .flex-item {max-width: calc(33.33% - 20px);}
+  
+    }
+    /*
+    responsive for larger than 1200px screen
+    */
+    @media screen and (min-width: 1200px) {
+    
+       /*
+    REUSED STYLE
+     */
+    
+     .container{max-width: 1300px;}
+    
+     .scrollbar-item {min-width: calc(20% - 24px);}
+    
+     .flex-item {max-width: calc(33.33% - 20px);}
+    
+     
+}  
+</style>
+
+{% schema %}
+{
+  "name": "Collection-Banner",
+  "settings": [],
+  "blocks": [
+    {
+      "type": "collection_section",
+      "name": "Collection Section",
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Section Title",
+          "default": "Discover What's New"
+        },
+        {
+          "type": "collection",
+          "id": "collection",
+          "label": "Select Collection"
+        },
+        {
+          "type": "url",
+          "id": "button_url",
+          "label": "Button URL",
+          "default": "/collections/all"
+        },
+        {
+          "type": "text",
+          "id": "button_label",
+          "label": "Button Label",
+          "default": "Shop All Products"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Collection-Banner",
+      "category": "Custom",
+      "blocks": [
+        {
+          "type": "collection_section",
+          "settings": {
+            "title": "Discover What's New",
+            "collection": "new-arrivals-1",
+            "button_url": "/collections/new-arrivals",
+            "button_label": "Shop Now"
+          }
+        },
+        {
+          "type": "collection_section",
+          "settings": {
+            "title": "Top Trending",
+            "collection":"trending",
+            "button_url": "/collections/trending",
+            "button_label": "Shop Now"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
+
+

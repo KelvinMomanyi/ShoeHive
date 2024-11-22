@@ -1,0 +1,159 @@
+
+
+<div class="content-wrapper container">
+  <div class="article-container">
+  <article class="article-content">
+      <div>
+          <h1 class="article-title">{{article.title }}</h1>
+          <p class="article-subtitle">By {{article.author }} - {{article.created_at }}</p>
+      </div>
+
+      <figure>
+          <img src="{{article.image | img_url : 'large' }}" alt="Web Development" class="article-image"> 
+          <figcaption>The rapid evolution of web technologies.</figcaption>
+      </figure>
+
+      <section class="article-body">
+          {{ article.content }}
+      </section>
+
+      <footer class="article-footer">
+          <p>Written by Jane Doe. If you enjoyed this article, check out more on our <a href="#">blog</a>.</p>
+      </footer>
+  </article>
+</div>
+
+   <aside class="sidebar">
+  <h2>Related Articles</h2>
+  
+  <ul class="article-list">
+   
+      {% for article in blog.articles %}
+        <li><a href="{{ article.url }}">{{ article.title }}</a></li>
+      {% endfor %}
+
+  </ul>
+  
+   </aside>
+</div>
+
+
+<style>
+
+/* Content Wrapper */
+ .content-wrapper {
+  display: flex;
+  gap: 30px;
+  margin: 20px 0;
+}
+
+/* Main Article Section */
+.article-container {
+  flex: 3;
+  background-color: #fff;
+  padding: 20px;
+} 
+
+ .article-title {
+  font-size: 2.8rem;
+  margin-bottom: 10px;
+  color: #333;
+}
+
+.article-subtitle {
+  font-size: 1.1rem;
+  color: #555;
+  margin-bottom: 30px;
+}
+
+.article-image {
+  width: 100%;
+  height: auto;
+  margin-bottom: 15px;
+  border-radius: 5px;
+}
+
+figcaption {
+  font-size: 0.9rem;
+  color: #666;
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.article-body p {
+  margin-bottom: 20px;
+  font-size: 1.15rem;
+  color: #444;
+}
+
+.article-body h2 {
+  font-size: 1.8rem;
+  margin: 20px 0;
+  color: #111;
+}
+
+blockquote {
+  background: #f9f9f9;
+  border-left: 10px solid #ccc;
+  margin: 20px 0;
+  padding: 15px;
+  font-style: italic;
+  font-size: 1.1rem;
+  color: #555;
+}
+
+/* Article Footer */
+.article-footer {
+  margin-top: 30px;
+  padding-top: 20px;
+  border-top: 1px solid #e0e0e0;
+  font-size: 1rem;
+  color: #777;
+}
+
+/* Sidebar */
+.sidebar {
+  {% comment %} flex: 1; {% endcomment %}
+  background-color: #fff;
+  padding: 20px;
+  z-index:-1;
+}
+
+.sidebar h2 {
+  font-size: 1.5rem;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.article-list {
+  list-style: none;
+}
+
+.article-list li {
+  margin-bottom: 15px;
+}
+
+.article-list a {
+  text-decoration: none;
+  font-size: 1.5rem;
+  color: #007bff;
+}
+
+.article-list a:hover {
+  text-decoration: underline;
+}
+
+/* Site Footer */
+.site-footer {
+  text-align: center;
+  padding: 20px 0;
+  background-color: #333;
+  color: #fff;
+  margin-top: 40px;
+}
+
+.site-footer p {
+  margin: 0;
+} 
+
+</style>  

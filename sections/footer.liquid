@@ -1,0 +1,129 @@
+   <!--
+            FOOTER
+        -->
+        <footer class="footer">
+            <div class="container">
+                <div class="footer-top">
+                    <ul class="footer-list">
+                        <li>
+                            <p class="footer-list-title">Company</p>
+                        </li>
+                        <li>
+                            <p class="footer-list-text">
+                                Find a location nearest you. See <a href="#" class="Link">Our Stores</a>
+                            </p>
+                        </li>
+                        <li>
+                            <p class="footer-list-text bold">+1 (123)456 7890</p>
+                        </li>
+                        <li>
+                            <p class="footer-list-text">hello@domain.com</p>
+                        </li>
+                    </ul>
+                    <ul class="footer-list">
+                        <li>
+                            <p class="footer-list-title">Useful links</p>
+                        </li>
+                        <li><a href="#" class="footer-link">New Products</a></li>
+                        <li><a href="#" class="footer-link">Best Sellers</a></li>
+                        <li><a href="#" class="footer-link">Bundle & Save</a></li>
+                        <li><a href="#" class="footer-link">Online Gift Card</a></li>
+
+                    </ul>
+                    <ul class="footer-list">
+                        <li>
+                            <p class="footer-list-title">Infomation</p>
+                        </li>
+                        <li><a href="#" class="footer-link">Start a Return</a></li>
+                        <li><a href="#" class="footer-link">Contact Us</a></li>
+                        <li><a href="#" class="footer-link">Shipping FAQ</a></li>
+                        <li><a href="#" class="footer-link">Terms & Conditions</a></li>
+                        <li><a href="#" class="footer-link">Privacy Policy</a></li>
+                    </ul>
+                    <div class="footer-list">
+                        <p class="newsletter-title">Subscribe to Our Newsletter</p>
+                        <p class="newsletter-text">
+                            Enter your email below to be the first to know about new 
+                            collections and product launches.
+                        </p>
+                        <form action="" class="newsletter-form">
+                            <input type="text" class="email-field" name="email_address" placeholder="Enter your email address" required>
+                            <button type="submit" class="btn btn-primary">Subscribe</button>
+                        </form>
+                    </div>
+                </div>
+                <div class="footer-bottom">
+                    <div class="wrapper">
+                        <p class="copyright">
+                            &copy; 2024, Shoehive Powered By Shopify
+                        </p>
+                        <ul class="social-list">
+                            <li>
+                                <a href="{{ shop.social_links.twitter | escape }}" class="social-link" target="_blank">
+                                    <ion-icon name="logo-twitter"></ion-icon>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="{{ shop.social_links.facebook | escape }}" class="social-link" target="_blank">
+                                    <ion-icon name="logo-facebook"></ion-icon>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="{{ shop.social_links.instagram | escape }}" class="social-link" target="_blank">
+                                    <ion-icon name="logo-instagram"></ion-icon>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="{{ shop.social_links.youtube | escape }}" class="social-link" target="_blank">
+                                    <ion-icon name="logo-youtube"></ion-icon>
+                                </a>
+                            </li>
+                        </ul>
+                        
+                        
+                    </div>
+                    <img src="{{ 'pay.png' | asset_url }}" width="313" height="28" loading="lazy" alt="available all payment method" class="w-100">
+                </div>
+            </div>
+        </footer>
+
+
+        
+
+{% schema %}
+{
+  "name": "footer",
+  "settings": [
+    {
+        "type": "url",
+        "id": "social_twitter",
+        "label": "Twitter URL",
+
+      },
+      {
+        "type": "url",
+        "id": "social_facebook",
+        "label": "Facebook URL",
+
+      },
+      {
+        "type": "url",
+        "id": "social_instagram",
+        "label": "Instagram URL",
+
+      },
+      {
+        "type": "url",
+        "id": "social_youtube",
+        "label": "YouTube URL",
+
+      }
+  ],
+  "blocks": [],
+  "presets": [
+    {
+      "name": "footer"
+    }
+  ]
+}
+{% endschema %}

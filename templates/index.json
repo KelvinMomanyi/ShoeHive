@@ -1,0 +1,132 @@
+/*
+* ------------------------------------------------------------
+* IMPORTANT: The contents of this file are auto-generated.
+*
+* This file may be updated by the Shopify admin theme editor
+* or related systems. Please exercise caution as any changes
+* made to this file may be overwritten.
+* ------------------------------------------------------------
+*/
+{
+  "sections": {
+    "hero": {
+      "type": "hero",
+      "settings": {
+        "title1": "Find the best",
+        "subtitle1": "Classy Shoe",
+        "title2": "Find the best",
+        "subtitle2": "Classy Shoe",
+        "title3": "Find the best",
+        "subtitle3": "Classy Shoe",
+        "description1": "Designed with clean, non-toxic materials, our shoes ensure style and comfort for everyone.",
+        "description2": "Designed with clean, non-toxic materials, our shoes ensure style and comfort for everyone.",
+        "description3": "Designed with clean, non-toxic materials, our shoes ensure style and comfort for everyone.",
+        "price1": "$17.99",
+        "price2": "$17.99",
+        "price3": "$17.99",
+        "link": "",
+        "btn_label": "Shop Now"
+      }
+    },
+    "collection": {
+      "type": "Collection-Banner",
+      "settings": {
+        "title1": "Nike Collection",
+        "subtitle1": "Starting at $19.99",
+        "link1": "",
+        "btn_label1": "Shop Now",
+        "title2": "What's New?",
+        "subtitle2": "Get the newest kicks",
+        "link2": "",
+        "btn_label2": "Discover Now",
+        "title3": "Buy 1 Get 1",
+        "subtitle3": "Starting at $17.99",
+        "link3": "",
+        "btn_label3": "Shop Now"
+      }
+    },
+    "productList": {
+      "type": "productList",
+      "blocks": {
+        "collection_section_8w7bjt": {
+          "type": "collection_section",
+          "settings": {
+            "title": "Discover What's New",
+            "collection": "new-arrivals-1",
+            "button_url": "shopify://collections/all",
+            "button_label": "Shop All Products"
+          }
+        },
+        "collection_section_d4mEAT": {
+          "type": "collection_section",
+          "settings": {
+            "title": "Top Selling",
+            "collection": "trending",
+            "button_url": "shopify://collections/all",
+            "button_label": "Shop All Products"
+          }
+        }
+      },
+      "block_order": [
+        "collection_section_8w7bjt",
+        "collection_section_d4mEAT"
+      ],
+      "settings": {
+      }
+    },
+    "banner": {
+      "type": "banner",
+      "settings": {
+        "subtitle1": "NEW COLLECTION",
+        "title1": "Discover New Sneaker Collection",
+        "btn_label1": "Explore More",
+        "button_url1": "shopify://collections/all",
+        "title2": "25% off Everything",
+        "description": "Sneakers in a range of styles and colors for every taste",
+        "btn_label2": "Shop Now",
+        "button_url2": "shopify://pages/shop"
+      }
+    },
+    "feature": {
+      "type": "feature",
+      "settings": {
+        "maintitle": "Why Shop with Shoehive",
+        "title1": "Seamless Shopping",
+        "description1": "Shopping for your favorite sneakers is easy—browse our extensive collection, choose your perfect pair, and enjoy a seamless shopping experience.",
+        "title2": "Secure Payments",
+        "description2": "Checkout is quick and secure with various payment options, ensuring a smooth purchase so you can focus on getting the best sneakers.",
+        "title3": "Fast and Reliable Delivery",
+        "description3": "Our efficient delivery process ensures your sneakers arrive quickly and securely, whether it's the latest Nike release or classic Adidas kicks."
+      }
+    },
+    "offer": {
+      "type": "offer",
+      "settings": {
+        "select_product": "",
+        "product_desc": "Made using clean, non-toxic ingredients, our products are designed for everyone.",
+        "offer_price": "$39",
+        "countdown_duration": 72
+      }
+    },
+    "blog": {
+      "type": "blog",
+      "settings": {
+      }
+    },
+    "newsletter": {
+      "type": "newsletter",
+      "settings": {
+      }
+    }
+  },
+  "order": [
+    "hero",
+    "collection",
+    "productList",
+    "banner",
+    "feature",
+    "offer",
+    "blog",
+    "newsletter"
+  ]
+}

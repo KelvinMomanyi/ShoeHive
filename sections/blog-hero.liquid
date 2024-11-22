@@ -1,0 +1,48 @@
+<section class="section hero1" aria-label="home">
+    <div class="container">
+      <h1 class="h2 hero-title">
+        <strong class="strong">{{ section.settings.heading_text }}
+      </h1>
+
+      <div class="wrapper1">
+
+        <form action="" class="newsletter-form">
+          <input type="email" name="email_address" placeholder="Your email address" class="email-field">
+
+          <button type="submit" class="btn btn-primary">Subscribe</button>
+        </form>
+
+        <p class="newsletter-text">
+            {{ section.settings.search_text }}
+        </p>
+
+      </div>
+
+    </div>
+</section>
+
+{% schema %}
+{
+  "name": "blog-hero",
+  "settings": [
+    {
+      "type":"text",
+      "id":"heading_text",
+      "label":"Blog Heading",
+      "default":"See our thoughts, stories and ideas."
+     },
+     {
+      "type":"text",
+      "id":"search_text",
+      "label":"Search Text",
+      "default":"Get the email newsletter and unlock access to members-only content and updates"
+    }
+  ],
+  "blocks": [],
+  "presets": [
+    {
+      "name": "blog-hero"
+    }
+  ]
+}
+{% endschema %}

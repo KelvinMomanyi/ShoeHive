@@ -1,0 +1,13 @@
+{
+    "name": "t:sections.aside.name",
+    "type": "aside",
+    "sections": {
+      "cookie": {
+        "type": "cookie",
+        "settings": {}
+      }
+    },
+    "order": [
+      "cookie"
+    ]
+  }

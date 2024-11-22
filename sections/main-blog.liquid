@@ -1,0 +1,481 @@
+
+
+
+
+
+
+  <!-- 
+    - #FEATURED POST
+  -->
+
+  <section class="section featured" aria-label="featured post">
+    <div class="container">
+
+      <p class="section-subtitle">
+       {{ section.settings.mainBlog_text }}
+      </p>
+
+      <ul class="has-scrollbar">
+      {% assign selected_blog_handle = section.settings.blog_type %}
+      {% if selected_blog_handle %}
+        {% for article in blogs[selected_blog_handle].articles  %}
+          <li class="scrollbar-item">
+            <div class="blog-card">
+ 
+               <figure class="card-banner img-holder" style="--width: 500; --height: 600;">
+                  <img src="{{ article.image | img_url: 'large' }}" width="500" height="600" loading="lazy"
+                 alt="New technology is not good or evil in and of itself" class="img-cover"/>
+               </figure>
+ 
+               <div class="card-content">
+ 
+               <ul class="card-meta-list">
+                 {% for article in article.tags %}
+                 <li>
+                   <a href="#" class="card-tag"> {{ article}}</a>
+                 </li>
+                  {% endfor %}
+               </ul>
+ 
+               <h3 class="h4">
+                 <a href="{{article.url }}" class="card-title hover:underline">
+                   {{ article.title }}
+                 </a>
+               </h3>
+ 
+               <p class="card-text">
+                 Vestibulum vehicula dui venenatis neque tempor, accumsan iaculis sapien ornare. Sed at ante porta,
+                 ullamcorper massa eu,
+                 ullamcorper sapien. Donec pretium tortor augue. Integer egestas ut tellus sed pretium. Nullam
+                 tristique augue ut mattis
+                 vulputate. Duis et lorem in odio ultricies porttitor.
+               </p>
+ 
+               </div>
+ 
+            </div>
+          </li>
+        {% endfor %}  
+      {% else %}  
+        {% for article in blogs['news'].articles %}
+         <li class="scrollbar-item">
+           <div class="blog-card">
+
+              <figure class="card-banner img-holder" style="--width: 500; --height: 600;">
+                 <img src="{{ article.image | img_url : 'large'}}" width="500" height="600" loading="lazy"
+                alt="New technology is not good or evil in and of itself" class="img-cover"/>
+              </figure>
+
+              <div class="card-content">
+
+              <ul class="card-meta-list">
+                {% for article in article.tags %}
+                <li>
+                  <a href="#" class="card-tag"> {{ article}}</a>
+                </li>
+                 {% endfor %}
+              </ul>
+
+              <h3 class="h4">
+                <a href="{{article.url }}" class="card-title hover:underline">
+                  {{ article.title }}
+                </a>
+              </h3>
+
+              <p class="card-text">
+                Vestibulum vehicula dui venenatis neque tempor, accumsan iaculis sapien ornare. Sed at ante porta,
+                ullamcorper massa eu,
+                ullamcorper sapien. Donec pretium tortor augue. Integer egestas ut tellus sed pretium. Nullam
+                tristique augue ut mattis
+                vulputate. Duis et lorem in odio ultricies porttitor.
+              </p>
+
+              </div>
+
+           </div>
+         </li>
+        {% endfor %}
+      {% endif %}  
+      </ul>
+
+    </div>
+  </section>
+  <!-- 
+    - #RECOMMENDED POST
+  -->
+
+  
+
+
+<style>  
+
+/*FEATURED POST*/
+.blog-card .card-banner {
+  position: relative;
+  border-radius: var(--radius-16);
+  margin-block-end: 15px;
+}
+
+.blog-card .card-title {
+  margin-block: 8px 12px;
+  /*text-decoration-thickness: 2px;*/
+}
+
+.blog-card .card-text {
+  font-size: var(--fs-9);
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+  overflow: hidden;
+  padding-inline-end: 20px;
+}
+
+.card-meta-list {
+  display: flex;
+  gap: 5px;
+}
+@media (min-width: 992px) {
+  
+    .hero1 .wrapper1 {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+      }
+  
+      .hero1 .newsletter-text {
+        display: block;
+        max-width: 400px;
+        color: var(--eerie-black_80);
+        line-height: 1.3;
+      }
+      .blog-card .card-title { padding-inline-end: 15px; }
+
+       .blog-card .card-text { font-size: unset; }
+  
+  }
+
+
+  
+  .blog-card .card-banner {
+    position: relative;
+    border-radius: var(--radius-16);
+    margin-block-end: 15px;
+  }
+  
+  .avatar-list {
+    display: flex;
+    flex-direction: row-reverse;
+  }
+  
+  .avatar-list.absolute {
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+  }
+  
+  .avatar-item:not(:first-child) { margin-inline-end: -15px; }
+  
+  .avatar {
+    width: 40px;
+    border-radius: var(--radius-circle);
+    background: none;
+    border: 5px solid var(--white_20);
+    transition: var(--transition-1);
+    will-change: transform;
+  }
+  
+  .avatar-list.absolute .avatar:is(:hover, :focus) {
+    transform: scale(0.9);
+    border-color: var(--white);
+  }
+  
+  .card-meta-list {
+    display: flex;
+    gap: 5px;
+  }
+  
+  .card-tag {
+    background-color: var(--cultured);
+    font-size: var(--fs-9);
+    font-weight: var(--fw-500);
+    padding: 2px 8px;
+    border-radius: var(--radius-pill);
+    transition: var(--transition-1);
+  }
+  
+  .card-tag:is(:hover, :focus) { background-color: var(--gainsboro); }
+  
+  .blog-card .card-title {
+    margin-block: 8px 12px;
+    text-decoration-thickness: 2px;
+  }
+  
+  .blog-card .card-text {
+    font-size: var(--fs-8);
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+    overflow: hidden;
+    padding-inline-end: 20px;
+  }
+  
+  .grid-list {
+    display: grid;
+    gap: 30px;
+  }
+  
+  
+  
+  /*-----------------------------------*\
+    #SEARCH BAR
+  \*-----------------------------------*/
+  
+  .search-bar {
+    background-color: var(--white);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 15px;
+    transform: translateY(calc(-100% - 2px));
+    z-index: 4;
+    transition: var(--transition-1);
+    visibility: hidden;
+  }
+  
+  .search-bar.active {
+    visibility: visible;
+    transform: translateY(0);
+  }
+  
+  .search-bar .input-field {
+    font-size: var(--fs-1);
+    font-weight: var(--fw-700);
+    line-height: 1.3;
+    padding-inline-end: 60px; 
+  }
+  
+  .search-bar .input-field::placeholder { color: var(--eerie-black); }
+  
+  .search-bar .input-field::-webkit-search-cancel-button { display: none; }
+  
+  .search-close-btn {
+    position: absolute;
+    top: 50%;
+    right: 20px;
+    transform: translateY(-50%);
+    font-size: 45px;
+  }
+  
+  .search-close-btn ion-icon { --ionicon-stroke-width: 20px; }
+  
+  .search-bar-text {
+    font-size: 1.4rem;
+    color: var(--eerie-black_80);
+    margin-block-start: 5px;
+  }
+  
+  .overlay {
+    position: fixed;
+    inset: 0;
+    background-color: var(--eerie-black_80);
+    transition: var(--transition-1);
+    opacity: 0;
+    pointer-events: none;
+    z-index: 3;
+  }
+  
+  .overlay.active {
+    opacity: 1;
+    pointer-events: all;
+  }
+  
+  
+  
+  
+  
+  /*-----------------------------------*\
+    #HERO
+  \*-----------------------------------*/
+{% comment %}   
+  .newsletter-text { display: none; }
+  
+  .hero { padding-block-start: 10px; }
+  
+  .hero-title { margin-block-end: 25px; } {% endcomment %}
+  
+  
+  
+  
+  
+  /*-----------------------------------*\
+    #RECENT POST
+  \*-----------------------------------*/
+  
+  .top-author { display: none; }
+  
+  .recent { padding-block-start: 15px; }
+  
+  .recent .section-title .strong { display: block; }
+  
+  .recent .section-title { margin-block-end: 20px; }
+  
+  .recent .btn {
+    margin-inline: auto;
+    margin-block: 50px 30px;
+  }
+  
+  
+  
+  
+  
+  /*-----------------------------------*\
+    #RECOMMENDED POST
+  \*-----------------------------------*/
+  
+  .section.recommended { border-block-end: none; }
+  
+  .recommended .grid-list {
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+  }
+  
+  .recommended .blog-card { margin-block-end: 5px; }
+  
+  
+  
+  @media (min-width: 575px) {
+
+  .section { margin-inline: 30px; }
+  
+   
+  .grid-list {
+      grid-template-columns: 1fr 1fr;
+      column-gap: 10px;
+  }
+  
+
+  
+  .search-bar .input-field { --fs-1: 3.6rem; }
+  
+  
+  .recommended .grid-list,
+     { grid-template-columns: repeat(3, 1fr); }
+  
+  }
+  
+  
+
+  
+  @media (min-width: 768px) {
+
+  .grid-list { gap: 40px 15px; }
+  
+  
+  .search-bar { padding: 25px; }
+  
+  .search-bar .input-field { --fs-1: 4.6rem; }
+  
+  
+  .top-author {
+      display: block;
+      text-align: right;
+  }
+  
+  .recent .title-wrapper {
+    display: flex;
+    justify-content: space-between;
+    margin-block-end: 10px;
+  }
+  
+  .top-author .avatar-item:not(:first-child) { margin-inline-end: -25px; }
+  
+  .top-author .span {
+    color: var(--eerie-black_80);
+    font-size: var(--fs-8);
+    margin-block-start: 10px;
+  }
+  
+  .avatar.large {
+    border: 6px solid var(--white);
+    width: 70px;
+  }
+  
+  .avatar.large:is(:hover, :focus) { transform: translateY(-3px); }
+  
+  
+  
+    /**
+     * RECOMMENDED POST
+     */
+  
+  .recommended .grid-list {
+      grid-template-columns: repeat(4, 1fr);
+      column-gap: 15px;
+  }
+}
+  
+  
+  
+  
+  
+
+@media (min-width: 992px) {
+  
+  .blog-card .card-title { padding-inline-end: 15px; }
+  
+  .blog-card .card-text { font-size: unset; }
+  
+  .grid-list { grid-template-columns: repeat(3, 1fr); }
+  
+  
+  .top-author .avatar { width: 85px; }
+  
+
+  
+  .recommended .grid-list { grid-template-columns: repeat(6, 1fr); }
+  
+}  
+@media (min-width: 1200px) {
+   
+   .card-tag {
+      --fs-9: 1.4rem;
+      padding: 4px 10px;
+    }
+  
+    .grid-list { row-gap: 50px; }
+  
+  
+    .top-author .avatar { width: 100px; }
+  
+    .recent .btn { margin-block-start: 70px; }
+  
+  
+  } 
+
+ </style> 
+
+{% schema %}
+{
+  "name": "main-blog",
+  "settings": [
+    {
+      "type":"text",
+      "id":"mainBlog_text",
+      "label":"Main Blog Heading",
+      "default":" Get started with our best story"
+     },
+     {
+      "type": "blog",
+      "id": "blog_type",
+      "label": "Select Blog Category",
+    }
+  ],
+  "blocks": [],
+  "presets": [
+    {
+      "name": "main-blog"
+    }
+  ]
+}
+{% endschema %}

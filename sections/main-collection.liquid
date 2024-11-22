@@ -1,0 +1,480 @@
+<div class="container" style="padding-top:5px;">
+     <section class="section shop" id="shop" aria-label="shop">
+          <div class="container">
+            
+            {% comment %} <div class="title-wrapper">
+                <h2 class="h2 section-title">{{ collection.title }}</h2>
+                <div style='display:flex; z-index:5;'> 
+                    <a href="#" class="btn-link">
+                        {% render 'sorting-filter' %}
+                        <ion-icon class="arrow-forward" aria-hidden="true"></ion-icon>
+                    </a>
+                    <a href="#" class="btn-link">
+                        {% render 'collection-filter' %}
+                        <ion-icon class="arrow-forward" aria-hidden="true"></ion-icon>
+                    </a>
+               </div>
+            </div> {% endcomment %}
+            <div class="title-wrapper">
+                <h2 class="h2 section-title">
+                    {% if section.settings.selected_collection != blank %}
+                        {{ collections[section.settings.selected_collection].title }}
+                    {% else %}
+                        {{ collection.title }}
+                    {% endif %}
+                </h2>
+                <div style='display:flex; z-index:5;'> 
+                    <a href="#" class="btn-link">
+                        {% render 'sorting-filter' %}
+                        <ion-icon class="arrow-forward" aria-hidden="true"></ion-icon>
+                    </a>
+                    <a href="#" class="btn-link">
+                        {% render 'collection-filter' %}
+                        <ion-icon class="arrow-forward" aria-hidden="true"></ion-icon>
+                    </a>
+                </div>
+            </div>
+            
+            <div class="collection-container">
+                <div class="collection">
+                    {% if section.settings.selected_collection != blank %}
+                        {% assign selected_collection = collections[section.settings.selected_collection] %}
+                        {% for product in selected_collection.products %}
+                            <li class="scrollbar-item">
+                                <div class="shop-card">
+                                    <div class="card-banner img-holder" >
+                                        <img src="{{ product.featured_image.src | img_url: 'large' }}" alt="{{ product.featured_image.alt | escape }}" class="img-cover" width="540" height="720" loading="lazy">
+                                        <span class="badge"  aria-label="20% off">-20%</span>
+                                        <div class="card-actions">
+                                            {% comment %} <button class="action-btn" aria-label="add to cart">
+                                                <ion-icon name="bag-handle-outline" aria-hidden="true"></ion-icon>
+                                            </button> {% endcomment %}
+                                            <form   action="/cart/add" method="post" enctype="multipart/form-data" onsubmit="submitAddToCartForm(this); return false;">
+                                                <input type="hidden" name="id" value="{{ product.selected_or_first_available_variant.id }}">
+                                                <button type="submit" class="action-btn" aria-label="add to cart">
+                                                  <ion-icon name="bag-handle-outline" aria-hidden="true"></ion-icon>
+                                                </button>
+                                            </form>
+
+                                            <button class="action-btn" aria-label="add to wishlist">
+                                                <ion-icon name="star-outline" aria-hidden="true"></ion-icon>
+                                            </button>
+                    
+                                            <button class="action-btn" aria-label="compare">
+                                                <ion-icon name="repeat-outline" aria-hidden="true"></ion-icon>
+                                            </button>
+                                        </div>
+                                    </div>
+                                    <div class="card-content">
+                                        <h3>
+                                            <a href="{{ product.url }}" class="card-title">{{ product.title }}</a>
+                                        </h3>
+                                        <div class="price">
+                                            <del class="del">{{ product.compare_at_price | money }}</del>
+                                            <span class="span">{{ product.price | money }}</span>
+                                        </div>
+                                        {% unless product.available %}
+                                            <br><strong>Sold out</strong>
+                                        {% endunless %}
+                                        <div class="card-rating">
+                                            <div class="rating-wrapper" aria-label="5 star rating">
+                                                <ion-icon name="star" aria-hidden="true"></ion-icon>
+                                                <ion-icon name="star" aria-hidden="true"></ion-icon>
+                                                <ion-icon name="star" aria-hidden="true"></ion-icon>
+                                                <ion-icon name="star" aria-hidden="true"></ion-icon>
+                                                <ion-icon name="star" aria-hidden="true"></ion-icon>
+                                            </div>
+                                            <p class="rating-text">5170 reviews</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                        {% endfor %}
+                    {% else %}
+                        {% for product in collection.products   %}
+                            <li class="scrollbar-item">
+                                <div class="shop-card">
+                                    <div class="card-banner img-holder" style=" --height:auto ;" >
+                                        <img src="{{ product.featured_image.src | img_url: 'large' }}" alt="{{ product.featured_image.alt | escape }}" class="img-cover" width="540" height="720" loading="lazy">
+                                        <span class="badge" aria-label="20% off">-20%</span>
+                                        <div class="card-actions">
+                                            {% comment %} <button class="action-btn" aria-label="add to cart">
+                                                <ion-icon name="bag-handle-outline" aria-hidden="true"></ion-icon>
+                                            </button> {% endcomment %}
+                                            <form   action="/cart/add" method="post" enctype="multipart/form-data" onsubmit="submitAddToCartForm(this); return false;">
+                                                <input type="hidden" name="id" value="{{ product.selected_or_first_available_variant.id }}">
+                                                <button type="submit" class="action-btn" aria-label="add to cart">
+                                                  <ion-icon name="bag-handle-outline" aria-hidden="true"></ion-icon>
+                                                </button>
+                                            </form>
+
+                                            <button class="action-btn" aria-label="add to wishlist">
+                                                <ion-icon name="star-outline" aria-hidden="true"></ion-icon>
+                                            </button>
+                    
+                                            <button class="action-btn" aria-label="compare">
+                                                <ion-icon name="repeat-outline" aria-hidden="true"></ion-icon>
+                                            </button>
+                                        </div>
+                                    </div>
+                                    <div class="card-content">
+                                        <h3>
+                                            <a href="{{ product.url }}" class="card-title">{{ product.title }}</a>
+                                        </h3>
+                                        <div class="price">
+                                            <del class="del">{{ product.compare_at_price | money }}</del>
+                                            <span class="span">{{ product.price | money }}</span>
+                                        </div>
+                                        {% unless product.available %}
+                                            <br><strong>Sold out</strong>
+                                        {% endunless %}
+                                        <div class="card-rating">
+                                            <div class="rating-wrapper" aria-label="5 star rating">
+                                                <ion-icon name="star" aria-hidden="true"></ion-icon>
+                                                <ion-icon name="star" aria-hidden="true"></ion-icon>
+                                                <ion-icon name="star" aria-hidden="true"></ion-icon>
+                                                <ion-icon name="star" aria-hidden="true"></ion-icon>
+                                                <ion-icon name="star" aria-hidden="true"></ion-icon>
+                                            </div>
+                                            <p class="rating-text">5170 reviews</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                        {% endfor %}
+                    {% endif %}
+                       
+            
+              </div>
+            </div>
+          </div>
+      </section> 
+</div>  
+ <style>
+    .hero-small {
+        min-height: 30vh;
+    }
+    
+    .collection-container {
+        
+        box-sizing: border-box;
+      
+    }
+
+    
+    .collection {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+        {% comment %} grid-template-columns: repeat(4, 1fr); {% endcomment %}
+        gap: 20px;
+    }
+
+    @media (min-width: 1200px) {
+        .collection {
+            grid-template-columns: repeat(5, 1fr);
+        }
+    }
+    
+    /* For medium screens, display 3 cards */
+    @media (min-width: 900px) and (max-width: 1199px) {
+        .collection {
+            grid-template-columns: repeat(4, 1fr);
+        }
+    }
+    
+    /* For smaller screens, display 2 cards */
+    @media (min-width: 750px) and (max-width: 899px) {
+        .collection {
+            grid-template-columns: repeat(3, 1fr);
+        }
+    }
+
+    @media (min-width: 575px) and (max-width:750px) {
+        .collection {
+            grid-template-columns: repeat(2, 1fr);
+        }
+    }
+
+
+    .card {
+        background-color: #fff;
+        border-radius: 10px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        overflow: hidden;
+        opacity: 0;
+        transform: translateY(50px);
+        transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+    
+    .card.in-view {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    
+    .card img {
+        width: 100%;
+        height: auto;
+    }
+    
+    .card-content {
+        padding: 20px;
+    }
+    
+    .card h3 {
+        margin: 0 0 10px;
+    }
+    
+    .card p {
+        margin: 0;
+        color: #666;
+    }
+         
+      
+
+</style>    
+<script>
+    function fetchCart() {
+      fetch('/cart.js')
+        .then(response => response.json())
+        .then(cart => {
+          updateCartUI(cart);
+        })
+        .catch(error => console.error('Error-fetching cart:', error));
+    }
+
+
+    const currencySymbol = "{{ shop.currency | escape }}"; 
+    function updateCartUI(cart) {
+      var cartContent = document.getElementById('cart-content');
+      cartContent.innerHTML = ''; // Clear existing content
+      
+      if (cart.item_count > 0) {
+        var cartHTML = `
+        <div style="display: flex; flex-direction: column;">
+          <h1>Cart</h1>
+          <form action="/cart" method="post" novalidate>`;
+        let subtotal = 0;
+        cart.items.forEach(function(item, index) {
+          const itemPrice = item.price / 100;  // Convert cents to dollars
+          const initialTotalPrice = itemPrice * item.quantity;
+          subtotal += initialTotalPrice;
+          const safeItemId = `item_${item.key.replace(/[^a-zA-Z0-9_-]/g, '')}`;
+
+          cartHTML += `
+                      <div style="display:flex;"  id="${safeItemId}">
+                          <div style="flex:1; display:flex; align-items:center; justify-content:center;">
+                          <a href="${item.url}">
+                              <img src="${item.image}" alt="${item.title}" class="img-cover" width="480" height="640" loading="lazy">
+                            </a>
+                          </div>
+                          <div style="flex:1; display:flex; align-items:center; justify-content:center; flex-direction:column;" >
+                            <td>
+                              <a href="${item.url}">${item.product_title}</a>
+                                ${item.price}
+                              <a href="#" class="remove-item" data-line="${index + 1}" data-key="${item.key}" style="color: red;">Remove</a>
+                              
+                            </td>
+                            <td id="price_${item.key}">
+                              ${currencySymbol}${initialTotalPrice.toFixed(2)}
+                            </td>
+                            <div>
+                                <p>Unit Price: ${currencySymbol}${itemPrice.toFixed(2)}</p>
+                                <p id="line_price_${item.key}">Total: ${currencySymbol}${initialTotalPrice.toFixed(2)}</p>
+                            </div>
+                            <td>
+                              <input type="number" name="updates[]" id="updates_${item.key}" value="${item.quantity}" min="0">
+                            </td>
+                            <td>
+                              {% if item.original_line_price != item.line_price %}{{ item.original_line_price | money }}{% endif %}
+                              {{ item.line_price | money }}
+                              {% for discount in item.discounts %}{{ discount.title }}{% endfor %}
+                          </td>
+                          <div class="quantity-selector">
+                            <button type="button" class="decrement" id="decrement_${item.key}">-</button>
+                            <span id="quantity_${item.key}">${item.quantity}</span>
+                            <button type="button" class="increment" id="increment_${item.key}">+</button>
+                          </div> 
+                          </div>
+                  </div>
+          `;
+        });
+    
+        cartHTML += `
+          <div>
+            <p id="subtotal">Subtotal: ${currencySymbol}${subtotal.toFixed(2)}</p>
+            <button type="submit" name="update">Update</button>
+            <button type="submit" name="checkout" class="btn btn-primary">Checkout</button>
+            {% comment %} <p>Sub total: ${Shopify.formatMoney(cart.total_price)}</p> {% endcomment %}
+          </div>
+        </form>
+      </div>`; 
+
+      cartContent.innerHTML = cartHTML;
+
+    // Add event listeners for increment and decrement buttons
+    cart.items.forEach(function(item, index) {
+      const decrementButton = document.getElementById(`decrement_${item.key}`);
+      const incrementButton = document.getElementById(`increment_${item.key}`);
+      const quantityDisplay = document.getElementById(`quantity_${item.key}`);
+      const quantityInput = document.getElementById(`updates_${item.key}`);
+      const linePriceDisplay = document.getElementById(`line_price_${item.key}`);
+      const subtotalDisplay = document.getElementById('subtotal');
+      const safeItemId = `item_${item.key.replace(/[^a-zA-Z0-9_-]/g, '')}`;
+
+
+
+      function updatePriceAndQuantity(newQuantity) {
+        const newLinePrice = (item.price * newQuantity) / 100;
+        quantityDisplay.textContent = newQuantity;
+        quantityInput.value = newQuantity;
+        linePriceDisplay.textContent = `Total: ${currencySymbol}${newLinePrice.toFixed(2)}`;
+
+        // Update the subtotal
+        subtotal = subtotal - (item.price * item.quantity) / 100 + newLinePrice;
+        subtotalDisplay.textContent = `Subtotal: ${currencySymbol}${subtotal.toFixed(2)}`;
+
+        // Update item quantity to the new quantity
+        item.quantity = newQuantity;
+      }
+
+      decrementButton.addEventListener('click', function() {
+        let currentQuantity = parseInt(quantityInput.value, 10);
+        if (currentQuantity > 1) {
+          currentQuantity--;
+          updatePriceAndQuantity(currentQuantity);
+        }
+      });
+
+      incrementButton.addEventListener('click', function() {
+        let currentQuantity = parseInt(quantityInput.value, 10);
+        currentQuantity++;
+        updatePriceAndQuantity(currentQuantity);
+      });
+
+
+
+  //REMOVING
+      const removeButton = document.querySelector(`.remove-item[data-key="${item.key}"]`);
+      
+      removeButton.addEventListener('click', function(e) {
+        e.preventDefault();
+        removeCartItem(safeItemId, index +1);
+      });
+    });
+        {% comment %} cartContent.innerHTML = cartHTML; {% endcomment %}
+      } else {
+        cartContent.innerHTML = '<h2>Cart</h2><p>Cart is empty</p>';
+      }
+
+
+      function removeCartItem(safeItemId, line) {
+        
+          console.log(`Attempting to remove item with ID: ${safeItemId}`);
+          const itemElement = document.getElementById(safeItemId);
+          if (itemElement) {
+            fetch(`/cart/change.js`, {
+              method: 'POST',
+              headers: {
+                'Content-Type': 'application/json',
+                'X-Requested-With': 'XMLHttpRequest'
+              },
+              body: JSON.stringify({
+                line: line,
+                quantity: 0
+              })
+            })
+            .then(response => response.json())
+            .then(updatedCart => {
+              itemElement.remove();
+              updateSubtotal(updatedCart);
+            })
+            .catch(error => {
+              console.error('Error removing item from cart:', error);
+            });
+          } else {
+            console.error(`Element with ID ${safeItemId} not found.`);
+          }
+      
+      }
+    
+    
+      
+      
+
+      
+      // Function to update the subtotal
+      function updateSubtotal(updatedCart) {
+        let subtotal = 0;
+        updatedCart.items.forEach(item => {
+          subtotal += (item.price * item.quantity) / 100;
+        });
+        document.getElementById('subtotal').textContent = `Subtotal: ${currencySymbol}${subtotal.toFixed(2)}`;
+      }
+    }
+    
+
+    
+
+
+
+
+
+
+    function submitAddToCartForm(formElement) {
+      let formData = new FormData(formElement);
+      var myModal2 = document.getElementById('myModal2');
+      var loader = myModal2.querySelector('#loader');
+      var cartContent = myModal2.querySelector('#cart-content');
+    
+      // Show the modal
+      myModal2.style.display = 'block';
+    
+      // Show the loader and hide the cart content initially
+      loader.style.display = 'block';
+      cartContent.style.display = 'none';
+    
+      // Simulate data fetching (or actual AJAX request)
+    // Adjust this timeout based on actual data fetching time
+    
+      fetch(window.Shopify.routes.root + 'cart/add.js', {
+        method: 'POST',
+        body: formData
+      })
+      .then(response => response.json())
+      .then(data => {     
+        openCart(); 
+        fetchCart();
+        setTimeout(function() {
+          // Hide the loader and show the cart content
+          loader.style.display = 'none';
+          cartContent.style.display = 'block';
+        }, 100); 
+  
+      })
+      .catch((error) => {
+        console.error('Error:', error);
+      });
+    
+      return false; // Prevent the default form submission
+    }
+
+</script>
+      
+ {% schema %}
+      {
+        "name": "main-collection",
+        "settings": [
+            {
+             "type": "collection",
+             "id": "selected_collection",
+             "label": "Select Collection"
+           }
+        ],
+        "blocks": [],
+        "presets": [
+          {
+            "name": "main-collection"
+          }
+        ]
+      }
+ {% endschema %}

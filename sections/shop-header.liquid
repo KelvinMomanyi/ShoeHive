@@ -1,0 +1,286 @@
+<!-- Preload static hero images -->
+<link rel="preload" as="image" href="{{ 'ShoesNike6.jpg' | asset_url }}">
+<link rel="preload" as="image" href="{{ 'ShoesAsics3.jpg' | asset_url }}">
+<link rel="preload" as="image" href="{{ 'ShoesAdd2.jpg' | asset_url }}">
+<link rel="preload" as="image" href="{{ 'shoes32.png' | asset_url }}">
+<link rel="preload" as="image" href="{{ 'ShoesPuma2.jpg' | asset_url }}">
+<link rel="preload" as="image" href="{{ 'ShoesConverse2.jpg' | asset_url }}">
+
+<!-- Preload images dynamically if section blocks are used -->
+{% for block in section.blocks %}
+  {% if block.settings.hero_image %}
+    <link rel="preload" as="image" href="{{ block.settings.hero_image | image_url }}">
+  {% endif %}
+{% endfor %}
+
+
+<section class="hero  text-center" style="min-height: 50vh;" aria-label="home" id="home">
+    <ul class="hero-slider" data-hero-slider>
+      {% if section.blocks.size == 0 %}
+        <li class="slider-item active" data-hero-slider-item style="padding-block-start: 70px;">
+    
+            <div class="slider-bg hero-card has-bg-image" style="background-image: url('{{ 'ShoesNike6.jpg' | asset_url }}'); background-attachment: fixed; background-size: cover; background-repeat: no-repeat; background-attachment: fixed; background-position: center;">
+           
+            </div>
+      
+            <div class="card-content">
+            <h1 class="h1 hero-title slider-reveal">
+              Nike
+            </h1>
+            <p class="price slider-reveal"> Starting at $17.99</p>
+            <div style="display: flex; justify-content: flex-start;">
+              <a href="#" class="btn btn-primary slider-reveal">Shop Now</a>
+            </div>
+            </div>
+    
+        </li>
+        <li class="slider-item" data-hero-slider-item style="padding-block-start:70px;">
+    
+          <div class="slider-bg hero-card has-bg-image" style="background-image: url('{{ 'ShoesAsics3.jpg' | asset_url }}'); background-attachment: fixed; background-size: cover; background-repeat: no-repeat; background-attachment: fixed; background-position: center;">
+            {% comment %} <img src="{{ 'shoe8.jpg' | asset_url }}" width="1880" height="950" alt="" class="img-cover hero-card has-bg-image"> {% endcomment %}
+          </div>
+    
+          <div class="card-content">
+            <h1 class="h1 hero-title slider-reveal">
+              Asics 
+              </h1>
+              <p class="price slider-reveal"> Starting at $17.99</p>
+              <div style="display: flex; justify-content: flex-start;">
+                <a href="#" class="btn btn-primary slider-reveal">Shop Now</a>
+              </div>
+            </div>
+        </li>
+        <li class="slider-item " data-hero-slider-item style="padding-block-start:70px;">
+    
+          <div class="slider-bg hero-card has-bg-image" style="background-image: url('{{ 'ShoesAdd2.jpg' | asset_url }}'); background-attachment: fixed; background-size: cover; background-repeat: no-repeat; background-attachment: fixed; background-position: center;">
+            {% comment %} <img src="{{ 'shoe8.jpg' | asset_url }}" width="1880" height="950" alt="" class="img-cover hero-card has-bg-image"> {% endcomment %}
+          </div>
+    
+          <div class="card-content">
+            <h1 class="h1 hero-title slider-reveal">
+              Adidas
+            </h1>
+            <p class="price slider-reveal"> Starting at $17.99</p>
+            <div style="display: flex; justify-content: flex-start;">
+              <a href="#" class="btn btn-primary slider-reveal">Shop Now</a>
+            </div>
+          </div>
+    
+        </li>
+        
+        <li class="slider-item" data-hero-slider-item style="padding-block-start:70px;">
+    
+          <div class="slider-bg hero-card has-bg-image" style="background-image: url('{{ 'shoes32.png' | asset_url }}'); background-position: center;">
+            {% comment %} <img src="{{ 'shoe8.jpg' | asset_url }}" width="1880" height="950" alt="" class="img-cover hero-card has-bg-image"> {% endcomment %}
+          </div>
+    
+          <div class="card-content">
+            <h1 class="h1 hero-title slider-reveal">
+              Vans
+              </h1>
+              <p class="price slider-reveal"> Starting at $17.99</p>
+              <div style="display: flex; justify-content: flex-start;">
+                <a href="#" class="btn btn-primary slider-reveal">Shop Now</a>
+              </div>
+            </div>
+        </li>
+        <li class="slider-item" data-hero-slider-item style="padding-block-start:70px;">
+    
+          <div class="slider-bg hero-card has-bg-image" style="background-image: url('{{ 'ShoesPuma2.jpg' | asset_url }}'); background-attachment: fixed; background-size: cover; background-repeat: no-repeat; background-attachment: fixed; background-position: center;">
+            {% comment %} <img src="{{ 'shoe8.jpg' | asset_url }}" width="1880" height="950" alt="" class="img-cover hero-card has-bg-image"> {% endcomment %}
+          </div>
+    
+          <div class="card-content">
+            <h1 class="h1 hero-title slider-reveal">
+              Puma
+              </h1>
+              <p class="price slider-reveal"> Starting at $17.99</p>
+              <div style="display: flex; justify-content: flex-start;">
+                <a href="#" class="btn btn-primary slider-reveal">Shop Now</a>
+              </div>
+            </div>
+        </li>
+        <li class="slider-item" data-hero-slider-item  style="padding-block-start:70px;">
+    
+          <div class="slider-bg hero-card has-bg-image" style="background-image: url('{{ 'ShoesConverse2.jpg' | asset_url }}'); background-attachment: fixed; background-size: cover; background-repeat: no-repeat; background-attachment: fixed; background-position: center;">
+            {% comment %} <img src="{{ 'shoe8.jpg' | asset_url }}" width="1880" height="950" alt="" class="img-cover hero-card has-bg-image"> {% endcomment %}
+          </div>
+    
+          <div class="card-content">
+            <h1 class="h1 hero-title slider-reveal">
+              Converse
+              </h1>
+              <p class="price slider-reveal"> Starting at $17.99</p>
+              <div style="display: flex; justify-content: flex-start;">
+                <a href="#" class="btn btn-primary slider-reveal">Shop Now</a>
+              </div>
+            </div>
+        </li>
+      {% else %}
+      {% for block in section.blocks %}
+          <li class="slider-item active" data-hero-slider-item style="padding-block-start: 70px;">
+
+            <div class="slider-bg hero-card has-bg-image" 
+                style="background-image: url('{{ block.settings.hero_image | image_url }}'); background-attachment: fixed; background-size: cover; background-repeat: no-repeat; background-position: center;">
+            </div>
+          
+            <div class="card-content">
+              <h1 class="h1 hero-title slider-reveal">
+                {{ block.settings.brand_name }}
+              </h1>
+              <p class="price slider-reveal"> Starting at {{ block.settings.starting_price }}</p>
+              <div style="display: flex; justify-content: flex-start;">
+                <a href="{{ block.settings.shop_now_link }}" class="btn btn-primary slider-reveal">{{ block.settings.shop_now_text }}</a>
+              </div>
+            </div>
+          
+          </li>
+       {% endfor %}
+      {%  endif %}
+    </ul>
+  
+    <button class="slider-btn prev" aria-label="slide to previous" data-prev-btn>
+    <ion-icon name="chevron-back"></ion-icon>
+   </button>
+  
+   <button class="slider-btn next" aria-label="slide to next" data-next-btn>
+    <ion-icon name="chevron-forward"></ion-icon>
+   </button>
+</section>
+<style>
+    .hero .slider-item {
+    padding-block-start: 50px; 
+    }
+</style>
+
+<script>
+  const addEventOnElements = function(elements, eventType, callback){
+    for(let i = 0, len = elements.length; i< len; i++){
+        elements[i].addEventListener(eventType, callback)
+    }
+  }  
+    /*HERO SLIDER*/
+  const heroSlider = document.querySelector('[data-hero-slider]')
+  const heroSliderItems = document.querySelectorAll("[data-hero-slider-item]")
+  const heroSliderPrevBtn = document.querySelector("[data-prev-btn]")
+  const heroSliderNextBtn = document.querySelector("[data-next-btn]")
+  
+  let currentSlidePos = 0;
+  let lastActiveSliderItem = heroSliderItems[0];
+  
+  const updateSliderPos = function(){
+    lastActiveSliderItem.classList.remove('active');
+    heroSliderItems[currentSlidePos].classList.add('active');
+    lastActiveSliderItem = heroSliderItems[currentSlidePos]
+  }
+  
+  const slideNext = function(){
+    if(currentSlidePos >= heroSliderItems.length -1){
+      currentSlidePos =0
+    } else {
+      currentSlidePos++
+    }
+   console.log("new")
+    updateSliderPos()
+  }
+  
+  const slidePrev = function(){
+    if(currentSlidePos < 1){
+      currentSlidePos = heroSliderItems.length -1
+    }else{
+      currentSlidePos--
+    }
+    updateSliderPos()
+  }
+  
+  heroSliderPrevBtn.addEventListener("click", slidePrev)
+  heroSliderNextBtn.addEventListener("click", slideNext)
+  let autoSlideInterval;
+  
+  const autoSlide = function(){
+    autoSlideInterval = setInterval(function(){
+      slideNext()
+    }, 3000)
+  }
+  
+  addEventOnElements([heroSliderNextBtn, heroSliderPrevBtn], 'mouseover', function(){
+    clearInterval(autoSlideInterval)
+  })
+  
+  addEventOnElements([heroSliderNextBtn, heroSliderPrevBtn], 'mouseout', autoSlide)
+  
+  window.addEventListener("load", autoSlide)
+  
+  const parallaxItems = document.querySelectorAll("[data-parallax-item]")
+  
+  let x,y;
+  
+  window.addEventListener('mousemove', function(event){
+   
+     x = (event.clientX / window.innerWidth * 10)-5;
+     y = (event.clientY/ window.innerHeight * 10)-5
+  
+     //reverse the number eg. 20 -> -20, -5 -> 5
+  
+     x = x - (x * 2)
+     y = y - (y * 2)
+  
+  
+     for(let i = 0, len = parallaxItems.length; i < len; i++){
+       x = x * Number(parallaxItems[i].dataset.parallaxSpeed)
+       y = y * Number(parallaxItems[i].dataset.parallaxSpeed)
+       parallaxItems[i].style.transform = `translate3d(${x}px, ${y}px, 0px)`
+     }
+  })
+  
+</script>
+
+  {% schema %}
+{
+  "name": "shop-header",
+  "settings": [],
+  "blocks": [
+    {
+     "type": "hero_section",
+      "name": "Hero Section",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "hero_image",
+          "label": "Hero Image",
+          
+        },
+        {
+          "type": "text",
+          "id": "brand_name",
+          "label": "Brand Name",
+          "default": "Nike"
+        },
+        {
+          "type": "text",
+          "id": "starting_price",
+          "label": "Starting Price",
+          "default": "$17.99"
+        },
+        {
+          "type": "url",
+          "id": "shop_now_link",
+          "label": "Shop Now Button Link",
+          "default": "/"
+        },
+        {
+          "type": "text",
+          "id": "shop_now_text",
+          "label": "Shop Now Button Text",
+          "default": "Shop Now"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "shop"
+    }
+  ]
+}
+{% endschema %}
