@@ -1,5 +1,5 @@
 {
-    "name": "t:sections.footer.name",
+    "name": "footer",
     "type": "footer",
     "sections": {
       "footer": {
