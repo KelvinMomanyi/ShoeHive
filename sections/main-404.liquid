@@ -1,7 +1,62 @@
-<h1>{{ 'general.404.title' | t }}</h1>
-<p>{{ 'general.404.subtext_html' | t }}</p>
-<a href="{{ routes.all_products_collection_url }}" class="button">
-    Continue shopping
-</a>
+<div class="page-404">
+    <div class="content-wrapper">
+      <h1 class="error-title">{{ 'general.404.title' | t }}</h1>
+      <p class="error-message">{{ 'general.404.subtext_html' | t }}</p>
+      <a href="{{ routes.all_products_collection_url }}" class="button button-primary">
+        {{ 'general.404.continue_shopping' | t: default: "Continue Shopping" }}
+      </a>
+    </div>
+  </div>
+  
+  <style>
+  .page-404 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    min-height: 100vh;
+    background-color: #f9f9f9; /* Light background for better readability */
+    color: #333; /* Neutral text color */
+  }
+  
+  .content-wrapper {
+    max-width: 600px;
+    padding: 20px;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  .error-title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+    color: #ff5252; /* Distinct color for error title */
+  }
+  
+  .error-message {
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+    line-height: 1.6;
+    color: #666; /* Softer text color for the message */
+  }
+  
+  .button {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 1rem;
+    font-weight: 600;
+    color: #fff;
+    background-color: #007aff; /* Shopify blue or customizable color */
+    border-radius: 5px;
+    text-decoration: none;
+    transition: background-color 0.3s;
+  }
+  
+  .button:hover {
+    background-color: #005bb5; /* Darker blue for hover effect */
+  }
+  </style>
+  
 
 
