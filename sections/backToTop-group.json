@@ -1,5 +1,5 @@
 {
-  "name": "t:sections.aside.name",
+  "name": "backToTop",
   "type": "aside",
   "sections": {
     "backToTop": {
