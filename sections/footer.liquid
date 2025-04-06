@@ -17,7 +17,7 @@
                             <p class="footer-list-text bold">+1 (123)456 7890</p>
                         </li>
                         <li>
-                            <p class="footer-list-text">hello@domain.com</p>
+                            <p class="footer-list-text">example@domain.com</p>
                         </li>
                     </ul>
                     <ul class="footer-list">
@@ -55,7 +55,7 @@
                 <div class="footer-bottom">
                     <div class="wrapper">
                         <p class="copyright">
-                            &copy; 2024, Shoehive Powered By Shopify
+                            &copy; <span id="year"></span>, Shoehive Powered By Shopify
                         </p>
                         <ul class="social-list">
                             <li>
@@ -88,7 +88,9 @@
         </footer>
 
 
-        
+ <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+ </script>        
 
 {% schema %}
 {
